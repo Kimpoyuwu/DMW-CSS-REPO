@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Button Toggle Switch</title>
-    <link rel="stylesheet" href="/kaye/">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1 class="header">Toggle Button</h1>
-    <div class="toggle-container">
-        <input type="radio" id="toggle-on" name="toggle" checked>
-        <label for="toggle-on" class="toggle-label">ON</label>
-        
-        <input type="radio" id="toggle-off" name="toggle">
-        <label for="toggle-off" class="toggle-label">OFF</label>
 
+    <div class="toggle-container" id="toggle-wrapper">
+        <label for="toggle-on" class="toggle-label">On</label>
+        <input type="radio" id="toggle-on" name="toggle" checked>
+        <label for="toggle-off" class="toggle-label">Off</label>
+        <input type="radio" id="toggle-off" name="toggle">
+        
         <div class="slider">
             <div class="slider-circle"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="toggle.js"></script>
 </body>
 <footer>
     <p>"Click the button to toggle between On and Off states."</p>

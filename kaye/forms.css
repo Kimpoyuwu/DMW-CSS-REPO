@@ -1,4 +1,9 @@
 body {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  margin: 0; 
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -38,6 +43,9 @@ h2 {
   width: 800px;
   max-width: 90%;
   margin-top: 4px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   margin-bottom: 4px;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -74,11 +82,12 @@ h2 {
 }
 
 input,
-select, option,
+select,
+option,
 textarea {
   width: 94%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #827c7c;
   border-radius: 4px;
   font-size: 14px;
 }
@@ -87,6 +96,25 @@ label {
   font-weight: bold;
   font-size: 14px;
   color: #333;
+}
+
+.name_div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 96%;
+  margin-bottom: 2px;
+}
+
+.name_div select {
+  width: 242px;
+}
+
+.name_div label {
+  display: flex;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  flex-direction: column;
 }
 
 button[type="submit"] {
@@ -99,20 +127,20 @@ button[type="submit"] {
   font-size: 16px;
   cursor: pointer;
   margin-top: 12px;
-}
-.name_div {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  width: 96%;
+  display: flex;
+  justify-content: end;
 }
 
-.name_div label {
-  display: flex;
-  flex-direction: column;
-}
 button[type="submit"]:hover {
   background: #66a3c9;
+}
+
+.email-pass {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+  width: 96%;
+  margin-bottom: 2px;
 }
 
 #openModal {
@@ -123,7 +151,8 @@ button[type="submit"]:hover {
   font-size: 16px;
   cursor: pointer;
   margin: 20px;
-  justify-content: start;
+  justify-content: center;
+  object-position: center;
   text-align: start;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -131,6 +160,7 @@ button[type="submit"]:hover {
 #openModal:hover {
   background: #66a3c9;
 }
+
 
 .landing_page {
   background-color: #ebebeb;
@@ -140,7 +170,10 @@ button[type="submit"]:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 50%;
   margin: 50px auto;
+  position: relative;
+  left: -8%; 
 }
+
 
 h1 {
   color: #66a3c9;
@@ -173,17 +206,25 @@ button:hover {
 
 .regis_img {
   position: absolute;
-  right: 50px;
+  right: 120px;
   top: 50%;
   transform: translateY(-50%);
   width: 40%;
   max-width: 400px;
+  z-index: 100;
 }
 
 .regis_img img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+#toast {
+  font-weight: bolder;
+  display: flex;
+  color: darkgreen;
+  padding-top: 8px;
 }
 
 @media (max-width: 600px) {
@@ -198,5 +239,12 @@ button:hover {
   button[type="submit"],
   #openModal {
     font-size: 14px;
+  }
+
+  .regis_img {
+    position: static;
+    margin: 0 auto;
+    transform: none;
+    width: 50%;
   }
 }

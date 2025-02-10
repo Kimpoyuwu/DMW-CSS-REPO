@@ -66,31 +66,30 @@
                   <option value="boy">Boy</option>
                   <option value="pns">Prefer not to say</option>
                   <option value="others">Others:</option>
-
                 </select>
               </div>
-              
 
               <div>
                 <label for="birthday">Birthday:</label>
                 <input type="date" id="birthday" name="birthday" />
               </div>
             </div>
+            <div class="email-pass">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+            </div>
 
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4"></textarea>
-
-            <button type="submit">Submit</button>
+            <div id="toast">
+            <button type="submit">Submit</button></div>
           </form>
         </div>
       </div>
     </div>
   </body>
-  <script src="froms.js"></script>
+  <script src="forms.js"></script>
 </html>

@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Responsive Input Fields</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <input type="text" class="textbox" placeholder="Enter text here">
+        <input type="password" class="textbox" placeholder="Enter password here">
+        <input type="email" class="textbox" placeholder="Enter email here">
+        <input type="number" class="textbox" placeholder="Enter number here">
+        <input type="tel" class="textbox" placeholder="Enter phone number here">
+    </div>
+
+    <div class="container">
+        <input type="text" class="textbox" placeholder="Enter text here">
+        <input type="checkbox" class="checkbox"> Accept Terms
+        <input type="radio" name="choice" class="radio"> Option 1
+        <input type="radio" name="choice" class="radio"> Option 2
+        <input type="text" class="textbox" placeholder="Enter text here">
+    </div>
+
+    <div class="container">
+        <textarea class="textbox" placeholder="Enter additional information here"></textarea>
+    </div>
+
+    <div class="container">
+        <select class="textbox">
+            <option value="" disabled selected>Choose an option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <input type="date" class="textbox">
+    </div>
 </body>
 </html>

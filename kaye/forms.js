@@ -20,43 +20,75 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "none";
         }
     });
+    
+        form.addEventListener("submit", function (event) {
+            const firstName = document.getElementById("first_name").value.trim();
+            const lastName = document.getElementById("last_name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-    form.addEventListener("submit", function (event) {
-        const firstName = document.getElementById("first_name").value.trim();
-        const lastName = document.getElementById("last_name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
+            if (firstName === "" || lastName === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("Please fill in all required fields.");
+                event.preventDefault();
+                return;
+            }
 
-        if (firstName === "" || lastName === "" || email === "" || password === "") {
-            alert("Please fill in all required fields.");
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();
+                return;
+            }
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                event.preventDefault();
+                return;
+            }
+         
+            
+    
+            showToast("Your form has been submitted!");
             event.preventDefault();
-            return;
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        });
+    
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
         }
-
-        if (!validateEmail(email)) {
-            alert("Please enter a valid email address.");
-            event.preventDefault();
-            return;
+    
+        function showToast(message) {
+            const toast = document.getElementById("toast"); // Ensure you have an element with this ID
+            toast.textContent = message;
+            toast.classList.add("show");
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
         }
+    
+        document.getElementById("numberInput").addEventListener("input", function () {
+            this.value = this.value.slice(0, 11);
+        });
 
-        showToast("Your form has been submitted!");
-
-        event.preventDefault();
-        setTimeout(() => {
-            location.reload();
-        }, 3000);
+        const textarea = document.getElementById("message");
+        textarea.addEventListener("input", function () {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+        });
     });
-
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add("show");
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 10);
-    }
-});
+    document.addEventListener("contextmenu", function (event) {
+        event.preventDefault();
+    });
+    
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+            event.preventDefault(); 
+        }
+    });
+    document.getElementById("checkbox").addEventListener("change", function() {
+        const passwordField = document.getElementById("password");
+        passwordField.type = this.checked ? "text" : "password";
+    });

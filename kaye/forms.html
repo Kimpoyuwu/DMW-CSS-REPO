@@ -3,89 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="forms.css" />
+    <link rel="stylesheet" href="form.css" />
     <title>Forms</title>
   </head>
   <body>
-    <div class="regis_img">
-      <img src="registration.png" alt="registration picture" />
-    </div>
-    <div class="landing_page">
-      <h1>Welcome to E-Registration!</h1>
-      <p>
-        Welcome to our E-Registration Portal! We are delighted to have you here.
-        Our platform offers a seamless and efficient way to register for
-        services, events, or memberships from the comfort of your home. With a
-        user-friendly interface, secure data handling, and quick processing, we
-        ensure a hassle-free registration experience. Simply follow the guided
-        steps, fill in your details, and complete your registration in just a
-        few clicks. If you need any assistance, our support team is always ready
-        to help. Get started today and enjoy the convenience of online
-        registration!
-      </p>
-      <button id="openModal">Sign Up</button>
+    <div class="landing-page">
+      <div class="registrationImg">
+        <img src="registration.png" alt="registration picture" />
+      </div>
+      <div class="welcomeText">
+        <h1>Welcome to E-Registration!</h1>
+        <p>
+          Welcome to our E-Registration Portal! We are delighted to have you
+          here. Our platform offers a seamless and efficient way to register for
+          services, events, or memberships from the comfort of your home. With a
+          user-friendly interface, secure data handling, and quick processing,
+          we ensure a hassle-free registration experience. Simply follow the
+          guided steps, fill in your details, and complete your registration in
+          just a few clicks. If you need any assistance, our support team is
+          always ready to help. Get started today and enjoy the convenience of
+          online registration!
+        </p>
+        <button id="openModal">Sign Up</button>
+      </div>
     </div>
     <div id="formModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Personal Information</h2>
         <div class="box-form">
-          <form action="/submitForm" method="POST" class="form">
-            <div class="name_div">
-              <div>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" placeholder="John Doe" />
-              </div>
-              <div>
-                <label for="middle_name">Middle Name:</label>
-                <input type="text" id="middle_name" placeholder="Snow" />
-              </div>
-              <div>
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" placeholder="Fitzgerald" />
-              </div>
+          <form action="/submitForm" method="POST" class="form" onsubmit="return validatePassword()">
+            <div class="three-col">
+                <input type="text" id="first_name" placeholder="First Name" required />
+                <input type="text" id="middle_name" placeholder="Middle Name" />
+                <input type="text" id="last_name" placeholder="Last Name" required />
             </div>
-            <div class="name_div">
-              <div>
-                <label for="suffix">Suffix:</label>
-                <select id="suffix" name="suffix">
-                  <option value="" selected disabled>Select an Option:</option>
-                  <option value="jr">Jr.</option>
-                  <option value="sr">Sr.</option>
-                  <option value="ii">II</option>
-                  <option value="iii">III</option>
-                  <option value="phd">PhD</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                  <option value="" selected disabled>Select an Option:</option>
-                  <option value="girl">Girl</option>
-                  <option value="boy">Boy</option>
-                  <option value="pns">Prefer not to say</option>
-                  <option value="others">Others:</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="birthday">Birthday:</label>
-                <input type="date" id="birthday" name="birthday" />
-              </div>
+            <div class="two-col">
+              <select id="suffix" name="suffix">
+                <option value="" selected disabled>Suffix:</option>
+                <option value="jr">Jr.</option>
+                <option value="sr">Sr.</option>
+                <option value="ii">II</option>
+                <option value="iii">III</option>
+              </select>
+              <select id="gender" name="gender" placeholder="Gender">
+                <option value="" selected disabled>Sex:</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
             </div>
-            <div class="email-pass">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
+            <div class="two-col">
 
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required />
+            <input type="date" id="birthday" name="birthday" placeholder="Birthday" required/>
+            <input type="text" id="numberInput" maxlength="11" placeholder="Contact Number" required>
+          </div>
+            <div class="three-col">
+              <input type="text" id="streetAddress" placeholder="Streer Address" required />
+              <input type="text" id="city" placeholder="City" required />
+              <input type="text" id="province" placeholder="Province" required />
             </div>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4"></textarea>
+            <div class="three-col">
+              <input type="text" id="zipCode" placeholder="Zip Code" required/>
+                <input type="text" id="country" placeholder="Country"required />
+                <input type="text" id="nationality" placeholder="Nationality" required/>
+            </div>
+            <input type="email" id="email" name="email" placeholder="Email" required/>
+            <div class="two-col">
+              <input type="password" id="password" placeholder="Password" required/>
+              <input type="password" id="confirmPassword" placeholder="Confirm Password" required/>
+            </div>
+            <div class="checkbox">
+            <input type="checkbox" id="checkbox">
+            <p id="show">Show Password</p>
+             </div>
+            <textarea id="message" name="message" rows="4" placeholder="Please write a message."></textarea>
             <div id="toast">
-            <button type="submit">Submit</button></div>
+              <button type="submit">Submit</button>
+            </div>
           </form>
         </div>
       </div>

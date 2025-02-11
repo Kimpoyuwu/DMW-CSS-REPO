@@ -68,3 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.style.height = this.scrollHeight + "px";
     });
 });
+
+document.getElementById("input-number").addEventListener('input', function(){
+    this.value = this.value.slice(0,11);
+});

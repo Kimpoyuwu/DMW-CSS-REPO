@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!isChecked) {
                     radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red";
+                        radio.style.outline = "2px solid red"; // Apply red border
                     });
                     isValid = false;
                 } else {
                     radioGroup.forEach(radio => {
-                        radio.style.outline = "none";
+                        radio.style.outline = "none"; // Reset border if selected
                     });
                 }
             } else {
@@ -63,10 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         return isValid;
-    }
-    function submitModal() {
-        form.reset();
-        modal.style.display = "none";
     }
 
     document.getElementById("submitButton").addEventListener("click", showModal);
@@ -88,37 +84,46 @@ document.addEventListener("DOMContentLoaded", function () {
             inputNumber.value = "+63" + rawNumber.slice(0, 10);
         }
     });
+    let middleNameInput = document.getElementById("input-middleName");
+        let middleInitialInput = document.getElementById("input-middleInitial");
 
-    inputNumber.addEventListener("keydown", function (event) {
-        if (inputNumber.selectionStart <= 3 && (event.key === "Backspace" || event.key === "Delete")) {
-            event.preventDefault();
-        }
-    });
+        middleNameInput.addEventListener("input", function () {
+            let middleName = middleNameInput.value.trim();
+            if (middleName.length > 0) {
+                let initials = middleName
+                    .split(" ")
+                    .filter(word => word.length > 0)
+                    .map(word => word.charAt(0).toUpperCase())
+                    .join("") + ".";
+                middleInitialInput.value = initials;
+            } else {
+                middleInitialInput.value = "";
+            }
+        });
 
-    // let middleNameInput = document.getElementById("input-middleName");
-    //     let middleInitialInput = document.getElementById("input-middleInitial");
+            let inputs = document.querySelectorAll("input[type='text'], textarea");
 
-    //     middleNameInput.addEventListener("input", function () {
-    //         let middleName = middleNameInput.value.trim();
-    //         if (middleName.length > 0) {
-    //             let initials = middleName
-    //                 .split(" ")
-    //                 .filter(word => word.length > 0)
-    //                 .map(word => word.charAt(0).toUpperCase())
-    //                 .join("") + ".";
-    //             middleInitialInput.value = initials;
-    //         } else {
-    //             middleInitialInput.value = "";
-    //         }
-    //     });
-
-    //         let inputs = document.querySelectorAll("input[type='text'], textarea");
-
-    //         inputs.forEach(input => {
-    //             input.addEventListener("input", function () {
-    //                 this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
-    //             });
-    //         });
-
+            inputs.forEach(input => {
+                input.addEventListener("input", function () {
+                    this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+                });
+            });
 
 });
+//4 input numbers for zip code
+document.getElementById("input-zipCode").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 4); 
+});
+//Email and Password Validation
+form.addEventListener("submit", function (event) {
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+        return;
+    }
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return;
+    }
+    });

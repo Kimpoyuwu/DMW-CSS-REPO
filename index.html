@@ -11,23 +11,23 @@
     <div class="container">
         <div class="formGroup">
             <label>First Name</label>
-            <input type="text" class="textbox" id="input-name" name="firstName"
+            <input type="text" class="textbox" id="input-name" name="firstName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your First Name" required>
         </div>
         <div class="formGroup">
             <label>Middle Name</label>
-            <input type="text" class="textbox" id="input-middleName" name="middleName"
+            <input type="text" class="textbox" id="input-middleName" name="middleName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Middle Name" required>
         </div>
         <div class="formGroup">
             <label>Last Name</label>
-            <input type="text" class="textbox" id="input-LastName" name="lastName"
+            <input type="text" class="textbox" id="input-LastName" name="lastName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Last Name" required>
         </div>
         <div class="container-small">
             <div class="formGroup">
                 <label>Middle Initial</label>
-                <input type="text" class="textbox" id="input-middleInitial" name="middleInitial"
+                <input type="text" class="textbox" id="input-middleInitial" name="middleInitial" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                     placeholder="Middle Initial" required>
             </div>
             <div class="formGroup">
@@ -52,19 +52,19 @@
         </div>
         <div class="formGroup">
             <label>Barangay</label>
-            <input type="text" class="textbox" id="input-barangay" name="barangay"
+            <input type="text" class="textbox" id="input-barangay" name="barangay" 
                 placeholder="Enter your Barangay" required>
         </div>
     </div>
     <div class="container">
         <div class="formGroup">
             <label>Municipality</label>
-            <input type="text" class="textbox" id="input-municipality" name="municipality"
+            <input type="text" class="textbox" id="input-municipality" name="municipality" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your munucipality" required>
         </div>
         <div class="formGroup">
             <label>Province</label>
-            <input type="text" class="textbox" id="input-province" name="province"
+            <input type="text" class="textbox" id="input-province" name="province" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Province" required>
         </div>
         <div class="formGroup">
@@ -94,7 +94,7 @@
         </div>
         <div class="formGroup" id="genderOthersContainer" style="display: none;">
             <label>Enter your Gender</label>
-            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender">
+            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"> 
         </div>
         <div class="formGroup">
             <label>Cellphone Number</label>
@@ -145,7 +145,7 @@
         </div>
     </div>
 <div class="container checkBoxContainer">
-    <label class="ios-checkbox blue p-1 dFlex-row gap-1">
+    <label class="ios-checkbox">
         <input type="checkbox" required/>
         <div class="checkbox-wrapper">
             <div class="checkbox-bg"></div>

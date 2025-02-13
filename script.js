@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.getElementById("input-number").addEventListener("input", function () {
+    this.value = this.value.slice(0, 11);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.querySelector("form");
@@ -84,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .split(" ")
                 .filter(word => word.length > 0)
                 .map(word => word.charAt(0).toUpperCase())
-                .join("") + ".";
+                .join("");
             middleInitialInput.value = initials;
         } else {
             middleInitialInput.value = "";

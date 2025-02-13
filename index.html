@@ -31,7 +31,7 @@
             </div>
             <div class="formGroup">
                 <label>Suffix</label>
-                <select id="suffix" name="suffix" class="textbox" >
+                <select id="suffix" name="suffix" class="textbox-select" >
                     <option value="" selected disabled>Suffix:</option>
                     <option value="jr">Jr.</option>
                     <option value="sr">Sr.</option>
@@ -68,7 +68,7 @@
         </div>
         <div class="formGroup">
             <label>Zip Code</label>
-            <input type="text" class="textbox" id="input-zipCode" name="zipCode"
+            <input type="number" class="textbox" id="input-zipCode" name="zipCode"
                 placeholder="Enter your ZipCode" required>
         </div>
     </div>
@@ -96,8 +96,16 @@
             <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender">
         </div>
         <div class="formGroup">
+            <label>Cellphone Number</label>
+            <input type="text" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
+        </div>
+
+
+    </div>
+    <div class="container">
+        <div class="formGroup">
             <label>Civil Status</label>
-            <select name="civilStatus" id="inputCivilStatus" class="textbox" required>
+            <select name="civilStatus" id="inputCivilStatus" class="textbox-select" required>
                 <option value="" disabled selected>Choose an option</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -105,13 +113,7 @@
                 <option value="Widowed">Widowed</option>
             </select>
         </div>
-    </div>
-    <div class="container">
-        <div class="formGroup">
-            <label>Cellphone Number</label>
-            <input type="number" class="textbox" id="input-number" name="number"
-                placeholder="Enter your Cellphone Number" required>
-        </div>
+
         <div class="formGroup">
             <label>Email</label>
             <input type="email" class="textbox" id="input-email" name="email"
@@ -139,7 +141,7 @@
     </div>
 <div class="container checkBoxContainer">
     <label class="ios-checkbox blue p-1 dFlex-row gap-1">
-        <input type="checkbox"/>
+        <input type="checkbox" required/>
         <div class="checkbox-wrapper">
             <div class="checkbox-bg"></div>
             <svg fill="none" viewBox="0 0 24 24" class="checkbox-icon">

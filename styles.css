@@ -1,341 +1,420 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
-    font-family: "Poppins", sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 
-body, html {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #ffffff;
-    padding: 5%;
+body,
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #EBEBEB;
+  padding: 5%;
 }
 
 .container {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: .4rem;
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: .4rem;
+  align-items: flex-start;
 }
 
-.container-small{
-    display: flex;
-    flex-direction: row;
+.container-small {
+  display: flex;
+  flex-direction: row;
 
 }
-.textbox {
-    flex: 1 1 calc(20% - 10px);
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: solid 0.90px rgba(19, 19, 19, 0.1);
-    box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
-    outline-color: #66A3C9;
+
+.textbox,
+.textbox-select {
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: solid 0.90px rgba(19, 19, 19, 0.1);
+  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
+  outline-color: #66A3C9;
 }
 
-.textbox:hover{
-    box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
-    border: solid 1px #66A3C9;
+.textbox:hover,
+.textbox-select:hover {
+  box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
+  border: solid 1px #66A3C9;
 }
+
 
 .formGroup {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    font-size: 16px;
-    font-weight: 500;
-    margin-left: 8px;
-    margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 8px;
+  margin-bottom: 5px;
 }
 
 /* Styling for a radio buttons */
-#genderBorder{
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    gap: 10px;
+#genderBorder {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  gap: 10px;
 }
 
-#gender-label{
-    margin-left: 20px;
+#gender-label {
+  margin-left: 20px;
 }
 
-.genderControl{
-    width: 100%;
-    height: 95%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    display: flex;
-    flex-direction: row;
+.genderControl {
+  width: 100%;
+  height: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  display: flex;
+  flex-direction: row;
 }
 
 
-.textbox option {
-    font-size: 16px;
+.textbox-select option {
+  font-size: 16px;
 }
 
-.textbox::-webkit-scrollbar {
-    width: 8px; /* Adjust scrollbar width if needed */
-}
 
-.textbox option {
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Target the dropdown list */
-.textbox:focus {
-    width: 100%; /* Ensures the dropdown width matches the select */
+.textbox-select option {
+  white-space: nowrap;
+  /* Prevents text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Styling for Number */
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button{
--webkit-appearance: none;
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
+
 
 /* Styling for date picker */
 input[type="date"] {
-    flex: 1 1 calc(20% - 10px);
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    box-sizing: border-box;
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-
+/* Styling for confirm password */
+#input-confirmPassword::-ms-reveal,
+#input-confirmPassword::-ms-clear {
+    display: none;
+}
 
 /* Focus effect */
-.textbox:focus, select:focus, input[type="date"]:focus, input[type="color"]:focus {
-    border-color: #007bff;
-    outline: none;
+.textbox:focus,
+select:focus,
+input[type="date"]:focus,
+input[type="color"]:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Additional styles for checkbox, radio, and textarea */
-.checkbox, .radio {
-    margin: 5px;
+.checkbox,
+.radio {
+  margin: 5px;
 }
 
-.formTextAreaControl{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.formTextAreaControl {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-#description{
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    box-sizing: border-box;
-    max-height: 350px;
-    resize: none;
+#description {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  max-height: 350px;
+  resize: none;
 }
 
-textarea{
-    padding: 10px;
-    border-radius: 5px;
-    border: solid 0.90px rgba(19, 19, 19, 0.1);
-    box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
-    outline-color: #66A3C9;
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 0.90px rgba(19, 19, 19, 0.1);
+  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
+  outline-color: #66A3C9;
 }
 
-textarea:hover{
-    box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
-    border: solid 1px #66A3C9;
+textarea:hover {
+  box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
+  border: solid 1px #66A3C9;
 }
 
 /* Styling for Submit Button */
-.submitButton{
-    width: 100%;
-    height: 45px;
-    background-color: #1B313E;
-    color: white;
-    border-radius: 5px;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 10px;
+.submitButton {
+  width: 100%;
+  height: 45px;
+  background-color: #1B313E;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.submitButton:hover{
-    background-color: #66A3C9;
+.submitButton:hover {
+  background-color: #66A3C9;
 }
 
 /* Styling for check box */
 /* checkbox style */
 .ios-checkbox {
-    --checkbox-size: 21px;
-    --checkbox-color: #44A1DB;
-    --checkbox-bg: #dbeafe;
-    --checkbox-border: #93c5fd;
+  --checkbox-size: 21px;
+  --checkbox-color: #44A1DB;
+  --checkbox-bg: #dbeafe;
+  --checkbox-border: #93c5fd;
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    font-weight: 600;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 
-  .checkBoxContainer{
-    display: flex;
-    justify-content: start;
-  }
+.checkBoxContainer {
+  display: flex;
+  justify-content: start;
+}
 
-  .ios-checkbox input {
-    display: none;
-  }
+.ios-checkbox input {
+  display: none;
+}
 
-  .checkbox-wrapper {
-    position: relative;
-    width: var(--checkbox-size);
-    height: var(--checkbox-size);
-    transition: transform 0.2s ease;
-  }
+.checkbox-wrapper {
+  position: relative;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  transition: transform 0.2s ease;
+}
 
-  .checkbox-bg {
-    position: absolute;
-    inset: 0;
-    border-radius: 1px;
-    border: 2px solid var(--checkbox-border);
-    background: white;
-    transition: all 0.2s ease;
-  }
+.checkbox-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 1px;
+  border: 2px solid var(--checkbox-border);
+  background: white;
+  transition: all 0.2s ease;
+}
 
-  .checkbox-icon {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 80%;
-    height: 80%;
-    color: white;
-    transform: scale(0);
-    transition: all 0.2s ease;
-  }
+.checkbox-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  color: white;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
 
-  .check-path {
-    stroke-dasharray: 40;
-    stroke-dashoffset: 40;
-    transition: stroke-dashoffset 0.3s ease 0.1s;
-  }
-  .ios-checkbox input:checked + .checkbox-wrapper .checkbox-bg {
-    background: var(--checkbox-color);
-    border-color: var(--checkbox-color);
-  }
-  .ios-checkbox input:checked + .checkbox-wrapper .checkbox-icon {
+.check-path {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  transition: stroke-dashoffset 0.3s ease 0.1s;
+}
+
+.ios-checkbox input:checked+.checkbox-wrapper .checkbox-bg {
+  background: var(--checkbox-color);
+  border-color: var(--checkbox-color);
+}
+
+.ios-checkbox input:checked+.checkbox-wrapper .checkbox-icon {
+  transform: scale(1);
+}
+
+.ios-checkbox input:checked+.checkbox-wrapper .check-path {
+  stroke-dashoffset: 0;
+}
+
+.ios-checkbox:hover .checkbox-wrapper {
+  transform: scale(1.05);
+}
+
+.ios-checkbox:active .checkbox-wrapper {
+  transform: scale(0.95);
+}
+
+.ios-checkbox input:focus+.checkbox-wrapper .checkbox-bg {
+  box-shadow: 0 0 0 4px var(--checkbox-bg);
+}
+
+span {
+  color: #66A3C9;
+}
+
+/* Color Themes */
+.ios-checkbox.blue {
+  --checkbox-color: #44A1DB;
+  --checkbox-bg: #dbeafe;
+  --checkbox-border: #AACBE1;
+}
+
+/* Animation */
+@keyframes bounce {
+
+  0%,
+  100% {
     transform: scale(1);
   }
-  .ios-checkbox input:checked + .checkbox-wrapper .check-path {
-    stroke-dashoffset: 0;
-  }
-  .ios-checkbox:hover .checkbox-wrapper {
-    transform: scale(1.05);
-  }
-  .ios-checkbox:active .checkbox-wrapper {
-    transform: scale(0.95);
-  }
 
-  .ios-checkbox input:focus + .checkbox-wrapper .checkbox-bg {
-    box-shadow: 0 0 0 4px var(--checkbox-bg);
+  50% {
+    transform: scale(1.1);
   }
-  span{
-    color: #66A3C9;
-  }
+}
 
-  /* Color Themes */
-  .ios-checkbox.blue {
-    --checkbox-color: #44A1DB;
-    --checkbox-bg: #dbeafe;
-    --checkbox-border: #AACBE1;
-  }
-  /* Animation */
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-
-  .ios-checkbox input:checked + .checkbox-wrapper {
-    animation: bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.ios-checkbox input:checked+.checkbox-wrapper {
+  animation: bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* Media Query for smaller screens */
-@media (max-width: 1070px) {
-    .genderControl{
-       width: 250px;
-    }
-}
+
 @media (max-width: 1280px) {
-    .container-small{
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .textbox option {
-        font-size: 16px;
-    }
+  .container-small {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
-    /* Force dropdown width to match select */
-    .textbox::-webkit-scrollbar {
-        width: 8px; /* Adjust scrollbar width if needed */
-    }
+  .textbox-select option {
+    font-size: 16px;
+  }
 
-    /* Target the dropdown list */
-    .textbox:focus {
-        width: 90%; /* Ensures the dropdown width matches the select */
-    }
+
+  .textbox-select::-webkit-scrollbar {
+    width: 8px;
+
+  }
+
+
+  .textbox-select:focus {
+    width: 90%;
+  }
+  .genderControl {
+    width: 250px;
+  }
 
 }
+@media (max-width: 1070px) {
+  .genderControl {
+    width: 280px;
+  }
+}
+
+
+@media (max-width: 1010px) {
+  .genderControl {
+    width: 300px;
+  }
+}
+
 
 @media (max-width: 830px) {
-    .genderControl{
-       width: 280px;
-    }
+  .genderControl {
+    width: 280px;
+  }
 }
 
 @media (max-width: 768px) {
-    .textbox, .checkbox, .radio, select, input[type="date"], input[type="color"], textarea {
-        flex: 1 1 calc(45% - 10px);
-    }
+
+  .textbox,
+  .checkbox,
+  .radio,
+  select,
+  input[type="date"],
+  input[type="color"],
+  textarea {
+    flex: 1 1 calc(45% - 10px);
+  }
 
 }
 
+@media (max-width:745px) {
+  .textbox-select option {
+    font-size: 14px;
+  }
+
+  .textbox-select::-webkit-scrollbar {
+    width: 5px;
+
+  }
+
+  .textbox-select:focus {
+    width: 90%;
+
+  }
+}
+@media (max-width:730px) {
+
+  .textbox-select:focus {
+    width: 78%;
+  }
+  #inputCivilStatus{
+    display: flex;
+  }
+}
+
 @media (max-width: 480px) {
-    .textbox, .checkbox, .radio, select, input[type="date"], input[type="color"], textarea {
-        flex: 1 1 calc(90% - 10px);
-    }
+  .textbox,.checkbox,.radio,
+  select,
+  input[type="date"],
+  input[type="color"],
+  textarea {
+    flex: 1 1 calc(90% - 10px);
+  }
+
+  .textbox-select option {
+    font-size: 16px;
+  }
+
+  .textbox-select::-webkit-scrollbar {
+    width: 8px;
+
+  }
+  .textbox-select:focus {
+   width: auto;
+  }
 }

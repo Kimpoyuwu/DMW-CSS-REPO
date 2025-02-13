@@ -71,3 +71,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("submitButton").addEventListener("click", showModal);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    let inputNumber = document.getElementById("input-number");
+
+    inputNumber.value = "+63";
+
+
+    inputNumber.addEventListener("input", function (event) {
+        if (!inputNumber.value.startsWith("+63")) {
+            inputNumber.value = "+63 ";
+        }
+
+        let rawNumber = inputNumber.value.replace("+63", "");
+        if (rawNumber.length > 10) {
+            inputNumber.value = "+63" + rawNumber.slice(0, 10);
+        }
+    });
+
+    inputNumber.addEventListener("keydown", function (event) {
+        if (inputNumber.selectionStart <= 3 && (event.key === "Backspace" || event.key === "Delete")) {
+            event.preventDefault();
+        }
+    });
+});

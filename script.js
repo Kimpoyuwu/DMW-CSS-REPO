@@ -146,3 +146,58 @@ document.getElementById("checkbox").addEventListener("change", function() {
     const passwordField = document.getElementById("password");
     passwordField.type = this.checked ? "text" : "password";
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll("input[required], select[required]");
+
+    inputs.forEach(input => {
+        input.addEventListener("input", function () {
+            if (!this.checkValidity()) {
+                this.reportValidity();
+            } else {
+                this.setCustomValidity("");
+            }
+        });
+    });
+
+    // Validate Contact Number (10 digits)
+    const contactNumber = document.getElementById("input-number");
+    contactNumber.addEventListener("input", function () {
+        if (!/^\d{11}$/.test(this.value)) {
+            this.setCustomValidity("Contact number must be exactly 11 digits.");
+        } else {
+            this.setCustomValidity("");
+        }
+        this.reportValidity();
+    });
+
+    // Validate Zip Code (4 digits)
+    const zipCode = document.getElementById("input-zipCode");
+    zipCode.addEventListener("input", function () {
+        if (!/^\d{4}$/.test(this.value)) {
+            this.setCustomValidity("Zip code must be exactly 4 digits.");
+        } else {
+            this.setCustomValidity("");
+        }
+        this.reportValidity();
+    });
+
+    // Validate Confirm Password
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    confirmPassword.addEventListener("input", function () {
+        if (confirmPassword.value !== password.value) {
+            confirmPassword.setCustomValidity("Passwords do not match.");
+        } else {
+            confirmPassword.setCustomValidity("");
+        }
+        confirmPassword.reportValidity();
+    });
+
+    // Show/hide password
+    document.getElementById("checkbox").addEventListener("change", function () {
+        const type = this.checked ? "text" : "password";
+        password.type = type;
+        confirmPassword.type = type;
+    });
+});

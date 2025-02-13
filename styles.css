@@ -126,8 +126,8 @@ input[type="date"] {
 }
 
 /* Styling for confirm password */
-#input-confirmPassword::-ms-reveal,
-#input-confirmPassword::-ms-clear {
+#confirmPassword::-ms-reveal,
+#confirmPassword::-ms-clear {
     display: none;
 }
 
@@ -196,7 +196,6 @@ textarea:hover {
 }
 
 /* Styling for check box */
-/* checkbox style */
 .ios-checkbox {
   --checkbox-size: 21px;
   --checkbox-color: #44A1DB;
@@ -206,7 +205,6 @@ textarea:hover {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 5px;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -310,6 +308,30 @@ span {
 .ios-checkbox input:checked+.checkbox-wrapper {
   animation: bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+#checkbox{
+  width: 30px;
+  height: 20px;
+  margin-left: 4px;
+  --checkbox-size: 21px;
+
+}
+#show{
+  text-align: center;
+  justify-content: center;
+  font-size: 14px;
+
+}
+
 
 /* Media Query for smaller screens */
 

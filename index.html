@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <form id="myForm">
     <div class="container">
         <div class="formGroup">
             <label>First Name</label>
@@ -97,7 +98,7 @@
         </div>
         <div class="formGroup">
             <label>Cellphone Number</label>
-            <input type="text" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
+            <input type="number" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
         </div>
 
 
@@ -123,15 +124,19 @@
     <div class="container">
         <div class="formGroup">
             <label>Password</label>
-            <input type="password" class="textbox" id="input-password" name="password"
+            <input type="password" class="textbox" id="password" name="password"
                 placeholder="Enter your Password" required>
         </div>
         <div class="formGroup">
             <label>Confirm Password</label>
-            <input type="password" class="textbox" id="input-confirmPassword" name="confirmPassword"
+            <input type="password" class="textbox" id="confirmPassword" name="confirmPassword"
                 placeholder="Confirm your Password" required>
         </div>
     </div>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox">
+        <p id="show">Show Password</p>
+         </div>
 
     <div class="container">
         <div class="formTextAreaControl">
@@ -155,6 +160,7 @@
     <div class="container">
         <input type="submit" value="Submit" class="submitButton" id="submitButton">
     </div>
+</form>
 </body>
 <script src="script.js">
 

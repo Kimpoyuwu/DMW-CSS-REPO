@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!isChecked) {
                     radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red"; // Apply red border
+                        radio.style.outline = "2px solid red";
                     });
                     isValid = false;
                 } else {
                     radioGroup.forEach(radio => {
-                        radio.style.outline = "none"; // Reset border if selected
+                        radio.style.outline = "none";
                     });
                 }
             } else {
@@ -94,4 +94,31 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
         }
     });
+
+    // let middleNameInput = document.getElementById("input-middleName");
+    //     let middleInitialInput = document.getElementById("input-middleInitial");
+
+    //     middleNameInput.addEventListener("input", function () {
+    //         let middleName = middleNameInput.value.trim();
+    //         if (middleName.length > 0) {
+    //             let initials = middleName
+    //                 .split(" ")
+    //                 .filter(word => word.length > 0)
+    //                 .map(word => word.charAt(0).toUpperCase())
+    //                 .join("") + ".";
+    //             middleInitialInput.value = initials;
+    //         } else {
+    //             middleInitialInput.value = "";
+    //         }
+    //     });
+
+    //         let inputs = document.querySelectorAll("input[type='text'], textarea");
+
+    //         inputs.forEach(input => {
+    //             input.addEventListener("input", function () {
+    //                 this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+    //             });
+    //         });
+
+
 });

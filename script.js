@@ -201,3 +201,18 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmPassword.type = type;
     });
 });
+//modal js
+const submitButton = document.getElementById("submit-Button");
+const modal = document.getElementById("myModal");
+const closeButton = document.querySelector(".close");
+
+modal.style.display = "none"; 
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    modal.style.display = "flex";
+});
+
+closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+});

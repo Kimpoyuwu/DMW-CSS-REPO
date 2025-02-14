@@ -353,50 +353,71 @@ span {
 
 }
 
-/* @media (min-width: 935px) {
-  .container-small {
-    width: 100%;
-    flex-wrap: nowrap;
+@media (max-width: 790px) {
+   .modal .radioContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
-} */
+}
 
-
-@media (min-width: 901px) {
-  .radioContainer {
+@media (max-width: 1000px) {
+  .modal .radioContainer {
     display: grid;
-    grid-template-columns: repeat(10, 1fr); /* 4 columns per row */
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     justify-content: center;
     align-items: center;
+  }
+
+}
+
+@media (min-width: 1000px) {
+  .radioContainer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal .radioContainer {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (max-width: 900px) {
   .radioContainer {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 3 columns per row */
+    grid-template-columns: repeat(7, 1fr);
     gap: 8px;
+  }
+  .modal .radioContainer {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .radioContainer {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 2 columns per row */
+    grid-template-columns: repeat(6, 1fr);
     gap: 5px;
   }
+
 }
 
 @media (max-width: 500px) {
   .radioContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 2 columns per row */
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
-  .modal-container {
-    width: 100%;
+  .modal .modal-container {
+    width: 90%;
     padding: 5px;
     font-size: 12px;
+  }
+  .modal .modal-content{
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .modal-container label{
@@ -409,8 +430,14 @@ span {
   .modal label,  .modal span, .modal select, .modal p{
     font-size: 12px;
     margin: 0;
-    padding: 0;
   }
+  .modal .textbox-select:focus {
+    width: fit-content;
+  }
+  .modal .textbox-select {
+    width: fit-content;
+  }
+
 
 }
 
@@ -478,6 +505,9 @@ span {
     flex-wrap: wrap;
     margin-left: 20px;
   }
+  .modal .radioContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
 
 }
@@ -501,10 +531,21 @@ span {
   .textbox-select:focus {
    width: auto;
   }
-  /* .radioContainer label{
-      font-size: 14px;
-  } */
+}
 
+@media(max-width:300px){
+  .modal .textbox{
+   margin: 2px;
+  padding: 6px;
+  font-size: 12px;
+  }
+
+  .modal .radioContainer{
+    margin: 0;
+  }
+  .modal .radioContainer label {
+    font-size: 10px;
+  }
 }
 
 .modal {

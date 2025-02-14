@@ -383,7 +383,7 @@ span {
   .radioContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 2 columns per row */
-    gap: 5px;
+    gap: 8px;
   }
 }
 
@@ -445,34 +445,12 @@ span {
 @media(max-width:700px){
   .radioContainer {
     flex-wrap: wrap;
-    padding: 20px;
     margin-left: 20px;
   }
 
 
 }
 
-@media(max-width:570px){
-  .radioContainer{
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    font-size: 14px;
-  }
-}
-@media (max-width: 500px) {
-
-  .radioContainer {
-    flex-wrap:wrap;
-    padding: 0;
-    margin:0;
-      display: flex;
-      flex-wrap: wrap;
-      width: auto;
-      font-size: 12px;
-  }
-
-}
 
 @media (max-width: 480px) {
   .textbox,.checkbox,.radio,

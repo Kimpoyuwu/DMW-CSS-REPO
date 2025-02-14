@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1> this is a text</h1>
+    <form id="myForm">
     <div class="container">
         <div class="formGroup">
             <label>First Name</label>
-            <input type="text" class="textbox" id="input-name" name="firstName"
+            <input type="text" class="textbox" id="input-name" name="firstName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your First Name" required>
         </div>
         <div class="formGroup">
             <label>Middle Name</label>
-            <input type="text" class="textbox" id="input-middleName" name="middleName"
+            <input type="text" class="textbox" id="input-middleName" name="middleName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Middle Name" required>
         </div>
         <div class="formGroup">
             <label>Last Name</label>
-            <input type="text" class="textbox" id="input-LastName" name="lastName"
+            <input type="text" class="textbox" id="input-LastName" name="lastName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Last Name" required>
         </div>
         <div class="container-small">
             <div class="formGroup">
                 <label>Middle Initial</label>
-                <input type="text" class="textbox" id="input-middleInitial" name="middleInitial"
+                <input type="text" class="textbox"  readonly id="input-middleInitial" name="middleInitial" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                     placeholder="Middle Initial" required>
             </div>
             <div class="formGroup">
@@ -59,12 +59,12 @@
     <div class="container">
         <div class="formGroup">
             <label>Municipality</label>
-            <input type="text" class="textbox" id="input-municipality" name="municipality"
+            <input type="text" class="textbox" id="input-municipality" name="municipality" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your munucipality" required>
         </div>
         <div class="formGroup">
             <label>Province</label>
-            <input type="text" class="textbox" id="input-province" name="province"
+            <input type="text" class="textbox" id="input-province" name="province" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
                 placeholder="Enter your Province" required>
         </div>
         <div class="formGroup">
@@ -74,13 +74,9 @@
         </div>
     </div>
     <div class="container">
-        <div class="formGroup" >
-            <label>Birthday</label>
-            <input type="date" name="birthday" id="input-birthday" class="textbox" required>
-        </div>
         <div class="formGroup">
             <label id="gender-label">Gender</label>
-            <div class="genderControl" id="genderBorder">
+            <div class="radioContainer" id="radioBorder">
                 <label>
                     <input type="radio" name="gender" value="Male" onclick="toggleGenderInput()" required> Male
                 </label>
@@ -89,20 +85,32 @@
                 </label>
                 <label>
                     <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
+                </label><label>
+                    <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
                 </label>
+                <label>
+                    <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
+                </label><label>
+                    <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
+                </label>
+
             </div>
         </div>
         <div class="formGroup" id="genderOthersContainer" style="display: none;">
             <label>Enter your Gender</label>
-            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender">
+            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+        </div>
+        <div class="formGroup" >
+            <label>Birthday</label>
+            <input type="date" name="birthday" id="input-birthday" class="textbox" required>
         </div>
         <div class="formGroup">
             <label>Cellphone Number</label>
-            <input type="text" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
+            <input type="number" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
         </div>
 
-
     </div>
+
     <div class="container">
         <div class="formGroup">
             <label>Civil Status</label>
@@ -124,14 +132,19 @@
     <div class="container">
         <div class="formGroup">
             <label>Password</label>
-            <input type="password" class="textbox" id="input-password" name="password"
+            <input type="password" class="textbox" id="password" name="password"
                 placeholder="Enter your Password" required>
         </div>
         <div class="formGroup">
             <label>Confirm Password</label>
-            <input type="password" class="textbox" id="input-confirmPassword" name="confirmPassword"
+            <input type="password" class="textbox" id="confirmPassword" name="confirmPassword"
                 placeholder="Confirm your Password" required>
         </div>
+    </div>
+
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox">
+        <p id="show">Show Password</p>
     </div>
 
     <div class="container">
@@ -141,7 +154,7 @@
         </div>
     </div>
 <div class="container checkBoxContainer">
-    <label class="ios-checkbox blue p-1 dFlex-row gap-1">
+    <label class="ios-checkbox">
         <input type="checkbox" required/>
         <div class="checkbox-wrapper">
             <div class="checkbox-bg"></div>
@@ -156,6 +169,16 @@
     <div class="container">
         <input type="submit" value="Submit" class="submitButton" id="submitButton">
     </div>
+    <div class="container">
+        <input type="submit" value="Modal" class="submitButton" id="submit-Button">
+    </div>
+</form>
+<div id="myModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is a modal!</p>
+    </div>
+</div>
 </body>
 <script src="script.js">
 

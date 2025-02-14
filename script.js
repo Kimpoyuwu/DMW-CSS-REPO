@@ -19,79 +19,187 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const form = document.querySelector("form");
-
-
-    function showModal(event) {
-        event.preventDefault();
-        if (validateForm()) {
-            modal.style.display = "flex";
-        }
-    }
-
-
-    function validateForm() {
-        let isValid = true;
-        const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
-
-        inputs.forEach((input) => {
-            if (input.type === "radio") {
-                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
-                const isChecked = [...radioGroup].some(radio => radio.checked);
-
-                if (!isChecked) {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red"; // Apply red border
-                    });
-                    isValid = false;
-                } else {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "none"; // Reset border if selected
-                    });
-                }
-            } else {
-                if (input.value.trim() === "") {
-                    isValid = false;
-                    input.style.border = "2px solid red";
-                } else {
-                    input.style.border = "1px solid #ccc";
-                }
-            }
-        });
-
-
-        return isValid;
-    }
-    function submitModal() {
-        form.reset();
-        modal.style.display = "none";
-    }
-
-    document.getElementById("submitButton").addEventListener("click", showModal);
+document.getElementById("input-number").addEventListener("input", function () {
+    this.value = this.value.slice(0, 11);
 });
 
+// document.addEventListener("DOMContentLoaded", function () {
+
+//     const form = document.querySelector("form");
+
+//     function validateForm() {
+//         let isValid = true;
+//         const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
+
+//         inputs.forEach((input) => {
+//             if (input.type === "radio") {
+//                 const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+//                 const isChecked = [...radioGroup].some(radio => radio.checked);
+
+//                 if (!isChecked) {
+//                     radioGroup.forEach(radio => {
+//                         radio.style.outline = "2px solid red";
+//                     });
+//                     isValid = false;
+//                 } else {
+//                     radioGroup.forEach(radio => {
+//                         radio.style.outline = "none";
+//                     });
+//                 }
+//             } else if (input.type === "checkbox") {
+//                 const checkboxWrapper = input.closest(".ios-checkbox").querySelector(".checkbox-bg");
+
+//                 if (!input.checked) {
+//                     isValid = false;
+//                     checkboxWrapper.style.border = "2px solid red";
+//                 } else {
+//                     checkboxWrapper.style.border = "2px solid var(--checkbox-border)";
+//                 }
+//             } else {
+//                 if (input.value.trim() === "") {
+//                     isValid = false;
+//                     input.style.border = "2px solid red";
+//                 } else {
+//                     input.style.border = "1px solid #ccc";
+//                 }
+//             }
+//         });
+
+//         return isValid;
+//     }
+
+//     document.getElementById("submitButton").addEventListener("click", function (event) {
+//         if (!validateForm()) {
+//             event.preventDefault(); // Prevent form submission if validation fails
+//         }
+//     });
+
+// });
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    let inputNumber = document.getElementById("input-number");
 
-    inputNumber.value = "+63";
+    let middleNameInput = document.getElementById("input-middleName");
+    let middleInitialInput = document.getElementById("input-middleInitial");
 
-
-    inputNumber.addEventListener("input", function (event) {
-        if (!inputNumber.value.startsWith("+63")) {
-            inputNumber.value = "+63 ";
-        }
-
-        let rawNumber = inputNumber.value.replace("+63", "");
-        if (rawNumber.length > 10) {
-            inputNumber.value = "+63" + rawNumber.slice(0, 10);
+    middleNameInput.addEventListener("input", function () {
+        let middleName = middleNameInput.value.trim();
+        if (middleName.length > 0) {
+            let initials = middleName
+                .split(" ")
+                .filter(word => word.length > 0)
+                .map(word => word.charAt(0).toUpperCase())
+                .join("");
+            middleInitialInput.value = initials;
+        } else {
+            middleInitialInput.value = "";
         }
     });
 
-    inputNumber.addEventListener("keydown", function (event) {
-        if (inputNumber.selectionStart <= 3 && (event.key === "Backspace" || event.key === "Delete")) {
-            event.preventDefault();
+    let inputs = document.querySelectorAll("input[type='text'], textarea");
+
+    inputs.forEach(input => {
+        input.addEventListener("input", function () {
+            this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+        });
+    });
+
+    document.getElementById("input-zipCode").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 4);
+    });
+
+
+    const form = document.getElementById("myForm");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+
+    form.addEventListener("submit", function (event) {
+        console.log("Form submitted");  // Debugging - Check if script runs
+
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        // Reset border styles
+        passwordInput.style.border = "1px solid #ccc";
+        confirmPasswordInput.style.border = "1px solid #ccc";
+
+        if (password !== confirmPassword) {
+            console.log("Passwords do not match!");  // Debugging - Check validation
+            alert("Passwords do not match.");
+            event.preventDefault();  // Prevent form submission
+
+            // Highlight the fields in red
+            passwordInput.style.border = "2px solid red";
+            confirmPasswordInput.style.border = "2px solid red";
+            return;
         }
+
+        alert("Form submitted successfully!");
+
+        setTimeout(() => {
+            location.reload();
+        }, 3000);
+    });
+
+});
+
+document.getElementById("checkbox").addEventListener("change", function() {
+    const passwordField = document.getElementById("password");
+    passwordField.type = this.checked ? "text" : "password";
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll("input[required], select[required]");
+
+    inputs.forEach(input => {
+        input.addEventListener("input", function () {
+            if (!this.checkValidity()) {
+                this.reportValidity();
+            } else {
+                this.setCustomValidity("");
+            }
+        });
+    });
+
+    // Validate Contact Number (10 digits)
+    const contactNumber = document.getElementById("input-number");
+    contactNumber.addEventListener("input", function () {
+        if (!/^\d{11}$/.test(this.value)) {
+            this.setCustomValidity("Contact number must be exactly 11 digits.");
+        } else {
+            this.setCustomValidity("");
+        }
+        this.reportValidity();
+    });
+
+    // Validate Zip Code (4 digits)
+    const zipCode = document.getElementById("input-zipCode");
+    zipCode.addEventListener("input", function () {
+        if (!/^\d{4}$/.test(this.value)) {
+            this.setCustomValidity("Zip code must be exactly 4 digits.");
+        } else {
+            this.setCustomValidity("");
+        }
+        this.reportValidity();
+    });
+
+    // Validate Confirm Password
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    confirmPassword.addEventListener("input", function () {
+        if (confirmPassword.value !== password.value) {
+            confirmPassword.setCustomValidity("Passwords do not match.");
+        } else {
+            confirmPassword.setCustomValidity("");
+        }
+        confirmPassword.reportValidity();
+    });
+
+    // Show/hide password
+    document.getElementById("checkbox").addEventListener("change", function () {
+        const password = document.getElementById("password");
+        const type = this.checked ? "text" : "password";
+        password.type = type;
     });
 });

@@ -23,58 +23,60 @@ document.getElementById("input-number").addEventListener("input", function () {
     this.value = this.value.slice(0, 11);
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.querySelector("form");
+//     const form = document.querySelector("form");
 
-    function validateForm() {
-        let isValid = true;
-        const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
+//     function validateForm() {
+//         let isValid = true;
+//         const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
 
-        inputs.forEach((input) => {
-            if (input.type === "radio") {
-                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
-                const isChecked = [...radioGroup].some(radio => radio.checked);
+//         inputs.forEach((input) => {
+//             if (input.type === "radio") {
+//                 const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+//                 const isChecked = [...radioGroup].some(radio => radio.checked);
 
-                if (!isChecked) {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red";
-                    });
-                    isValid = false;
-                } else {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "none";
-                    });
-                }
-            } else if (input.type === "checkbox") {
-                const checkboxWrapper = input.closest(".ios-checkbox").querySelector(".checkbox-bg");
+//                 if (!isChecked) {
+//                     radioGroup.forEach(radio => {
+//                         radio.style.outline = "2px solid red";
+//                     });
+//                     isValid = false;
+//                 } else {
+//                     radioGroup.forEach(radio => {
+//                         radio.style.outline = "none";
+//                     });
+//                 }
+//             } else if (input.type === "checkbox") {
+//                 const checkboxWrapper = input.closest(".ios-checkbox").querySelector(".checkbox-bg");
 
-                if (!input.checked) {
-                    isValid = false;
-                    checkboxWrapper.style.border = "2px solid red";
-                } else {
-                    checkboxWrapper.style.border = "2px solid var(--checkbox-border)";
-                }
-            } else {
-                if (input.value.trim() === "") {
-                    isValid = false;
-                    input.style.border = "2px solid red";
-                } else {
-                    input.style.border = "1px solid #ccc";
-                }
-            }
-        });
+//                 if (!input.checked) {
+//                     isValid = false;
+//                     checkboxWrapper.style.border = "2px solid red";
+//                 } else {
+//                     checkboxWrapper.style.border = "2px solid var(--checkbox-border)";
+//                 }
+//             } else {
+//                 if (input.value.trim() === "") {
+//                     isValid = false;
+//                     input.style.border = "2px solid red";
+//                 } else {
+//                     input.style.border = "1px solid #ccc";
+//                 }
+//             }
+//         });
 
-        return isValid;
-    }
+//         return isValid;
+//     }
 
-    document.getElementById("submitButton").addEventListener("click", function (event) {
-        if (!validateForm()) {
-            event.preventDefault(); // Prevent form submission if validation fails
-        }
-    });
+//     document.getElementById("submitButton").addEventListener("click", function (event) {
+//         if (!validateForm()) {
+//             event.preventDefault(); // Prevent form submission if validation fails
+//         }
+//     });
 
-});
+// });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -196,8 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show/hide password
     document.getElementById("checkbox").addEventListener("change", function () {
+        const password = document.getElementById("password");
         const type = this.checked ? "text" : "password";
         password.type = type;
-        confirmPassword.type = type;
     });
 });

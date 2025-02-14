@@ -52,7 +52,7 @@
         </div>
         <div class="formGroup">
             <label>Barangay</label>
-            <input type="text" class="textbox" id="input-barangay" name="barangay" 
+            <input type="text" class="textbox" id="input-barangay" name="barangay"
                 placeholder="Enter your Barangay" required>
         </div>
     </div>
@@ -74,13 +74,9 @@
         </div>
     </div>
     <div class="container">
-        <div class="formGroup" >
-            <label>Birthday</label>
-            <input type="date" name="birthday" id="input-birthday" class="textbox" required>
-        </div>
         <div class="formGroup">
             <label id="gender-label">Gender</label>
-            <div class="genderControl" id="genderBorder">
+            <div class="radioContainer" id="radioBorder">
                 <label>
                     <input type="radio" name="gender" value="Male" onclick="toggleGenderInput()" required> Male
                 </label>
@@ -102,15 +98,19 @@
         </div>
         <div class="formGroup" id="genderOthersContainer" style="display: none;">
             <label>Enter your Gender</label>
-            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"> 
+            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+        </div>
+        <div class="formGroup" >
+            <label>Birthday</label>
+            <input type="date" name="birthday" id="input-birthday" class="textbox" required>
         </div>
         <div class="formGroup">
             <label>Cellphone Number</label>
             <input type="number" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
         </div>
 
-
     </div>
+
     <div class="container">
         <div class="formGroup">
             <label>Civil Status</label>
@@ -169,7 +169,16 @@
     <div class="container">
         <input type="submit" value="Submit" class="submitButton" id="submitButton">
     </div>
+    <div class="container">
+        <input type="submit" value="Modal" class="submitButton" id="submit-Button">
+    </div>
 </form>
+<div id="myModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is a modal!</p>
+    </div>
+</div>
 </body>
 <script src="script.js">
 

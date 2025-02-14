@@ -390,16 +390,39 @@ span {
 @media (max-width: 500px) {
   .radioContainer {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 2 columns per row */
+    grid-template-columns: repeat(4, 1fr); /* 2 columns per row */
     gap: 8px;
   }
+  .modal-container {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .modal-container label{
+    font-size: 12px;
+  }
+
+  .modal-container ::placeholder{
+    font-size: 12px;
+  }
+  .modal label,  .modal span, .modal select, .modal p{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+  }
+
 }
 
 @media (max-width: 400px) {
   .radioContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 1 column per row */
+    grid-template-columns: repeat(3, 1fr); /* 1 column per row */
     gap: 5px;
+
+  }
+  .radioContainer label{
+    font-size: 12px;
   }
 }
 
@@ -514,7 +537,7 @@ span {
   padding: 4%;
   border-radius: 8px;
   width: 68%;
-  max-width: 68%;
+  max-width: 100%;
   max-height:90% ;
   height: 90%;
   display: flex;
@@ -524,7 +547,7 @@ span {
 
 .modal-content {
   overflow-y: auto; /* Enable vertical scrolling */
-  max-height: 90%; /* Ensure it does not exceed modal-container */
+  max-height: 100%;
 }
 
 /* Hide scrollbar for Webkit (Chrome, Safari) */

@@ -75,23 +75,21 @@ label {
 
 .radioContainer {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* Keep in one row */
   align-items: center;
-  gap: 15px;
-  overflow-x: auto;
-  padding: 5px ;
-  margin-top:10px ;
+  gap: 10px;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  padding: 5px;
+  margin-top: 5px;
   white-space: nowrap;
 }
 
-.radio-label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  white-space: nowrap;
+.radioContainer label {
+  flex: 0 0 auto; /* Prevent shrinking */
+  white-space: nowrap; /* Ensure text stays in one line */
 }
+
+
 
 .radioContainer input[type="radio"] {
   flex-shrink: 0;
@@ -355,6 +353,48 @@ span {
 
 }
 
+@media (min-width: 901px) {
+  .radioContainer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 4 columns per row */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .radioContainer {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 3 columns per row */
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .radioContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+    gap: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .radioContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 column per row */
+    gap: 5px;
+  }
+}
+
+.radioContainer label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+
 @media (max-width: 768px) {
 
   .textbox,
@@ -446,9 +486,9 @@ span {
   .textbox-select:focus {
    width: auto;
   }
-  .radioContainer label{
+  /* .radioContainer label{
       font-size: 14px;
-  }
+  } */
 
 }
 
@@ -495,15 +535,17 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 68%;
+  height: 90%;
   text-align: center;
-  position: relative; 
+  position: relative;
 }
 
 .close {

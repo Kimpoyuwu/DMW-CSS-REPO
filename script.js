@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!isChecked) {
                     radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red";
+                        radio.style.outline = "1px solid red";
                     });
                     isValid = false;
                 } else {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 if (input.value.trim() === "") {
                     isValid = false;
-                    input.style.border = "2px solid red";
+                    input.style.border = "1px solid red";
                 } else {
                     input.style.border = "1px solid #ccc";
                 }
@@ -206,7 +206,7 @@ const submitButton = document.getElementById("submit-Button");
 const modal = document.getElementById("myModal");
 const closeButton = document.querySelector(".close");
 
-modal.style.display = "none"; 
+modal.style.display = "none";
 
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();

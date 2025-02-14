@@ -1,178 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Input Fields</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <form id="myForm">
-    <div class="container">
-        <div class="formGroup">
-            <label>First Name</label>
-            <input type="text" class="textbox" id="input-name" name="firstName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                placeholder="Enter your First Name" required>
-        </div>
-        <div class="formGroup">
-            <label>Middle Name</label>
-            <input type="text" class="textbox" id="input-middleName" name="middleName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                placeholder="Enter your Middle Name" required>
-        </div>
-        <div class="formGroup">
-            <label>Last Name</label>
-            <input type="text" class="textbox" id="input-LastName" name="lastName" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                placeholder="Enter your Last Name" required>
-        </div>
-        <div class="container-small">
+        <div class="container">
+            <div class="formGroup">
+                <label>First Name</label>
+                <input type="text" class="textbox" id="input-name" name="firstName"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Enter your First Name"
+                    required>
+            </div>
+            <div class="formGroup">
+                <label>Middle Name</label>
+                <input type="text" class="textbox" id="input-middleName" name="middleName"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Enter your Middle Name"
+                    required>
+            </div>
+            <div class="formGroup">
+                <label>Last Name</label>
+                <input type="text" class="textbox" id="input-LastName" name="lastName"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Enter your Last Name"
+                    required>
+            </div>
             <div class="formGroup">
                 <label>Middle Initial</label>
-                <input type="text" class="textbox"  readonly id="input-middleInitial" name="middleInitial" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                    placeholder="Middle Initial" required>
+                <input type="text" class="textbox" readonly id="input-middleInitial" name="middleInitial"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Middle Initial"
+                    required>
             </div>
             <div class="formGroup">
                 <label>Suffix</label>
-                <select id="suffix" name="suffix" class="textbox-select" >
+                <select id="suffix" name="suffix" class="textbox-select">
                     <option value="" selected disabled>Suffix:</option>
                     <option value="jr">Jr.</option>
                     <option value="sr">Sr.</option>
                     <option value="ii">II</option>
                     <option value="iii">III</option>
-                  </select>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="formGroup">
-            <label>Address</label>
-            <input type="text" class="textbox" id="input-address" name="address"
-                placeholder="Enter your House No, Building, Street Name." required>
-        </div>
-        <div class="formGroup">
-            <label>Barangay</label>
-            <input type="text" class="textbox" id="input-barangay" name="barangay"
-                placeholder="Enter your Barangay" required>
-        </div>
-    </div>
-    <div class="container">
-        <div class="formGroup">
-            <label>Municipality</label>
-            <input type="text" class="textbox" id="input-municipality" name="municipality" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                placeholder="Enter your munucipality" required>
-        </div>
-        <div class="formGroup">
-            <label>Province</label>
-            <input type="text" class="textbox" id="input-province" name="province" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
-                placeholder="Enter your Province" required>
-        </div>
-        <div class="formGroup">
-            <label>Zip Code</label>
-            <input type="number" class="textbox" id="input-zipCode" name="zipCode"
-                placeholder="Enter your ZipCode" required>
-        </div>
-    </div>
-    <div class="container">
-        <div class="formGroup">
-            <label id="gender-label">Gender</label>
-            <div class="radioContainer" id="radioBorder">
-                <label>
-                    <input type="radio" name="gender" value="Male" onclick="toggleGenderInput()" required> Male
-                </label>
-                <label>
-                    <input type="radio" name="gender" value="Female" onclick="toggleGenderInput()" required> Female
-                </label>
-                <label>
-                    <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
-                </label>
-                
+                </select>
             </div>
         </div>
-        <div class="formGroup" id="genderOthersContainer" style="display: none;">
-            <label>Enter your Gender</label>
-            <input type="text" class="textbox" name="otherGender" id="input-otherGender" placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+        <div class="container">
+            <div class="formGroup">
+                <label>Address</label>
+                <input type="text" class="textbox" id="input-address" name="address"
+                    placeholder="Enter your House No, Building, Street Name." required>
+            </div>
+            <div class="formGroup">
+                <label>Barangay</label>
+                <input type="text" class="textbox" id="input-barangay" name="barangay" placeholder="Enter your Barangay"
+                    required>
+            </div>
         </div>
-        <div class="formGroup" >
-            <label>Birthday</label>
-            <input type="date" name="birthday" id="input-birthday" class="textbox" required>
+        <div class="container">
+            <div class="formGroup">
+                <label>Municipality</label>
+                <input type="text" class="textbox" id="input-municipality" name="municipality"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Enter your munucipality"
+                    required>
+            </div>
+            <div class="formGroup">
+                <label>Province</label>
+                <input type="text" class="textbox" id="input-province" name="province"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" placeholder="Enter your Province"
+                    required>
+            </div>
+            <div class="formGroup">
+                <label>Zip Code</label>
+                <input type="number" class="textbox" id="input-zipCode" name="zipCode" placeholder="Enter your ZipCode"
+                    required>
+            </div>
         </div>
-        <div class="formGroup">
-            <label>Cellphone Number</label>
-            <input type="number" class="textbox" id="input-number" name="number" placeholder="Enter your Cellphone Number" required>
-        </div>
-    </div>
+        <div class="container">
+            <div class="formGroup">
+                <label id="gender-label">Gender</label>
+                <div class="radioContainer" id="radioBorder">
+                    <label>
+                        <input type="radio" name="gender" value="Male" onclick="toggleGenderInput()" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Female" onclick="toggleGenderInput()" required> Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required> Others
+                    </label>
 
-    <div class="container">
-        <div class="formGroup">
-            <label>Civil Status</label>
-            <select name="civilStatus" id="inputCivilStatus" class="textbox-select" required>
-                <option value="" disabled selected>Choose an option</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Widowed">Widowed</option>
-            </select>
+                </div>
+            </div>
+            <div class="formGroup" id="genderOthersContainer" style="display: none;">
+                <label>Enter your Gender</label>
+                <input type="text" class="textbox" name="otherGender" id="input-otherGender"
+                    placeholder="Enter your Gender" oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+            </div>
+            <div class="formGroup">
+                <label>Birthday</label>
+                <input type="date" name="birthday" id="input-birthday" class="textbox" required>
+            </div>
+            <div class="formGroup">
+                <label>Cellphone Number</label>
+                <input type="number" class="textbox" id="input-number" name="number"
+                    placeholder="Enter your Cellphone Number" required>
+            </div>
         </div>
 
-        <div class="formGroup">
-            <label>Email</label>
-            <input type="email" class="textbox" id="input-email" name="email"
-                placeholder="Enter your Email Adress" required>
-        </div>
-    </div>
-    <div class="container">
-        <div class="formGroup">
-            <label>Password</label>
-            <input type="password" class="textbox" id="password" name="password"
-                placeholder="Enter your Password" required>
-        </div>
-        <div class="formGroup">
-            <label>Confirm Password</label>
-            <input type="password" class="textbox" id="confirmPassword" name="confirmPassword"
-                placeholder="Confirm your Password" required>
-        </div>
-    </div>
+        <div class="container">
+            <div class="formGroup">
+                <label>Civil Status</label>
+                <select name="civilStatus" id="inputCivilStatus" class="textbox-select" required>
+                    <option value="" disabled selected>Choose an option</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
 
-    <div class="checkbox">
-        <input type="checkbox" id="checkbox">
-        <p id="show">Show Password</p>
-    </div>
+            <div class="formGroup">
+                <label>Email</label>
+                <input type="email" class="textbox" id="input-email" name="email" placeholder="Enter your Email Adress"
+                    required>
+            </div>
+        </div>
+        <div class="container">
+            <div class="formGroup">
+                <label>Password</label>
+                <input type="password" class="textbox" id="password" name="password" placeholder="Enter your Password"
+                    required>
+            </div>
+            <div class="formGroup">
+                <label>Confirm Password</label>
+                <input type="password" class="textbox" id="confirmPassword" name="confirmPassword"
+                    placeholder="Confirm your Password" required>
+            </div>
+        </div>
 
-    <div class="container">
-        <div class="formTextAreaControl">
-            <label>Other Details</label>
-           <textarea id="description" name="message" rows="4" placeholder="Enter Additional Information"></textarea>
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox">
+            <p id="show">Show Password</p>
+        </div>
+
+        <div class="container">
+            <div class="formTextAreaControl">
+                <label>Other Details</label>
+                <textarea id="description" name="message" rows="4"
+                    placeholder="Enter Additional Information"></textarea>
+            </div>
+        </div>
+        <div class="container checkBoxContainer">
+            <label class="ios-checkbox">
+                <input type="checkbox" required />
+                <div class="checkbox-wrapper">
+                    <div class="checkbox-bg"></div>
+                    <svg fill="none" viewBox="0 0 24 24" class="checkbox-icon">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor"
+                            d="M4 12L10 18L20 6" class="check-path"></path>
+                    </svg>
+                </div>
+                I agree to the <span>terms of service.</span>
+            </label>
+        </div>
+        <div class="container">
+            <input type="submit" value="Submit" class="submitButton" id="submitButton">
+        </div>
+        <div class="container">
+            <input type="submit" value="Modal" class="submitButton" id="submit-Button">
+        </div>
+    </form>
+    <div id="myModal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+            <div class="modal-title">
+                <p>This is modal</p>
+            </div>
+            <div class="modal-content">
+                <div class="container">
+                    <div class="formGroup">
+                        <label>First Name</label>
+                        <input type="text" class="textbox" id="input-name" name="firstName"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Enter your First Name" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Middle Name</label>
+                        <input type="text" class="textbox" id="input-middleName" name="middleName"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Enter your Middle Name" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Last Name</label>
+                        <input type="text" class="textbox" id="input-LastName" name="lastName"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Enter your Last Name" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Middle Initial</label>
+                        <input type="text" class="textbox" readonly id="input-middleInitial" name="middleInitial"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Middle Initial" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Suffix</label>
+                        <select id="suffix" name="suffix" class="textbox-select">
+                            <option value="" selected disabled>Suffix:</option>
+                            <option value="jr">Jr.</option>
+                            <option value="sr">Sr.</option>
+                            <option value="ii">II</option>
+                            <option value="iii">III</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div class="formGroup">
+                        <label>Address</label>
+                        <input type="text" class="textbox" id="input-address" name="address"
+                            placeholder="Enter your House No, Building, Street Name." required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Barangay</label>
+                        <input type="text" class="textbox" id="input-barangay" name="barangay"
+                            placeholder="Enter your Barangay" required>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="formGroup">
+                        <label>Municipality</label>
+                        <input type="text" class="textbox" id="input-municipality" name="municipality"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Enter your munucipality" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Province</label>
+                        <input type="text" class="textbox" id="input-province" name="province"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
+                            placeholder="Enter your Province" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Zip Code</label>
+                        <input type="number" class="textbox" id="input-zipCode" name="zipCode"
+                            placeholder="Enter your ZipCode" required>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="formGroup">
+                        <label id="gender-label">Gender</label>
+                        <div class="radioContainer" id="radioBorder">
+                            <label>
+                                <input type="radio" name="gender" value="Male" onclick="toggleGenderInput()" required>
+                                Male
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="Female" onclick="toggleGenderInput()" required>
+                                Female
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="Other" onclick="toggleGenderInput()" required>
+                                Others
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="formGroup" id="genderOthersContainer" style="display: none;">
+                        <label>Enter your Gender</label>
+                        <input type="text" class="textbox" name="otherGender" id="input-otherGender"
+                            placeholder="Enter your Gender"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')">
+                    </div>
+                    <div class="formGroup">
+                        <label>Birthday</label>
+                        <input type="date" name="birthday" id="input-birthday" class="textbox" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Cellphone Number</label>
+                        <input type="number" class="textbox" id="input-number" name="number"
+                            placeholder="Enter your Cellphone Number" required>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="formGroup">
+                        <label>Civil Status</label>
+                        <select name="civilStatus" id="inputCivilStatus" class="textbox-select" required>
+                            <option value="" disabled selected>Choose an option</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+
+                    <div class="formGroup">
+                        <label>Email</label>
+                        <input type="email" class="textbox" id="input-email" name="email"
+                            placeholder="Enter your Email Adress" required>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="formGroup">
+                        <label>Password</label>
+                        <input type="password" class="textbox" id="password" name="password"
+                            placeholder="Enter your Password" required>
+                    </div>
+                    <div class="formGroup">
+                        <label>Confirm Password</label>
+                        <input type="password" class="textbox" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm your Password" required>
+                    </div>
+                </div>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <p id="show">Show Password</p>
+                </div>
+
+                <div class="container">
+                    <div class="formTextAreaControl">
+                        <label>Other Details</label>
+                        <textarea id="description" name="message" rows="4"
+                            placeholder="Enter Additional Information"></textarea>
+                    </div>
+                </div>
+                <div class="container checkBoxContainer">
+                    <label class="ios-checkbox">
+                        <input type="checkbox" required />
+                        <div class="checkbox-wrapper">
+                            <div class="checkbox-bg"></div>
+                            <svg fill="none" viewBox="0 0 24 24" class="checkbox-icon">
+                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3"
+                                    stroke="currentColor" d="M4 12L10 18L20 6" class="check-path"></path>
+                            </svg>
+                        </div>
+                        I agree to the <span>terms of service.</span>
+                    </label>
+                </div>
+                <div class="container">
+                    <input type="submit" value="Submit" class="submitButton" id="submitButton">
+                </div>
+                <div class="container">
+                    <input type="submit" value="Modal" class="submitButton" id="submit-Button">
+                </div>
+                </form>
+            </div>
         </div>
     </div>
-<div class="container checkBoxContainer">
-    <label class="ios-checkbox">
-        <input type="checkbox" required/>
-        <div class="checkbox-wrapper">
-            <div class="checkbox-bg"></div>
-            <svg fill="none" viewBox="0 0 24 24" class="checkbox-icon">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor"
-                    d="M4 12L10 18L20 6" class="check-path"></path>
-            </svg>
-        </div>
-        I agree to the <span>terms of service.</span>
-    </label>
-</div>
-    <div class="container">
-        <input type="submit" value="Submit" class="submitButton" id="submitButton">
-    </div>
-    <div class="container">
-        <input type="submit" value="Modal" class="submitButton" id="submit-Button">
-    </div>
-</form>
-<div id="myModal" class="modal hidden" style="display: none;">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>This is a modal!</p>
-    </div>
-</div>
 </body>
 <script src="script.js">
 
 </script>
+
 </html>

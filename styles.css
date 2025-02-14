@@ -19,7 +19,7 @@ html {
   padding: 5%;
 }
 
-.container {
+.container, .modal-content {
   display: flex;
   width: 100%;
   height: auto;
@@ -353,6 +353,14 @@ span {
 
 }
 
+/* @media (min-width: 935px) {
+  .container-small {
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+} */
+
+
 @media (min-width: 901px) {
   .radioContainer {
     display: grid;
@@ -450,8 +458,6 @@ span {
 
 
 }
-
-
 @media (max-width: 480px) {
   .textbox,.checkbox,.radio,
   select,
@@ -478,37 +484,6 @@ span {
 
 }
 
-@media (max-width: 450px) {
-  #input-birthday{
-    width: 350px;
-  }
-}
-
-
-@media (max-width: 425px) {
-  #input-birthday{
-    width: 300px;
-  }
-}
-
-@media (max-width: 365px) {
-  #input-birthday{
-    width: 270px;
-  }
-}
-
-
-@media (max-width: 350px) {
-  #input-birthday{
-    width: 250px;
-  }
-}
-
-@media (max-width: 320px) {
-  #input-birthday{
-    width: auto;
-  }
-}
 .modal {
   display: none;
   position: fixed;
@@ -524,15 +499,52 @@ span {
 
 }
 
-.modal-content {
+.modal-title{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
   background-color: white;
-  padding: 20px;
+  padding: 4%;
   border-radius: 8px;
   width: 68%;
+  max-width: 68%;
+  max-height:90% ;
   height: 90%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
+
+.modal-content {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 90%; /* Ensure it does not exceed modal-container */
+}
+
+/* Hide scrollbar for Webkit (Chrome, Safari) */
+.modal-content::-webkit-scrollbar {
+  width:0.5px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 .close {
   cursor: pointer;

@@ -201,5 +201,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password");
         const type = this.checked ? "text" : "password";
         password.type = type;
+        console.log("sample");
     });
+});
+
+//modal
+const submitButton = document.getElementById("submit-Button");
+const modal = document.getElementById("myModal");
+const closeButton = document.querySelector(".close");
+
+modal.style.display = "none"; 
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    modal.style.display = "flex";
+});
+
+closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
 });

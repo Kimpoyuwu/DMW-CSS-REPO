@@ -401,6 +401,7 @@ span {
     gap: 5px;
   }
 
+
 }
 
 @media (max-width: 500px) {
@@ -408,6 +409,7 @@ span {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
+
   }
   .modal .modal-container {
     width: 90%;
@@ -416,8 +418,7 @@ span {
   }
   .modal .modal-content{
     padding: 10px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+
   }
 
   .modal-container label{
@@ -436,6 +437,10 @@ span {
   }
   .modal .textbox-select {
     width: fit-content;
+  }
+
+  .ios-checkbox{
+    font-size: 12px;
   }
 
 

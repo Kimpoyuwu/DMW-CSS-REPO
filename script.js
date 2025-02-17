@@ -216,6 +216,7 @@ modal.style.display = "none";
 
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
+    document.body.style.overflow ="hidden";
     modal.style.display = "flex";
 });
 

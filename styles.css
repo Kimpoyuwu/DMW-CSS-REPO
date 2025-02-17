@@ -19,7 +19,8 @@ html {
   padding: 5%;
 }
 
-.container, .modal-content {
+.form-cont,
+.modal-content {
   display: flex;
   width: 100%;
   height: auto;
@@ -37,8 +38,8 @@ html {
 
 }
 
-.textbox,
-.textbox-select {
+.form-tb,
+.form-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   padding: 10px;
@@ -51,20 +52,20 @@ html {
   outline-color: #66A3C9;
 }
 
-.textbox:hover,
-.textbox-select:hover {
+.form-tb:hover,
+.form-tb-select:hover {
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66A3C9;
 }
 
 
-.formGroup {
+.input-cont {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-label {
+input-label {
   font-size: 16px;
   font-weight: 500;
   margin-left: 8px;
@@ -84,7 +85,7 @@ label {
   white-space: nowrap;
 }
 
-.radioContainer label {
+.radioContainer .radio-label {
   flex: 0 0 auto; /* Prevent shrinking */
   white-space: nowrap; /* Ensure text stays in one line */
 }
@@ -96,12 +97,12 @@ label {
 }
 
 
-.textbox-select option {
+.form-tb-select option {
   font-size: 16px;
 }
 
 
-.textbox-select option {
+.form-tb-select option {
   white-space: nowrap;
   /* Prevents text from wrapping */
   overflow: hidden;
@@ -132,7 +133,7 @@ input[type="date"] {
 }
 
 /* Focus effect */
-.textbox:focus,
+.form-tb:focus,
 select:focus,
 input[type="date"]:focus,
 input[type="color"]:focus {
@@ -177,7 +178,8 @@ textarea:hover {
 }
 
 /* Styling for Submit Button */
-.submitButton {
+.form-btn-submit,
+.modal-btn-submit{
   width: 100%;
   height: 45px;
   background-color: #1B313E;
@@ -191,122 +193,112 @@ textarea:hover {
   margin-top: 10px;
 }
 
-.submitButton:hover {
+.form-btn-submit:hover,
+.modal-btn-submit:hover {
   background-color: #66A3C9;
 }
 
-/* Styling for check box */
-.ios-checkbox {
-  --checkbox-size: 21px;
-  --checkbox-color: #44A1DB;
-  --checkbox-bg: #dbeafe;
-  --checkbox-border: #93c5fd;
 
-  position: relative;
-  display: flex;
-  align-items: center;
+.ui-checkbox {
+  --primary-color: #1677ff;
+  --secondary-color: #fff;
+  --primary-hover-color: #4096ff;
+
+  --checkbox-diameter: 20px;
+  --checkbox-border-radius: 5px;
+  --checkbox-border-color: #d9d9d9;
+  --checkbox-border-width: 1px;
+  --checkbox-border-style: solid;
+  --checkmark-size: 1.2;
+}
+
+.ui-checkbox,
+.ui-checkbox *,
+.ui-checkbox *::before,
+.ui-checkbox *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+.ui-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--checkbox-diameter);
+  height: var(--checkbox-diameter);
+  border-radius: var(--checkbox-border-radius);
+  background: var(--secondary-color);
+  border: var(--checkbox-border-width) var(--checkbox-border-style) var(--checkbox-border-color);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
   cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  font-weight: 600;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.checkBoxContainer {
-  display: flex;
-  justify-content: start;
-}
-
-.ios-checkbox input {
-  display: none;
-}
-
-.checkbox-wrapper {
   position: relative;
-  width: var(--checkbox-size);
-  height: var(--checkbox-size);
-  transition: transform 0.2s ease;
 }
 
-.checkbox-bg {
+.ui-checkbox::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 1px;
-  border: 2px solid var(--checkbox-border);
-  background: white;
-  transition: all 0.2s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+  box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+  border-radius: inherit;
+  opacity: 0;
+  -webkit-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  -o-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
 }
 
-.checkbox-icon {
+.ui-checkbox::before {
+  top: 40%;
+  left: 50%;
+  content: "";
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  color: white;
-  transform: scale(0);
-  transition: all 0.2s ease;
+  width: 4px;
+  height: 7px;
+  border-right: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  -ms-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  opacity: 0;
+  -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+  -o-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+  transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
 }
 
-.check-path {
-  stroke-dasharray: 40;
-  stroke-dashoffset: 40;
-  transition: stroke-dashoffset 0.3s ease 0.1s;
+.ui-checkbox:hover {
+  border-color: var(--primary-color);
 }
 
-.ios-checkbox input:checked+.checkbox-wrapper .checkbox-bg {
-  background: var(--checkbox-color);
-  border-color: var(--checkbox-color);
+.ui-checkbox:checked {
+  background: var(--primary-color);
+  border-color: transparent;
 }
 
-.ios-checkbox input:checked+.checkbox-wrapper .checkbox-icon {
-  transform: scale(1);
+.ui-checkbox:checked::before {
+
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+  -ms-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+  transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+  -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+  -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+  transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
 
-.ios-checkbox input:checked+.checkbox-wrapper .check-path {
-  stroke-dashoffset: 0;
-}
+.ui-checkbox:active:not(:checked)::after {
+  -webkit-transition: none;
+  -o-transition: none;
+  -webkit-box-shadow: none;
 
-.ios-checkbox:hover .checkbox-wrapper {
-  transform: scale(1.05);
-}
-
-.ios-checkbox:active .checkbox-wrapper {
-  transform: scale(0.95);
-}
-
-.ios-checkbox input:focus+.checkbox-wrapper .checkbox-bg {
-  box-shadow: 0 0 0 4px var(--checkbox-bg);
-}
-
-span {
-  color: #66A3C9;
-}
-
-/* Color Themes */
-.ios-checkbox.blue {
-  --checkbox-color: #44A1DB;
-  --checkbox-bg: #dbeafe;
-  --checkbox-border: #AACBE1;
-}
-
-/* Animation */
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-.ios-checkbox input:checked+.checkbox-wrapper {
-  animation: bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  transition: none;
+  opacity: 1;
 }
 
 .checkbox {
@@ -332,6 +324,11 @@ span {
 
 }
 
+#checkbox-cont{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 /* Media Query for smaller screens */
 
@@ -340,14 +337,14 @@ span {
     width: 100%;
     flex-wrap: wrap;
   }
-  .textbox-select option {
+  .form-tb-select option {
     font-size: 16px;
   }
-  .textbox-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar {
     width: 8px;
 
   }
-  .textbox-select:focus {
+  .form-tb-select:focus {
     width: 90%;
   }
 
@@ -411,7 +408,7 @@ span {
     gap: 8px;
 
   }
-  .modal .modal-container {
+  .modal .modal-cont {
     width: 90%;
     padding: 5px;
     font-size: 12px;
@@ -421,25 +418,25 @@ span {
 
   }
 
-  .modal-container label{
+  .modal-cont label{
     font-size: 12px;
   }
 
-  .modal-container ::placeholder{
+  .modal-cont ::placeholder{
     font-size: 12px;
   }
   .modal label,  .modal span, .modal select, .modal p{
     font-size: 12px;
     margin: 0;
   }
-  .modal .textbox-select:focus {
+  .modal .form-tb-select:focus {
     width: fit-content;
   }
-  .modal .textbox-select {
+  .modal .form-tb-select {
     width: fit-content;
   }
 
-  .ios-checkbox{
+  #checkbox-cont{
     font-size: 12px;
   }
 
@@ -453,12 +450,12 @@ span {
     gap: 5px;
 
   }
-  .radioContainer label{
+  .radioContainer .radio-label{
     font-size: 12px;
   }
 }
 
-.radioContainer label {
+.radioContainer .radio-label {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -468,7 +465,7 @@ span {
 
 @media (max-width: 768px) {
 
-  .textbox,
+  .form-tb,
   .checkbox,
   .radio,
   select,
@@ -482,21 +479,21 @@ span {
 }
 
 @media (max-width:745px) {
-  .textbox-select option {
+  .form-tb-select option {
     font-size: 14px;
   }
-  .textbox-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar {
     width: 5px;
   }
 
-  .textbox-select:focus {
+  .form-tb-select:focus {
     width: 90%;
 
   }
 }
 @media (max-width:730px) {
 
-  .textbox-select:focus {
+  .form-tb-select:focus {
     width: 78%;
   }
   #inputCivilStatus{
@@ -517,7 +514,7 @@ span {
 
 }
 @media (max-width: 480px) {
-  .textbox,.checkbox,.radio,
+  .form-tb,.checkbox,.radio,
   select,
   input[type="date"],
   input[type="color"],
@@ -525,21 +522,21 @@ span {
     flex: 1 1 calc(90% - 10px);
   }
 
-  .textbox-select option {
+  .form-tb-select option {
     font-size: 16px;
   }
 
-  .textbox-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar {
     width: 8px;
 
   }
-  .textbox-select:focus {
+  .form-tb-select:focus {
    width: auto;
   }
 }
 
 @media(max-width:300px){
-  .modal .textbox{
+  .modal .form-tb{
    margin: 2px;
   padding: 6px;
   font-size: 12px;
@@ -548,7 +545,7 @@ span {
   .modal .radioContainer{
     margin: 0;
   }
-  .modal .radioContainer label {
+  .modal .radioContainer .radio-label {
     font-size: 10px;
   }
 }
@@ -578,7 +575,7 @@ span {
   align-items: center;
 }
 
-.modal-container {
+.modal-cont {
   background-color: white;
   padding: 4%;
   border-radius: 8px;

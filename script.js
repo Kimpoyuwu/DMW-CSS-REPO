@@ -26,7 +26,6 @@ document.getElementById("input-number").addEventListener("input", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-
     const form = document.querySelector("form");
 
     function validateForm() {
@@ -49,13 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 }
             } else if (input.type === "checkbox") {
-                const checkboxWrapper = input.closest(".ios-checkbox").querySelector(".checkbox-bg");
-
                 if (!input.checked) {
                     isValid = false;
-                    checkboxWrapper.style.border = "2px solid red";
+                    input.style.border = "2px solid red";
                 } else {
-                    checkboxWrapper.style.border = "2px solid var(--checkbox-border)";
+                    input.style.border = "1px solid #d9d9d9";
                 }
             } else {
                 if (input.value.trim() === "") {
@@ -70,14 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return isValid;
     }
 
-    document.getElementById("submitButton").addEventListener("click", function (event) {
+    document.getElementById("form-btn-submit").addEventListener("click", function (event) {
         if (!validateForm()) {
-            event.preventDefault(); // Prevent form submission if validation fails
+            event.preventDefault();
         }
     });
-
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -112,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    const form = document.getElementById("myForm");
+    const form = document.getElementById("form");
     const passwordInput = document.getElementById("password");
     const confirmPasswordInput = document.getElementById("confirmPassword");
 
@@ -208,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //modal
-const submitButton = document.getElementById("submit-Button");
-const modal = document.getElementById("myModal");
+const submitButton = document.getElementById("modal-btn");
+const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close");
 
 modal.style.display = "none";

@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const form = document.getElementById("form");
-    const passwordInput = document.getElementById("password");
-    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const passwordInput = document.getElementById("input-password");
+    const confirmPasswordInput = document.getElementById("input-confirmPassword");
 
     form.addEventListener("submit", function (event) {
         console.log("Form submitted");  // Debugging - Check if script runs
@@ -142,8 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("checkbox").addEventListener("change", function() {
-    const passwordField = document.getElementById("password");
-    passwordField.type = this.checked ? "text" : "password";
+    const passwordField = document.getElementById("input-password");
+    passwordField.type = this.checked ? "text" : "input-password";
 });
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input[required], select[required]");
@@ -181,8 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Validate Confirm Password
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
+    const password = document.getElementById("input-password");
+    const confirmPassword = document.getElementById("input-confirmPassword");
 
     confirmPassword.addEventListener("input", function () {
         if (confirmPassword.value !== password.value) {
@@ -195,8 +195,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show/hide password
     document.getElementById("checkbox").addEventListener("change", function () {
-        const password = document.getElementById("password");
-        const type = this.checked ? "text" : "password";
+        const password = document.getElementById("input-password");
+        const type = this.checked ? "text" : "input-password";
         password.type = type;
         console.log("sample");
     });
@@ -217,4 +217,5 @@ submitButton.addEventListener("click", function (event) {
 
 closeButton.addEventListener("click", function () {
     modal.style.display = "none";
+    document.body.style.overflow ="";
 });

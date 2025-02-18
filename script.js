@@ -12,7 +12,7 @@ function toggleGenderInput() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const textarea = document.getElementById("description");
+    const textarea = document.getElementById("input-textAreaControl");
     textarea.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";

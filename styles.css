@@ -18,7 +18,7 @@ html {
   padding: 5%;
 }
 
-.form-cont,
+.form-cont, .modal-cont
 .modal-content {
   display: flex;
   width: 100%;
@@ -51,7 +51,23 @@ html {
 .form-tb-email,
 .form-tb-password,
 .form-tb-confirmPassword,
-.form-tb-select {
+.form-tb-select ,
+.modal-tb-firstName,
+.modal-tb-middleName,
+.modal-tb-lastName,
+.modal-tb-middleInitial,
+.modal-tb-address,
+.modal-tb-barangay,
+.modal-tb-municipality,
+.modal-tb-province,
+.modal-tb-zipCode,
+.modal-tb-otherGender,
+.modal-tb-birthday,
+.modal-tb-number,
+.modal-tb-email,
+.modal-tb-password,
+.modal-tb-confirmPassword,
+.modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   padding: 10px;
@@ -65,19 +81,20 @@ html {
 }
 
 .form-tb:hover,
-.form-tb-select:hover {
+.form-tb-select:hover, .modal-tb:hover,
+.modal-tb-select:hover {
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
 
 .input-cont,
-.modal-input-cont {
+.modal-input-cont, .modal-cont{
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-input-label {
+.input-label {
   font-size: 16px;
   font-weight: 500;
   margin-left: 8px;
@@ -106,13 +123,12 @@ input-label {
   flex-shrink: 0;
 }
 
-.form-tb-select option {
+.form-tb-select option, .modal-tb-select option {
   font-size: 16px;
 }
 
-.form-tb-select option {
+.form-tb-select option, .modal-tb-select option{
   white-space: nowrap;
-  /* Prevents text from wrapping */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -140,7 +156,7 @@ input[type="date"] {
 }
 
 /* Focus effect */
-.form-tb:focus,
+.form-tb:focus, .modal-tb:focus,
 select:focus,
 input[type="date"]:focus,
 input[type="color"]:focus {
@@ -154,14 +170,14 @@ input[type="color"]:focus {
   margin: 5px;
 }
 
-.formTextAreaControl {
+.form-textAreaControl, .modal-textAreaControl {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-#description {
+#input-textAreaControl {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -344,13 +360,13 @@ textarea:hover {
     width: 100%;
     flex-wrap: wrap;
   }
-  .form-tb-select option {
+  .form-tb-select option, .modal-tb-select option {
     font-size: 16px;
   }
-  .form-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar, .modal-tb-select::-webkit-scrollbar {
     width: 8px;
   }
-  .form-tb-select:focus {
+  .form-tb-select:focus, .modal-tb-select:focus {
     width: 90%;
   }
 }
@@ -475,19 +491,19 @@ textarea:hover {
 }
 
 @media (max-width: 745px) {
-  .form-tb-select option {
+  .form-tb-select option, .modal-tb-select option {
     font-size: 14px;
   }
-  .form-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar, .modal-tb-select::-webkit-scrollbar {
     width: 5px;
   }
 
-  .form-tb-select:focus {
+  .form-tb-select:focus, .modal-tb-select:focus {
     width: 90%;
   }
 }
 @media (max-width: 730px) {
-  .form-tb-select:focus {
+  .form-tb-select:focus, .modal-tb-select:focus {
     width: 78%;
   }
   #inputCivilStatus {
@@ -505,7 +521,7 @@ textarea:hover {
   }
 }
 @media (max-width: 480px) {
-  .form-tb,
+  .form-tb, .modal-tb,
   .checkbox,
   .radio,
   select,
@@ -515,20 +531,20 @@ textarea:hover {
     flex: 1 1 calc(90% - 10px);
   }
 
-  .form-tb-select option {
+  .form-tb-select option, .modal-tb-select option {
     font-size: 16px;
   }
 
-  .form-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar,  .modal-tb-select::-webkit-scrollbar {
     width: 8px;
   }
-  .form-tb-select:focus {
+  .form-tb-select:focus,  .modal-tb-select:focus {
     width: auto;
   }
 }
 
 @media (max-width: 300px) {
-  .modal .form-tb {
+  .modal .form-tb,   .modal .modal-tb {
     margin: 2px;
     padding: 6px;
     font-size: 12px;

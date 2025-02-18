@@ -163,14 +163,14 @@
         </div>
     </form>
     <div id="modal" class="modal">
-        <div class="modal-cont">
+        <div class="modal-container">
             <span class="close">&times;</span>
             <div class="modal-title">
                 <p>This is modal</p>
             </div>
-            <div class="modal-content">
+            
                 <form id="modal-form" class="modal-form">
-                    <div class="modal-cont">
+                    <div class="modal-content">
                         <div class="modal-input-cont">
                             <label class="input-label">First Name</label>
                             <input type="text" class="modal-tb-firstName" id="input-name" name="firstName"
@@ -205,7 +205,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="modal-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Address</label>
                             <input type="text" class="modal-tb-address" id="input-address" name="address"
@@ -216,8 +215,8 @@
                             <input type="text" class="modal-tb-barangay" id="input-barangay" name="barangay" placeholder="Enter your Barangay"
                                 required>
                         </div>
-                    </div>
-                    <div class="modal-cont">
+                   
+                 
                         <div class="modal-input-cont">
                             <label class="input-label">Municipality</label>
                             <input type="text" class="modal-tb-municipality" id="input-municipality" name="municipality"
@@ -235,8 +234,8 @@
                             <input type="number" class="modal-tb-zipCode" id="input-zipCode" name="zipCode" placeholder="Enter your ZipCode"
                                 required>
                         </div>
-                    </div>
-                    <div class="modal-cont">
+                    
+                    
                         <div class="modal-input-cont">
                             <label class="input-label" id="gender-label">Gender</label>
                             <div class="radioContainer" id="radioBorder">
@@ -266,9 +265,9 @@
                             <input type="number" class="modal-tb-number" id="input-number" name="number"
                                 placeholder="Enter your Cellphone Number" required>
                         </div>
-                    </div>
+                    
 
-                    <div class="modal-cont">
+                    
                         <div class="modal-input-cont">
                             <label class="input-label">Civil Status</label>
                             <select name="civilStatus" id="input-CivilStatus" class="modal-tb-select" required>
@@ -285,8 +284,8 @@
                             <input type="email" class="modal-tb-email" id="input-email" name="email" placeholder="Enter your Email Adress"
                                 required>
                         </div>
-                    </div>
-                    <div class="modal-cont">
+                    
+                   
                         <div class="modal-input-cont">
                             <label class="input-label">Password</label>
                             <input type="password" class="modal-tb-password" id="input-password" name="password" placeholder="Enter your Password"
@@ -297,35 +296,34 @@
                             <input type="password" class="modal-tb-confirmPassword" id="input-confirmPassword" name="confirmPassword"
                                 placeholder="Confirm your Password" required>
                         </div>
-                    </div>
+                   
 
                     <div class="checkbox">
                         <input type="checkbox" id="checkbox">
                         <p id="show">Show Password</p>
                     </div>
 
-                    <div class="modal-cont">
+                    
                         <div class="modal-textAreaControl">
                             <label class="input-label">Other Details</label>
                             <textarea id="input-textAreaControl" name="message" rows="4"
                                 placeholder="Enter Additional Information"></textarea>
                         </div>
-                    </div>
-                    <div class="modal-cont checkBoxContainer">
+                   
+                    <div class="modal-content checkBoxContainer">
                         <label class="input-label" id="checkbox-cont">
                             <input type="checkbox" class="ui-checkbox" required>
                             I agree to the <span>terms of service.</span>
                         </label>
                     </div>
-                    <div class="modal-cont">
+                   
                         <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
-                    </div>
-                    <div class="modal-cont">
+                  
+                    
                         <input type="submit" value="Modal" class="modal-btn-submit" id="modal-btn">
-                    </div>
+                    
+                </div>
                 </form>
-            </div>
-        </div>
     </div>
 </body>
 <script src="script.js">

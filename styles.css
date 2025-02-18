@@ -18,8 +18,8 @@ html {
   padding: 5%;
 }
 
-.form-cont, .modal-cont
-.modal-content {
+.form-cont,
+.modal-content{
   display: flex;
   width: 100%;
   height: auto;
@@ -35,39 +35,17 @@ html {
   display: flex;
   flex-direction: row;
 }
-
-.form-tb-firstName,
-.form-tb-middleName,
-.form-tb-lastName,
-.form-tb-middleInitial,
-.form-tb-address,
-.form-tb-barangay,
-.form-tb-municipality,
-.form-tb-province,
-.form-tb-zipCode,
-.form-tb-otherGender,
-.form-tb-birthday,
-.form-tb-number,
-.form-tb-email,
-.form-tb-password,
-.form-tb-confirmPassword,
-.form-tb-select ,
-.modal-tb-firstName,
-.modal-tb-middleName,
-.modal-tb-lastName,
-.modal-tb-middleInitial,
-.modal-tb-address,
-.modal-tb-barangay,
-.modal-tb-municipality,
-.modal-tb-province,
-.modal-tb-zipCode,
-.modal-tb-otherGender,
-.modal-tb-birthday,
-.modal-tb-number,
-.modal-tb-email,
-.modal-tb-password,
-.modal-tb-confirmPassword,
-.modal-tb-select {
+.form-tb-firstName, .form-tb-middleName, .form-tb-lastName,
+.form-tb-middleInitial, .form-tb-address, .form-tb-barangay,
+.form-tb-municipality, .form-tb-province, .form-tb-zipCode,
+.form-tb-otherGender, .form-tb-birthday, .form-tb-number,
+.form-tb-email, .form-tb-password, .form-tb-confirmPassword,
+.form-tb-select, .modal-tb-firstName, .modal-tb-middleName,
+.modal-tb-lastName, .modal-tb-middleInitial, .modal-tb-address,
+.modal-tb-barangay, .modal-tb-municipality, .modal-tb-province,
+.modal-tb-zipCode, .modal-tb-otherGender, .modal-tb-birthday,
+.modal-tb-number, .modal-tb-email, .modal-tb-password,
+.modal-tb-confirmPassword, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   padding: 10px;
@@ -81,14 +59,14 @@ html {
 }
 
 .form-tb:hover,
-.form-tb-select:hover, .modal-tb:hover,
+.modal-tb:hover,
+.form-tb-select:hover,
 .modal-tb-select:hover {
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
 
-.input-cont,
-.modal-input-cont, .modal-cont{
+.input-cont {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -123,12 +101,15 @@ html {
   flex-shrink: 0;
 }
 
-.form-tb-select option, .modal-tb-select option {
+.form-tb-select option,
+.modal-tb-select option {
   font-size: 16px;
 }
 
-.form-tb-select option, .modal-tb-select option{
+.form-tb-select option,
+.modal-tb-select option {
   white-space: nowrap;
+  /* Prevents text from wrapping */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -150,14 +131,15 @@ input[type="date"] {
 }
 
 /* Styling for confirm password */
-#input-confirmPassword::-ms-reveal,
-#input-confirmPassword::-ms-clear {
+#confirmPassword::-ms-reveal,
+#confirmPassword::-ms-clear {
   display: none;
 }
 
 /* Focus effect */
-.form-tb:focus, .modal-tb:focus,
-select:focus,
+.form-tb:focus,
+.modal-tb:focus,
+.modal-select:focus, select:focus,
 input[type="date"]:focus,
 input[type="color"]:focus {
   border-color: #007bff;
@@ -170,7 +152,8 @@ input[type="color"]:focus {
   margin: 5px;
 }
 
-.form-textAreaControl, .modal-textAreaControl {
+.form-TextAreaControl,
+.modal-TextAreaControl {
   width: 100%;
   height: 100%;
   display: flex;
@@ -360,13 +343,16 @@ textarea:hover {
     width: 100%;
     flex-wrap: wrap;
   }
-  .form-tb-select option, .modal-tb-select option {
+  .form-tb-select option,
+  .modal-tb-select option {
     font-size: 16px;
   }
-  .form-tb-select::-webkit-scrollbar, .modal-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar,
+  .modal-tb-select::-webkit-scrollbar {
     width: 8px;
   }
-  .form-tb-select:focus, .modal-tb-select:focus {
+  .form-tb-select:focus,
+  .modal-tb-select:focus {
     width: 90%;
   }
 }
@@ -425,7 +411,7 @@ textarea:hover {
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
-  .modal .modal-cont {
+  .modal .modal-container {
     width: 90%;
     padding: 5px;
     font-size: 12px;
@@ -434,11 +420,11 @@ textarea:hover {
     padding: 10px;
   }
 
-  .modal-cont label {
+  .modal-container label {
     font-size: 12px;
   }
 
-  .modal-cont ::placeholder {
+  .modal-container ::placeholder {
     font-size: 12px;
   }
   .modal label,
@@ -480,6 +466,7 @@ textarea:hover {
 
 @media (max-width: 768px) {
   .form-tb,
+  .modal-tb,
   .checkbox,
   .radio,
   select,
@@ -491,19 +478,23 @@ textarea:hover {
 }
 
 @media (max-width: 745px) {
-  .form-tb-select option, .modal-tb-select option {
+  .form-tb-select option,
+  .modal-tb-select option {
     font-size: 14px;
   }
-  .form-tb-select::-webkit-scrollbar, .modal-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar,
+  .modal-tb-select::-webkit-scrollbar {
     width: 5px;
   }
 
-  .form-tb-select:focus, .modal-tb-select:focus {
+  .form-tb-select:focus,
+  .modal-tb-select:focus {
     width: 90%;
   }
 }
 @media (max-width: 730px) {
-  .form-tb-select:focus, .modal-tb-select:focus {
+  .form-tb-select:focus,
+  .modal-tb-select:focus {
     width: 78%;
   }
   #inputCivilStatus {
@@ -521,7 +512,8 @@ textarea:hover {
   }
 }
 @media (max-width: 480px) {
-  .form-tb, .modal-tb,
+  .form-tb,
+  .modal-tb,
   .checkbox,
   .radio,
   select,
@@ -531,20 +523,23 @@ textarea:hover {
     flex: 1 1 calc(90% - 10px);
   }
 
-  .form-tb-select option, .modal-tb-select option {
+  .form-tb-select option,
+  .modal-tb-select option {
     font-size: 16px;
   }
 
-  .form-tb-select::-webkit-scrollbar,  .modal-tb-select::-webkit-scrollbar {
+  .form-tb-select::-webkit-scrollbar,
+  .modal-tb-select::-webkit-scrollbar {
     width: 8px;
   }
-  .form-tb-select:focus,  .modal-tb-select:focus {
+  .form-tb-select:focus,
+  .modal-tb-select:focus {
     width: auto;
   }
 }
 
 @media (max-width: 300px) {
-  .modal .form-tb,   .modal .modal-tb {
+  .modal .form-tb {
     margin: 2px;
     padding: 6px;
     font-size: 12px;
@@ -582,7 +577,7 @@ textarea:hover {
   align-items: center;
 }
 
-.modal-cont {
+.modal-container {
   background-color: white;
   padding: 4%;
   border-radius: 8px;
@@ -596,10 +591,8 @@ textarea:hover {
 }
 
 .modal-content {
-  overflow-y:auto;
-  overflow-x:hidden;
+  overflow-y: auto; /* Enable vertical scrolling */
   max-height: 100%;
-  padding: 10px;
 }
 
 /* Hide scrollbar for Webkit (Chrome, Safari) */

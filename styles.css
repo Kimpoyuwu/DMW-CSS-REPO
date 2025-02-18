@@ -19,7 +19,7 @@ html {
 }
 
 .form-cont,
-.modal-cont {
+.modal-content {
   display: flex;
   width: 100%;
   height: auto;
@@ -70,7 +70,8 @@ html {
   border: solid 1px #66a3c9;
 }
 
-.input-cont {
+.input-cont,
+.modal-input-cont {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -413,7 +414,7 @@ textarea:hover {
     padding: 5px;
     font-size: 12px;
   }
-  .modal .modal-cont {
+  .modal .modal-content {
     padding: 10px;
   }
 
@@ -578,26 +579,28 @@ textarea:hover {
   position: relative;
 }
 
-.modal-cont {
-  overflow-y: auto; /* Enable vertical scrolling */
+.modal-content {
+  overflow-y:auto;
+  overflow-x:hidden;
   max-height: 100%;
+  padding: 10px;
 }
 
 /* Hide scrollbar for Webkit (Chrome, Safari) */
-.modal-cont::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar {
   width: 0.5px;
 }
 
-.modal-cont::-webkit-scrollbar-track {
+.modal-content::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-.modal-cont::-webkit-scrollbar-thumb {
+.modal-content::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 5px;
 }
 
-.modal-cont::-webkit-scrollbar-thumb:hover {
+.modal-content::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 

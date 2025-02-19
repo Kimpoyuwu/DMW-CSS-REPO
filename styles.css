@@ -45,12 +45,14 @@ form{
 .form-tb-date,
 .form-tb-email,
 .form-tb-password,
+.form-tb-confirmPassword,
 .form-tb-select,
 .modal-tb-text,
 .modal-tb-number,
 .modal-tb-date,
 .modal-tb-email,
 .modal-tb-password,
+.modal-tb-confirmPassword,
 .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
@@ -138,8 +140,8 @@ input[type="date"] {
 }
 
 /* Styling for confirm password */
-#input-confirmPassword::-ms-reveal,
-#input-confirmPassword::-ms-clear {
+#input-confirmPassword::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
+#input-confirmPassword::-ms-clear, #modal-tb-confirmPassword::-ms-clear {
   display: none;
 }
 

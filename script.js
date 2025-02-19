@@ -12,7 +12,7 @@ function toggleGenderInput() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const textarea = document.getElementById("description");
+    const textarea = document.getElementById("input-textAreaControl");
     textarea.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         inputs.forEach((input) => {
             if (input.type === "radio") {
-                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+                const radioGroup = document.querySelectorAll(input[name="${input.name}"]);
                 const isChecked = [...radioGroup].some(radio => radio.checked);
 
                 if (!isChecked) {

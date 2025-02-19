@@ -1,3 +1,4 @@
+//form js
 function toggleGenderInput() {
     let selectedGender = document.querySelector('input[name="gender"]:checked').value;
     let genderOthersContainer = document.getElementById("form-other-gender-cont");
@@ -196,13 +197,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show/hide password
     document.getElementById("form-tb-show-password").addEventListener("change", function () {
         const password = document.getElementById("form-tb-password");
-        const type = this.checked ? "text" : "form-tb-password";
+        const type = this.checked ? "text" : "password"; 
         password.type = type;
-        console.log("sample");
-    });
+    });    
 });
 
-//modal
+//modal js
 const submitButton = document.getElementById("modal-btn");
 const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close");
@@ -397,4 +397,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         confirmPassword.reportValidity();
     });
+     // Show/hide password
+     document.getElementById("modal-tb-show-password").addEventListener("change", function () {
+        const password = document.getElementById("modal-tb-password");
+        const type = this.checked ? "text" : "password"; 
+        password.type = type;
+    });   
 });

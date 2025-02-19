@@ -45,14 +45,12 @@ form{
 .form-tb-date,
 .form-tb-email,
 .form-tb-password,
-.form-tb-confirmPassword,
 .form-tb-select,
 .modal-tb-text,
 .modal-tb-number,
 .modal-tb-date,
 .modal-tb-email,
 .modal-tb-password,
-.modal-tb-confirmPassword,
 .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
@@ -92,7 +90,7 @@ form{
 
 /* Styling for a radio buttons */
 
-.radioContainer {
+.radio-cont {
   display: flex;
   flex-wrap: nowrap; /* Keep in one row */
   align-items: center;
@@ -103,12 +101,12 @@ form{
   white-space: nowrap;
 }
 
-.radioContainer .radio-label {
+.radio-cont .radio-label {
   flex: 0 0 auto; /* Prevent shrinking */
   white-space: nowrap; /* Ensure text stays in one line */
 }
 
-.radioContainer input[type="radio"] {
+.radio-cont input[type="radio"] {
   flex-shrink: 0;
 }
 
@@ -140,8 +138,8 @@ input[type="date"] {
 }
 
 /* Styling for confirm password */
-#input-confirmPassword::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
-#input-confirmPassword::-ms-clear, #modal-tb-confirmPassword::-ms-clear {
+#form-tb-confirm-password::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
+#form-tb-confirm-password::-ms-clear,  #modal-tb-confirmPassword::-ms-clear {
   display: none;
 }
 
@@ -155,19 +153,22 @@ input[type="color"]:focus {
 }
 
 /* Additional styles for checkbox, radio, and textarea */
-.checkbox,
+.form-tb-checkbox,
+.modal-tb-checkbox,
 .radio {
   margin: 5px;
 }
 
-.formTextAreaControl {
+.form-tb-textarea,
+.modal-tb-textarea {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-#description {
+#form-tb-textarea,
+#modal-tb-textarea {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -211,7 +212,8 @@ textarea:hover {
   background-color: #66a3c9;
 }
 
-.ui-checkbox {
+.form-tb-checkbox-agreement,
+.modal-tb-checkbox-agreement {
   --primary-color: #1677ff;
   --secondary-color: #fff;
   --primary-hover-color: #4096ff;
@@ -224,15 +226,24 @@ textarea:hover {
   --checkmark-size: 1.2;
 }
 
-.ui-checkbox,
-.ui-checkbox *,
-.ui-checkbox *::before,
-.ui-checkbox *::after {
+.form-tb-checkbox-agreement,
+.form-tb-checkbox-agreement *,
+.form-tb-checkbox-agreement *::before,
+.form-tb-checkbox-agreement *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.ui-checkbox {
+.modal-tb-checkbox-agreement,
+.modal-tb-checkbox-agreement *,
+.modal-tb-checkbox-agreement *::before,
+.modal-tb-checkbox-agreement *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-tb-checkbox-agreement,
+.modal-tb-checkbox-agreement {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -249,7 +260,8 @@ textarea:hover {
   position: relative;
 }
 
-.ui-checkbox::after {
+.form-tb-checkbox-agreement::after,
+.modal-tb-checkbox-agreement::after {
   content: "";
   position: absolute;
   top: 0;
@@ -266,7 +278,8 @@ textarea:hover {
   transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
 }
 
-.ui-checkbox::before {
+.form-tb-checkbox-agreement::before,
+.modal-tb-checkbox-agreement::before {
   top: 40%;
   left: 50%;
   content: "";
@@ -285,16 +298,19 @@ textarea:hover {
   transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
 }
 
-.ui-checkbox:hover {
+.form-tb-checkbox-agreement:hover,
+.modal-tb-checkbox-agreement:hover {
   border-color: var(--primary-color);
 }
 
-.ui-checkbox:checked {
+.form-tb-checkbox-agreement:checked,
+.modal-tb-checkbox-agreement:checked {
   background: var(--primary-color);
   border-color: transparent;
 }
 
-.ui-checkbox:checked::before {
+.form-tb-checkbox-agreement:checked::before,
+.modal-tb-checkbox-agreement:checked::before {
   opacity: 1;
   -webkit-transform: translate(-50%, -50%) rotate(45deg)
     scale(var(--checkmark-size));
@@ -306,7 +322,8 @@ textarea:hover {
   transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
 
-.ui-checkbox:active:not(:checked)::after {
+.form-tb-checkbox-agreement:active:not(:checked)::after,
+.modal-tb-checkbox-agreement:active:not(:checked)::after {
   -webkit-transition: none;
   -o-transition: none;
   -webkit-box-shadow: none;
@@ -316,7 +333,15 @@ textarea:hover {
   opacity: 1;
 }
 
-.checkbox {
+#modal-checkbox-label {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-tb-checkbox,
+.modal-tb-checkbox {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -325,7 +350,7 @@ textarea:hover {
   margin-bottom: 10px;
   font-weight: 500;
 }
-#checkbox {
+#form-tb-show-password{
   width: 30px;
   height: 20px;
   margin-left: 4px;
@@ -337,7 +362,7 @@ textarea:hover {
   font-size: 14px;
 }
 
-#checkbox-cont {
+#checkbox-label {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -378,7 +403,7 @@ textarea:hover {
 }
 
 @media (min-width: 1000px) {
-  .radioContainer {
+  .radio-cont {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
@@ -391,7 +416,7 @@ textarea:hover {
 }
 
 @media (max-width: 900px) {
-  .radioContainer {
+  .radio-cont {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 8px;
@@ -402,7 +427,7 @@ textarea:hover {
 }
 
 @media (max-width: 600px) {
-  .radioContainer {
+  .radio-cont {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 5px;
@@ -410,14 +435,14 @@ textarea:hover {
 }
 
 @media (max-width: 500px) {
-  .radioContainer {
+  .radio-cont {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
   .modal .modal-cont {
     width: 90%;
-    padding: 5px;
+    padding: 4%;
     font-size: 12px;
   }
   .modal .modal-content {
@@ -445,23 +470,23 @@ textarea:hover {
     width: fit-content;
   }
 
-  #checkbox-cont {
+  #checkbox-label {
     font-size: 12px;
   }
 }
 
 @media (max-width: 400px) {
-  .radioContainer {
+  .radio-cont {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 1 column per row */
     gap: 5px;
   }
-  .radioContainer .radio-label {
+  .radio-cont .radio-label {
     font-size: 12px;
   }
 }
 
-.radioContainer .radio-label {
+.radio-cont .radio-label {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -470,7 +495,8 @@ textarea:hover {
 
 @media (max-width: 768px) {
   .form-tb,
-  .checkbox,
+  .form-tb-checkbox,
+  .modal-tb-checkbox,
   .radio,
   select,
   input[type="date"],
@@ -502,7 +528,7 @@ textarea:hover {
 }
 
 @media (max-width: 700px) {
-  .radioContainer {
+  .radio-cont {
     flex-wrap: wrap;
     margin-left: 20px;
   }
@@ -512,7 +538,8 @@ textarea:hover {
 }
 @media (max-width: 480px) {
   .form-tb,
-  .checkbox,
+  .form-tb-checkbox,
+  .modal-tb-checkbox,
   .radio,
   select,
   input[type="date"],

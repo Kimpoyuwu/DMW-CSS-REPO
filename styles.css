@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 * {
   font-family: "Poppins", sans-serif;
   padding: 0;
@@ -7,8 +6,7 @@
   box-sizing: border-box;
 }
 
-body,
-html {
+body, html {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +16,7 @@ html {
   padding: 5%;
 }
 
-.form-cont,
-.modal-content {
+.form-cont, .modal-content {
   display: flex;
   width: 100%;
   height: auto;
@@ -35,23 +32,17 @@ html {
   display: flex;
   flex-direction: row;
 }
+
 form{
   margin: 0;
   padding: 0;
   align-items: center;
 }
-.form-tb-text,
-.form-tb-number,
-.form-tb-date,
-.form-tb-email,
-.form-tb-password,
-.form-tb-select,
-.modal-tb-text,
-.modal-tb-number,
-.modal-tb-date,
-.modal-tb-email,
-.modal-tb-password,
-.modal-tb-select {
+
+.form-tb-text, .form-tb-number, .form-tb-date,
+.form-tb-email, .form-tb-password, .form-tb-select,
+.modal-tb-text, .modal-tb-number, .modal-tb-date,
+.modal-tb-email, .modal-tb-password, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   padding: 10px;
@@ -64,12 +55,8 @@ form{
   outline-color: #66a3c9;
 }
 
-.form-tb-text:hover,
-.form-tb-number:hover,
-.form-tb-date:hover,
-.form-btn-email:hover,
-.form-btn-password:hover,
-.form-tb-select:hover {
+.form-tb-text:hover, .form-tb-number:hover, .form-tb-date:hover,
+.form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover {
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
@@ -89,21 +76,20 @@ form{
 }
 
 /* Styling for a radio buttons */
-
 .radio-cont {
   display: flex;
-  flex-wrap: nowrap; /* Keep in one row */
+  flex-wrap: nowrap; 
   align-items: center;
   gap: 10px;
-  overflow-x: auto; /* Allow horizontal scrolling */
+  overflow-x: auto;
   padding: 5px;
   margin-top: 5px;
   white-space: nowrap;
 }
 
 .radio-cont .radio-label {
-  flex: 0 0 auto; /* Prevent shrinking */
-  white-space: nowrap; /* Ensure text stays in one line */
+  flex: 0 0 auto; 
+  white-space: nowrap; 
 }
 
 .radio-cont input[type="radio"] {
@@ -116,18 +102,17 @@ form{
 
 .form-tb-select option {
   white-space: nowrap;
-  /* Prevents text from wrapping */
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Styling for Number */
+/* Style for Number */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-/* Styling for date picker */
+/* Style for date picker */
 input[type="date"] {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
@@ -137,7 +122,7 @@ input[type="date"] {
   box-sizing: border-box;
 }
 
-/* Styling for confirm password */
+/* Style for confirm password */
 #form-tb-confirm-password::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
 #form-tb-confirm-password::-ms-clear,  #modal-tb-confirmPassword::-ms-clear {
   display: none;
@@ -191,7 +176,7 @@ textarea:hover {
   border: solid 1px #66a3c9;
 }
 
-/* Styling for Submit Button */
+/* Style for Submit Button */
 .form-btn-submit,
 .modal-btn-submit {
   width: 100%;
@@ -217,7 +202,6 @@ textarea:hover {
   --primary-color: #1677ff;
   --secondary-color: #fff;
   --primary-hover-color: #4096ff;
-
   --checkbox-diameter: 20px;
   --checkbox-border-radius: 5px;
   --checkbox-border-color: #d9d9d9;
@@ -369,7 +353,6 @@ textarea:hover {
 }
 
 /* Media Query for smaller screens */
-
 @media (max-width: 1280px) {
   .container-small {
     width: 100%;

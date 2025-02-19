@@ -27,15 +27,13 @@ document.getElementById("form-tb-number").addEventListener("input", function () 
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-
-    function validateForm() {
+    function validateForm(form) {
         let isValid = true;
-        const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
+        const inputs = form.querySelectorAll("input[required], select[required], textarea[required]");
 
         inputs.forEach((input) => {
             if (input.type === "radio") {
-                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+                const radioGroup = form.querySelectorAll(`input[name="${input.name}"]`);
                 const isChecked = [...radioGroup].some(radio => radio.checked);
 
                 if (!isChecked) {
@@ -69,12 +67,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.getElementById("form-btn-submit").addEventListener("click", function (event) {
-        if (!validateForm()) {
+        const form = document.querySelector(".form");
+        if (!validateForm(form)) {
+            event.preventDefault();
+        }
+    });
+
+    document.getElementById("modal-btn-submit").addEventListener("click", function (event) {
+        const form = document.querySelector(".modal-form");
+        if (!validateForm(form)) {
             event.preventDefault();
         }
     });
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -197,9 +202,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show/hide password
     document.getElementById("form-tb-show-password").addEventListener("change", function () {
         const password = document.getElementById("form-tb-password");
-        const type = this.checked ? "text" : "password"; 
+        const type = this.checked ? "text" : "password";
         password.type = type;
-    });    
+    });
 });
 
 //modal js
@@ -243,53 +248,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("modal-tb-number").addEventListener("input", function () {
     this.value = this.value.slice(0, 11);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("modal");
-    function validateForm() {
-        let isValid = true;
-        const inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
-
-        inputs.forEach((input) => {
-            if (input.type === "radio") {
-                const radioGroup = document.querySelectorAll(input[name="${input.name}"]);
-                const isChecked = [...radioGroup].some(radio => radio.checked);
-
-                if (!isChecked) {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "2px solid red";
-                    });
-                    isValid = false;
-                } else {
-                    radioGroup.forEach(radio => {
-                        radio.style.outline = "none";
-                    });
-                }
-            } else if (input.type === "checkbox") {
-                if (!input.checked) {
-                    isValid = false;
-                    input.style.border = "2px solid red";
-                } else {
-                    input.style.border = "1px solid #d9d9d9";
-                }
-            } else {
-                if (input.value.trim() === "") {
-                    isValid = false;
-                    input.style.border = "2px solid red";
-                } else {
-                    input.style.border = "1px solid #ccc";
-                }
-            }
-        });
-
-        return isValid;
-    }
-    document.getElementById("modal-btn-submit").addEventListener("click", function (event) {
-        if (!validateForm()) {
-            event.preventDefault();
-        }
-    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -400,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
      // Show/hide password
      document.getElementById("modal-tb-show-password").addEventListener("change", function () {
         const password = document.getElementById("modal-tb-password");
-        const type = this.checked ? "text" : "password"; 
+        const type = this.checked ? "text" : "password";
         password.type = type;
-    });   
+    });
 });

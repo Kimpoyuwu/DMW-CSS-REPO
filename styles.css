@@ -9,11 +9,24 @@
 body, html {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
   min-height: 100vh;
   background-color: #ebebeb;
-  padding: 5%;
+  padding: 4%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+
+  position: absolute;
+  top: 30px; 
+  left: 5%; 
 }
 
 .form-cont, .modal-content {
@@ -137,11 +150,14 @@ input[type="color"]:focus {
   outline: none;
 }
 
-/* Additional styles for checkbox, radio, and textarea */
+
 .form-tb-checkbox,
 .modal-tb-checkbox,
 .radio {
   margin: 5px;
+  flex-direction: column;
+  display: flex;
+  align-items: start;
 }
 
 .form-tb-textarea,

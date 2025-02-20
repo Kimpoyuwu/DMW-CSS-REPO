@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body, html {
+.form {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -15,19 +15,6 @@ body, html {
   padding: 4%;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  width: 100%;
-  height: auto;
-  gap: 10px;
-
-  position: absolute;
-  top: 30px; 
-  left: 5%; 
-}
 
 .form-cont, .modal-content {
   display: flex;
@@ -54,6 +41,9 @@ form{
 
 .form-tb-text, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-select,
+.form-tb-search, .form-tb-url, .form-tb-range,
+.form-tb-month, .form-tb-week, .form-tb-time,
+.form-tb-date-time, .form-tb-color, .form-tb-file,
 .modal-tb-text, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
@@ -69,7 +59,10 @@ form{
 }
 
 .form-tb-text:hover, .form-tb-number:hover, .form-tb-date:hover,
-.form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover {
+.form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover,
+.form-tb-search:hover, .form-tb-url:hover, .form-tb-rangev,
+.form-tb-month:hover, .form-tb-weekv:hover, .form-tb-time:hover,
+.form-tb-date-time:hover, .form-tb-color:hover, .form-tb-file:hover{
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
@@ -194,7 +187,10 @@ textarea:hover {
 
 /* Style for Submit Button */
 .form-btn-submit,
-.modal-btn-submit {
+.modal-btn-submit,
+.form-btn-button,
+.form-btn-image,
+.form-btn-reset{
   width: 100%;
   height: 45px;
   background-color: #1b313e;
@@ -209,7 +205,10 @@ textarea:hover {
 }
 
 .form-btn-submit:hover,
-.modal-btn-submit:hover {
+.modal-btn-submit:hover,
+.form-btn-button:hover,
+.form-btn-image:hover,
+.form-btn-reset:hover {
   background-color: #66a3c9;
 }
 

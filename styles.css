@@ -645,3 +645,36 @@ textarea:hover {
   top: 1px;
   right: 12px;
 }
+
+.input-cont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px; /* Adjust as needed */
+}
+
+.input-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-tb-search {
+  width: 100%;
+  padding: 10px 12px 10px 40px; /* Adjust padding to accommodate the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  padding-left: 40px; /* Space for the icon */
+}
+
+.input-cont i {
+  position: absolute;
+  left: 18px; /* Adjust position */
+  top: 65%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+}

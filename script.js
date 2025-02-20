@@ -1,6 +1,9 @@
 //form js
-function toggleGenderInput() {
-    let selectedGender = document.querySelector('input[name="gender"]:checked').value;
+function formtoggleGenderInput() {
+    let selectedGender = document.getElementById("form-radio-male").checked ? "Male" :
+                         document.getElementById("form-radio-female").checked ? "Female" :
+                         document.getElementById("form-radio-other").checked ? "Other" : "";
+
     let genderOthersContainer = document.getElementById("form-other-gender-cont");
     let otherGenderInput = document.getElementById("form-other-gender");
 
@@ -225,8 +228,11 @@ closeButton.addEventListener("click", function () {
     document.body.style.overflow ="";
 });
 
-function toggleGenderInput() {
-    let selectedGender = document.querySelector('input[name="gender"]:checked').value;
+function modaltoggleGenderInput() {
+    let selectedGender = document.getElementById("modal-radio-male").checked ? "Male" :
+                         document.getElementById("modal-radio-female").checked ? "Female" :
+                         document.getElementById("modal-radio-other").checked ? "Other" : "";
+
     let genderOthersContainer = document.getElementById("modal-OtherGender");
     let otherGenderInput = document.getElementById("modal-radio-btn");
 

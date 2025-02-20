@@ -25,10 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.getElementById("form-tb-number").addEventListener("input", function () {
-    this.value = this.value.slice(0, 11);
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     function validateForm(form) {
         let isValid = true;
@@ -69,20 +65,39 @@ document.addEventListener("DOMContentLoaded", function () {
         return isValid;
     }
 
-    document.getElementById("form-btn-submit").addEventListener("click", function (event) {
+    function handleInputValidation(event) {
+        const input = event.target;
+        const allowedFields = [
+            "form-tb-firstName", "form-tb-middleName", "form-tb-LastName",
+            "form-tb-middleInitial", "form-tb-municipality", "form-tb-province",
+            "modal-tb-name", "modal-tb-middleName", "modal-tb-LastName",
+            "modal-tb-middleInitial", "modal-tb-municipality", "modal-tb-province"
+        ];
+
+        if (allowedFields.includes(input.id)) {
+            input.value = input.value.replace(/[^a-zA-Z ]/g, '');
+        }
+    }
+
+    document.querySelectorAll("input[type='text'], textarea").forEach(input => {
+        input.addEventListener("input", handleInputValidation);
+    });
+
+    document.getElementById("form-btn-submit")?.addEventListener("click", function (event) {
         const form = document.querySelector(".form");
-        if (!validateForm(form)) {
+        if (form && !validateForm(form)) {
             event.preventDefault();
         }
     });
 
-    document.getElementById("modal-btn-submit").addEventListener("click", function (event) {
+    document.getElementById("modal-btn-submit")?.addEventListener("click", function (event) {
         const form = document.querySelector(".modal-form");
-        if (!validateForm(form)) {
+        if (form && !validateForm(form)) {
             event.preventDefault();
         }
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
 

@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Input Fields</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <form id="form" class="form">
         <div class="form-cont">
             <div class="input-cont">
                 <label class="input-label">First Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-firstName" name="firstName" placeholder="Enter your First Name" required>
+                <input type="text" class="form-tb-text" id="form-tb-firstName" name="firstName"
+                     placeholder="Enter your First Name"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Middle Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-middleName" name="middleName" placeholder="Enter your Middle Name" required>
+                <input type="text" class="form-tb-text" id="form-tb-middleName" name="middleName"
+                     placeholder="Enter your Middle Name"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Last Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-LastName" name="lastName" placeholder="Enter your Last Name" required>
+                <input type="text" class="form-tb-text" id="form-tb-LastName" name="lastName"
+                    placeholder="Enter your Last Name"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Middle Initial</label>
-                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" name="middleInitial" placeholder="Middle Initial" required>
+                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" name="middleInitial"
+                     placeholder="Middle Initial" required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Suffix</label>
@@ -39,25 +48,32 @@
         <div class="form-cont">
             <div class="input-cont">
                 <label class="input-label">Address</label>
-                <input type="text" class="form-tb-text" id="form-tb-address" name="address" placeholder="Enter your House No, Building, Street Name." required>
+                <input type="text" class="form-tb-text" id="form-tb-address" name="address"
+                    placeholder="Enter your House No, Building, Street Name." required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Barangay</label>
-                <input type="text" class="form-tb-text" id="form-tb-barangay" name="barangay" placeholder="Enter your Barangay" required>
+                <input type="text" class="form-tb-text" id="form-tb-barangay" name="barangay"
+                    placeholder="Enter your Barangay" required>
             </div>
         </div>
         <div class="form-cont">
             <div class="input-cont">
                 <label class="input-label">Municipality</label>
-                <input type="text" class="form-tb-text" id="form-tb-municipality" name="municipality" placeholder="Enter your municipality" required>
+                <input type="text" class="form-tb-text" id="form-tb-municipality" name="municipality"
+                   placeholder="Enter your munucipality"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Province</label>
-                <input type="text" class="form-tb-text" id="form-tb-province" name="province" placeholder="Enter your Province" required>
+                <input type="text" class="form-tb-text" id="form-tb-province" name="province"
+                    placeholder="Enter your Province"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Zip Code</label>
-                <input type="number" class="form-tb-number" id="form-tb-zipCode" name="zipCode" placeholder="Enter your ZipCode" required>
+                <input type="number" class="form-tb-number" id="form-tb-zipCode" name="zipCode"
+                    placeholder="Enter your ZipCode" required>
             </div>
         </div>
         <div class="form-cont">
@@ -76,11 +92,13 @@
                         <input type="radio" id="form-radio-other" name="gender" value="Other"
                             onclick="formtoggleGenderInput()" required> Others
                     </label>
+
                 </div>
             </div>
-            <div class="input-cont" id="form-other-gender-cont">
+            <div class="input-cont" id="form-other-gender-cont" style="display: none;">
                 <label class="input-label">Enter your Gender</label>
-                <input type="text" class="form-tb-text" name="otherGender" id="form-other-gender" placeholder="Enter your Gender">
+                <input type="text" class="form-tb-text" name="otherGender" id="form-other-gender"
+                    placeholder="Enter your Gender">
             </div>
             <div class="input-cont">
                 <label class="input-label">Birthday</label>
@@ -88,9 +106,11 @@
             </div>
             <div class="input-cont">
                 <label class="input-label">Cellphone Number</label>
-                <input type="number" class="form-tb-number" id="form-tb-number" name="number" placeholder="Enter your Cellphone Number" required>
+                <input type="number" class="form-tb-number" id="form-tb-number" name="number"
+                    placeholder="Enter your Cellphone Number" required>
             </div>
-        </div> 
+        </div>
+
         <div class="form-cont">
             <div class="input-cont">
                 <label class="input-label">Civil Status</label>
@@ -102,34 +122,41 @@
                     <option value="Widowed">Widowed</option>
                 </select>
             </div>
+
             <div class="input-cont">
                 <label class="input-label">Email</label>
-                <input type="email" class="form-tb-email" id="form-tb-email" name="email" placeholder="Enter your Email Address" required>
+                <input type="email" class="form-tb-email" id="form-tb-email" name="email"
+                    placeholder="Enter your Email Adress" required>
             </div>
         </div>
         <div class="form-cont">
             <div class="input-cont">
                 <label class="input-label">Password</label>
-                <input type="password" class="form-tb-password" id="form-tb-password" name="password" placeholder="Enter your Password" required>
+                <input type="password" class="form-tb-password" id="form-tb-password" name="password"
+                    placeholder="Enter your Password" required>
             </div>
             <div class="input-cont">
-                <label class="input-label">Confirm Password</label>
-                <input type="password" class="form-tb-password" id="form-tb-confirm-password" name="confirmPassword" placeholder="Confirm your Password" required>
+                <label class="input-label">Confirm Passpassword</label>
+                <input type="password" class="form-tb-password" id="form-tb-confirm-password" name="confirmPassword"
+                    placeholder="Confirm your Password" required>
             </div>
         </div>
+
         <div class="form-tb-checkbox">
             <input type="checkbox" id="form-tb-show-password">
             <p id="show">Show Password</p>
         </div>
+
         <div class="form-cont">
             <div class="form-tb-textarea">
                 <label class="input-label">Other Details</label>
-                <textarea id="form-tb-textarea" name="message" rows="4" placeholder="Enter Additional Information"></textarea>
+                <textarea id="form-tb-textarea" name="message" rows="4"
+                    placeholder="Enter Additional Information"></textarea>
             </div>
         </div>
         <div class="form-cont">
             <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-tb-checkbox-agreement" id="form-tb-checkbox-agreement" required>
+                <input type="checkbox" class="form-tb-checkbox-agreement" id="form-tb-checkbox-agreemen" required>
                 I agree to the <span>terms of service.</span>
             </label>
         </div>
@@ -140,7 +167,6 @@
             <input type="submit" value="Modal" class="modal-btn-submit" id="modal-btn">
         </div>
     </form>
-    <!-- modal form -->
     <div id="modal" class="modal">
         <div class="modal-cont">
             <span class="close">&times;</span>
@@ -152,19 +178,27 @@
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">First Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-name" name="firstName" placeholder="Enter your First Name" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-name" name="firstName"
+
+                                placeholder="Enter your First Name" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Middle Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-middleName" name="middleName" placeholder="Enter your Middle Name" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-middleName" name="middleName"
+
+                                placeholder="Enter your Middle Name" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Last Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-LastName" name="lastName" placeholder="Enter your Last Name" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-LastName" name="lastName"
+
+                                placeholder="Enter your Last Name" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Middle Initial</label>
-                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial" name="middleInitial" placeholder="Middle Initial" required>
+                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
+
+                                placeholder="Middle Initial" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Suffix</label>
@@ -180,25 +214,32 @@
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Address</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-address" name="address" placeholder="Enter your House No, Building, Street Name." required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-address" name="address"
+                                placeholder="Enter your House No, Building, Street Name." required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Barangay</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-barangay" name="barangay" placeholder="Enter your Barangay" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-barangay" name="barangay" placeholder="Enter your Barangay"
+                                required>
                         </div>
                     </div>
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Municipality</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-municipality" name="municipality" placeholder="Enter your municipality" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-municipality" name="municipality"
+                                 placeholder="Enter your munucipality"
+                                required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Province</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-province" name="province" placeholder="Enter your Province" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-province" name="province"
+                               placeholder="Enter your Province"
+                                required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Zip Code</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-zipCode" name="zipCode" placeholder="Enter your ZipCode" required>
+                            <input type="number" class="modal-tb-number" id="modal-tb-zipCode" name="zipCode" placeholder="Enter your ZipCode"
+                                required>
                         </div>
                     </div>
                     <div class="form-cont">
@@ -216,11 +257,13 @@
                                     <input type="radio" name="gender" id="modal-radio-other" value="Other" onclick="modaltoggleGenderInput()"
                                         required> Others
                                 </label>
+
                             </div>
                         </div>
-                        <div class="modal-input-cont" id="modal-OtherGender">
+                        <div class="modal-input-cont" id="modal-OtherGender" style="display: none;">
                             <label class="input-label">Enter your Gender</label>
-                            <input type="text" class="modal-tb-text" name="otherGender" id="modal-tb-otherGender" placeholder="Enter your Gender">
+                            <input type="text" class="modal-tb-text" name="otherGender" id="modal-tb-otherGender"
+                                placeholder="Enter your Gender">
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Birthday</label>
@@ -228,9 +271,11 @@
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Cellphone Number</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-number" name="number" placeholder="Enter your Cellphone Number" required>
+                            <input type="number" class="modal-tb-number" id="modal-tb-number" name="number"
+                                placeholder="Enter your Cellphone Number" required>
                         </div>
                     </div>
+
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Civil Status</label>
@@ -242,34 +287,41 @@
                                 <option value="Widowed">Widowed</option>
                             </select>
                         </div>
+
                         <div class="modal-input-cont">
                             <label class="input-label">Email</label>
-                            <input type="email" class="modal-tb-email" id="modal-tb-email" name="email" placeholder="Enter your Email Address" required>
+                            <input type="email" class="modal-tb-email" id="modal-tb-email" name="email" placeholder="Enter your Email Adress"
+                                required>
                         </div>
                     </div>
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-password" name="password" placeholder="Enter your Password" required>
+                            <input type="password" class="modal-tb-password" id="modal-tb-password" name="password" placeholder="Enter your Password"
+                                required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Confirm Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" name="confirmPassword" placeholder="Confirm your Password" required>
+                            <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" name="confirmPassword"
+                                placeholder="Confirm your Password" required>
                         </div>
                     </div>
+
                     <div class="modal-tb-checkbox">
                         <input type="checkbox" id="modal-tb-show-password">
                         <p id="show">Show Password</p>
                     </div>
+
                     <div class="form-cont">
                         <div class="modal-tb-textarea">
                             <label class="input-label">Other Details</label>
-                            <textarea id="modal-tb-textarea" name="message" rows="4" placeholder="Enter Additional Information"></textarea>
+                            <textarea id="modal-tb-textarea" name="message" rows="4"
+                                placeholder="Enter Additional Information"></textarea>
                         </div>
                     </div>
                     <div class="form-cont">
                         <label class="input-label" id="modal-checkbox-label">
-                            <input type="checkbox" class="modal-tb-checkbox-agreement" id="form-tb-checkbox-agreement" required>
+                            <input type="checkbox" class="modal-tb-checkbox-agreement" id="form-tb-checkbox-agreemen" required>
                             I agree to the <span>terms of service.</span>
                         </label>
                     </div>
@@ -280,6 +332,9 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
+<script src="script.js">
+
+</script>
+
 </html>

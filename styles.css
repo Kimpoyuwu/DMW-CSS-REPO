@@ -91,7 +91,7 @@ form{
 /* Styling for a radio buttons */
 .radio-cont {
   display: flex;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
   align-items: center;
   gap: 10px;
   overflow-x: auto;
@@ -101,8 +101,8 @@ form{
 }
 
 .radio-cont .radio-label {
-  flex: 0 0 auto; 
-  white-space: nowrap; 
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .radio-cont input[type="radio"] {

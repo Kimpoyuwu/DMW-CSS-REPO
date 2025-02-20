@@ -22,6 +22,17 @@ document.addEventListener("DOMContentLoaded", function () {
         this.style.height = this.scrollHeight + "px";
     });
 });
+document.getElementById("form-tb-file").addEventListener("change", function(event) {
+    let fileList = document.getElementById("file-list");
+    fileList.innerHTML = ""; // Clear previous list
+
+    // Loop through selected files
+    Array.from(event.target.files).forEach((file, index) => {
+        let listItem = document.createElement("li");
+        listItem.textContent = file.name;
+        fileList.appendChild(listItem);
+    });
+});
 
 
 

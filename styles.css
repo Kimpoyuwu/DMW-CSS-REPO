@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.form {
+.form{
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -33,16 +33,12 @@
   flex-direction: row;
 }
 
-form{
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
+
 
 .form-tb-text, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
-.form-tb-month, .form-tb-week, .form-tb-time,
+.form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
 .form-tb-date-time, .form-tb-color, .form-tb-file,
 .modal-tb-text, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select {
@@ -56,15 +52,24 @@ form{
   border: solid 0.9px rgba(19, 19, 19, 0.1);
   box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
   outline-color: #66a3c9;
+  background-color: white;
 }
 
 .form-tb-text:hover, .form-tb-number:hover, .form-tb-date:hover,
 .form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover,
 .form-tb-search:hover, .form-tb-url:hover, .form-tb-rangev,
 .form-tb-month:hover, .form-tb-weekv:hover, .form-tb-time:hover,
-.form-tb-date-time:hover, .form-tb-color:hover, .form-tb-file:hover{
+.form-tb-date-time:hover, .form-tb-range:hover, .form-tb-color:hover, .form-tb-file:hover{
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
+}
+
+.form-tb-list{
+  min-height: 45px;
+  max-height: 80px;
+  list-style-type: none;
+  appearance: none;
+  overflow: auto;
 }
 
 .input-cont,
@@ -471,6 +476,16 @@ textarea:hover {
   #checkbox-label {
     font-size: 12px;
   }
+  *{
+    font-size: 12px;
+
+  }
+  *::placeholder{
+    font-size: 12px;
+  }
+  label{
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -482,6 +497,11 @@ textarea:hover {
   .radio-cont .radio-label {
     font-size: 12px;
   }
+  .form-tb-file{
+    padding: 5px;
+    width: 250px;
+  }
+
 }
 
 .radio-cont .radio-label {

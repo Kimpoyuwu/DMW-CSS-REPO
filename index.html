@@ -147,12 +147,20 @@
             <input type="checkbox" id="form-tb-show-password">
             <p id="show">Show Password</p>
         </div>
-            <div class="form-cont">
-                <div class="input-cont">
-                    <label class="input-label">Search</label>
+        <div class="form-cont">
+            <div class="input-cont">
+                <label for="form-tb-search" class="input-label">Search</label>
+                <div class="input-wrapper">
                     <i class="fas fa-search"></i>
                     <input type="search" class="form-tb-search" id="form-tb-search" name="search" placeholder="Search">
                 </div>
+            </div>
+  
+                <div class="input-cont">
+                    <label class="input-label">URL</label>
+                    <input type="url" class="form-tb-url" id="form-tb-url" name="url" placeholder="Enter URL">
+                </div>
+
                 <div class="input-cont">
                     <label class="input-label">Month</label>
                     <input type="month" class="form-tb-month" id="form-tb-month" name="month">
@@ -174,17 +182,23 @@
                     <input type="datetime-local" class="form-tb-date-time" id="form-tb-date-time" name="datetime-local">
                 </div>
                 <div class="input-cont">
-                    <label class="input-label">File</label>
-                    <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
+                    <label class="input-label">Range</label>
+                    <input type="range" class="form-tb-range" id="form-tb-range" name="range" min="0" max="100">
                 </div>
                 <div class="input-cont">
-                    <label class="input-label">List of Uploaded File</label>
-                    <ul class="form-tb-list" id="file-list"></ul>
+                    <label class="input-label">Color</label>
+                    <input type="color" class="form-tb-color" id="form-tb-color" name="color">
                 </div>
-
-
+                <div class="input-cont">
+                    <label class="input-label">File</label>
+                    <input type="file" class="form-tb-file" id="form-tb-file" name="file">
+                </div>
             </div>
             <div class="form-cont">
+            <div class="input-cont">
+                <label class="input-label">Image Button</label>
+                <input type="image" class="form-btn-image" id="form-btn-image" src="pic.png" alt="Submit Button">
+            </div>
             <div class="input-cont">
                 <label class="input-label">Button</label>
                 <input type="button" class="form-btn-button" id="form-btn-button" value="Click Me">

@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: start;
   min-height: 100vh;
-  background-color: #ebebeb;
+  background-color: #fcfcfc;
   padding: 4%;
 }
 
@@ -113,7 +113,7 @@
   padding: 10px;
   font-size: 16px;
   border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   box-sizing: border-box;
   border: solid 0.9px rgba(19, 19, 19, 0.1);
   box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
@@ -178,6 +178,24 @@
   width: 100%;
 }
 
+#file-list-cont a{
+  font-size: 14px;
+  color: #22a0ee;
+}
+
+#file-list-cont a:hover{
+  color: #015cb1;
+}
+
+#file-list {
+  gap: 10px;
+  border: solid 0.5px #66a3c9;
+  border-radius: 10px;
+  padding: 12px;
+  scrollbar-width: none;
+  overflow: auto;
+}
+
 
 /* Styling for a radio buttons */
 .radio-cont {
@@ -214,16 +232,6 @@
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-}
-
-/* Style for date picker */
-input[type="date"] {
-  flex: 1 1 calc(20% - 10px);
-  margin: 5px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
 /* Style for confirm password */
@@ -418,7 +426,7 @@ input[type="date"] {
 
 textarea {
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: solid 0.9px rgba(19, 19, 19, 0.1);
   box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
   outline-color: #66a3c9;
@@ -438,7 +446,7 @@ textarea:hover {
   height: 45px;
   background-color: #1b313e;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 12px;
   font-size: 16px;
   border: none;

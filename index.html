@@ -194,7 +194,7 @@
                     <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
                 </div>
         <!-- Container for showing list of inputted file -->
-                <div class="input-cont">
+                <div class="input-cont" id="file-list-cont" style="display: none;">
                     <label class="input-label">List of Uploaded File</label>
                     <ul class="form-tb-list" id="file-list"></ul>
                 </div>
@@ -215,25 +215,17 @@
             </label>
         </div>
           <div class="form-cont">
-        <!-- Button Input Type -->
-            <div class="input-cont">
-                <label class="input-label">Button</label>
-                <input type="button" class="form-btn-button" id="form-btn-button" value="Click Me">
-            </div>
         <!-- Reset Input Type -->
             <div class="input-cont">
-                <label class="input-label">Reset</label>
                 <input type="reset" class="form-btn-reset" id="form-btn-reset" value="Reset">
             </div>
-        </div>
-        <div class="form-cont">
-        <!-- Submit Button Input Type -->
-            <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
-        </div>
+            <div class="input-cont">
+                <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
 
-        <div class="form-cont">
-        <!-- Button to open modal -->
-            <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
+            </div>
+            <div class="input-cont">
+                <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
+            </div>
         </div>
     </form>
     <!-- Modal -->

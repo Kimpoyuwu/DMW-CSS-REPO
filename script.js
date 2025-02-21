@@ -1,8 +1,8 @@
 // Showing text field for other gender (form)
 function formtoggleGenderInput() {
     let selectedGender = document.getElementById("form-radio-male").checked ? "Male" :
-                         document.getElementById("form-radio-female").checked ? "Female" :
-                         document.getElementById("form-radio-other").checked ? "Other" : "";
+        document.getElementById("form-radio-female").checked ? "Female" :
+            document.getElementById("form-radio-other").checked ? "Other" : "";
 
     let genderOthersContainer = document.getElementById("form-other-gender-cont");
     let otherGenderInput = document.getElementById("form-other-gender");
@@ -24,15 +24,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Showing File name in the list
-document.getElementById("form-tb-file").addEventListener("change", function(event) {
-    let fileList = document.getElementById("file-list");
-    fileList.innerHTML = "";
 
-    Array.from(event.target.files).forEach((file, index) => {
-        let listItem = document.createElement("li");
-        listItem.textContent = file.name;
-        fileList.appendChild(listItem);
+// Showing File name in the list
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('form-tb-file').addEventListener('change', function () {
+        const fileListCont = document.getElementById('file-list-cont');
+        const fileList = document.getElementById('file-list');
+        fileList.innerHTML = '';
+
+        if (this.files.length > 0) {
+            fileListCont.style.display = 'block';
+
+            Array.from(this.files).forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.textContent = file.name;
+                fileList.appendChild(listItem);
+            });
+        } else {
+            fileListCont.style.display = 'none';
+        }
+    });
+    let fileInput = document.getElementById("form-tb-file");
+    let fileList = document.getElementById("file-list");
+    let storedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
+    function updateFileList(files) {
+        fileList.innerHTML = "";
+        files.forEach((file) => {
+            let listItem = document.createElement("li");
+            let fileLink = document.createElement("a");
+
+            fileLink.href = file.url;
+            fileLink.textContent = file.name;
+            fileLink.target = "_blank";
+
+            listItem.appendChild(fileLink);
+            fileList.appendChild(listItem);
+        });
+    }
+    updateFileList(storedFiles);
+    fileInput.addEventListener("change", function (event) {
+        let newFiles = Array.from(event.target.files).map((file) => ({
+            name: file.name,
+            url: URL.createObjectURL(file),
+        }));
+
+        storedFiles = [...storedFiles, ...newFiles];
+        localStorage.setItem("uploadedFiles", JSON.stringify(storedFiles));
+
+        updateFileList(storedFiles);
+    });
+    window.addEventListener("beforeunload", function (event) {
+        if (storedFiles.length > 0) {
+            event.preventDefault();
+            event.returnValue = "Are you sure you want to refresh? Uploaded files will be removed.";
+        }
+    });
+    window.addEventListener("unload", function () {
+        localStorage.removeItem("uploadedFiles");
     });
 });
 
@@ -175,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Show/hide password
-document.getElementById("form-tb-show-password").addEventListener("change", function() {
+document.getElementById("form-tb-show-password").addEventListener("change", function () {
     const passwordField = document.getElementById("form-tb-password");
     passwordField.type = this.checked ? "text" : "form-tb-password";
 });
@@ -246,19 +294,19 @@ modal.style.display = "none";
 
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
-    document.body.style.overflow ="hidden";
+    document.body.style.overflow = "hidden";
     modal.style.display = "flex";
 });
 
 closeButton.addEventListener("click", function () {
     modal.style.display = "none";
-    document.body.style.overflow ="";
+    document.body.style.overflow = "";
 });
 // Showing text field for other
 function modaltoggleGenderInput() {
     let selectedGender = document.getElementById("modal-radio-male").checked ? "Male" :
-                         document.getElementById("modal-radio-female").checked ? "Female" :
-                         document.getElementById("modal-radio-other").checked ? "Other" : "";
+        document.getElementById("modal-radio-female").checked ? "Female" :
+            document.getElementById("modal-radio-other").checked ? "Other" : "";
 
     let genderOthersContainer = document.getElementById("modal-OtherGender");
     let otherGenderInput = document.getElementById("modal-radio-btn");
@@ -348,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Show/hide password
-document.getElementById("modal-tb-show-password").addEventListener("change", function() {
+document.getElementById("modal-tb-show-password").addEventListener("change", function () {
     const passwordField = document.getElementById("modal-tb-password");
     passwordField.type = this.checked ? "text" : "modal-tb-password";
 });
@@ -396,8 +444,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         confirmPassword.reportValidity();
     });
-     // Show/hide password
-     document.getElementById("modal-tb-show-password").addEventListener("change", function () {
+    // Show/hide password
+    document.getElementById("modal-tb-show-password").addEventListener("change", function () {
         const password = document.getElementById("modal-tb-password");
         const type = this.checked ? "text" : "password";
         password.type = type;

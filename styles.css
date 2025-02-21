@@ -64,25 +64,6 @@
   border: solid 1px #66a3c9;
 }
 
-.search-container {
-  position: relative;
-  display: inline-block;
-}
-
-.form-tb-search {
-  padding-left: 25px; /* Space for the icon */
-}
-
-.search-container::before {
-  content: "🔍"; /* Unicode for search icon */
-  position: absolute;
-  left: 8px; /* Adjust position */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  pointer-events: none; /* Ensures the icon does not interfere with input */
-}
-
 .form-tb-list{
   min-height: 45px;
   max-height: 80px;
@@ -683,4 +664,29 @@ textarea:hover {
   position: absolute;
   top: 1px;
   right: 12px;
+}
+
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 10px; 
+  color: #999; 
+  margin-left: 7px;
+}
+
+.fa-search{
+  margin-right: 8px;
+  width: 8px;
+}
+
+.form-tb-search {
+  padding-left: 30px; 
+  width: 100%;
 }

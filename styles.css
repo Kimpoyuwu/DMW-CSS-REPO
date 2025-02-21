@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Styling Universal, form and modal*/
 * {
   font-family: "Poppins", sans-serif;
   padding: 0;
@@ -28,18 +29,83 @@
   justify-content: space-between;
 }
 
-.container-small {
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
+.modal-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
 
+.modal-cont {
+  background-color: white;
+  padding: 4%;
+  border-radius: 8px;
+  width: 68%;
+  max-width: 100%;
+  max-height: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
+.modal-content {
+  overflow-y:auto;
+  overflow-x:hidden;
+  max-height: 100%;
+  padding: 10px;
+}
+.modal-content::-webkit-scrollbar {
+  width: 0.5px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 1px;
+  right: 12px;
+}
+
+/* Inputs Style */
 .form-tb-text, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
-.form-tb-date-time, .form-tb-color, .form-tb-file,
+.form-tb-date-time, .form-tb-file,
 .modal-tb-text, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
@@ -59,7 +125,7 @@
 .form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover,
 .form-tb-search:hover, .form-tb-url:hover, .form-tb-rangev,
 .form-tb-month:hover, .form-tb-weekv:hover, .form-tb-time:hover,
-.form-tb-date-time:hover, .form-tb-range:hover, .form-tb-color:hover, .form-tb-file:hover{
+.form-tb-date-time:hover, .form-tb-range:hover, .form-tb-file:hover{
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
@@ -67,6 +133,7 @@
 .form-tb-list{
   min-height: 45px;
   max-height: 80px;
+  min-width: 250px;
   list-style-type: none;
   appearance: none;
   overflow: auto;
@@ -86,6 +153,32 @@
   margin-bottom: 5px;
 }
 
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 10px;
+  color: #999;
+  margin-left: 7px;
+}
+
+.fa-search{
+  margin-right: 8px;
+  width: 8px;
+}
+
+.form-tb-search {
+  padding-left: 30px;
+  width: 100%;
+}
+
+
 /* Styling for a radio buttons */
 .radio-cont {
   display: flex;
@@ -98,20 +191,20 @@
   white-space: nowrap;
 }
 
-.radio-cont .radio-label {
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
 .radio-cont input[type="radio"] {
   flex-shrink: 0;
 }
 
-.form-tb-select option {
-  font-size: 16px;
+.radio-cont .radio-label {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .form-tb-select option {
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -139,16 +232,7 @@ input[type="date"] {
   display: none;
 }
 
-/* Focus effect */
-.form-tb:focus,
-select:focus,
-input[type="date"]:focus,
-input[type="color"]:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-
+/* Styling for checkbox and teaxtarea */
 .form-tb-checkbox,
 .modal-tb-checkbox,
 .radio {
@@ -156,65 +240,6 @@ input[type="color"]:focus {
   flex-direction: column;
   display: flex;
   align-items: start;
-}
-
-.form-tb-textarea,
-.modal-tb-textarea {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-#form-tb-textarea,
-#modal-tb-textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  outline: none;
-  box-sizing: border-box;
-  max-height: 350px;
-  resize: none;
-}
-
-textarea {
-  padding: 10px;
-  border-radius: 5px;
-  border: solid 0.9px rgba(19, 19, 19, 0.1);
-  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
-  outline-color: #66a3c9;
-}
-
-textarea:hover {
-  box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
-  border: solid 1px #66a3c9;
-}
-
-/* Style for Submit Button */
-.form-btn-submit,
-.modal-btn-submit,
-.form-btn-button,
-.form-btn-image,
-.form-btn-reset{
-  width: 100%;
-  height: 45px;
-  background-color: #1b313e;
-  color: white;
-  border-radius: 5px;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.form-btn-submit:hover,
-.modal-btn-submit:hover,
-.form-btn-button:hover,
-.form-btn-image:hover,
-.form-btn-reset:hover {
-  background-color: #66a3c9;
 }
 
 .form-tb-checkbox-agreement,
@@ -372,7 +397,66 @@ textarea:hover {
   gap: 10px;
 }
 
+.form-tb-textarea,
+.modal-tb-textarea {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#form-tb-textarea,
+#modal-tb-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  max-height: 350px;
+  resize: none;
+}
+
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 0.9px rgba(19, 19, 19, 0.1);
+  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
+  outline-color: #66a3c9;
+}
+
+textarea:hover {
+  box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
+  border: solid 1px #66a3c9;
+}
+
+/* Style for Buttons */
+.form-btn-submit,
+.modal-btn-submit,
+.form-btn-button,
+.form-btn-reset{
+  width: 100%;
+  height: 45px;
+  background-color: #1b313e;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-btn-submit:hover,
+.modal-btn-submit:hover,
+.form-btn-button:hover,
+.form-btn-reset:hover {
+  background-color: #66a3c9;
+}
+
 /* Media Query for smaller screens */
+
+
 @media (max-width: 1280px) {
   .container-small {
     width: 100%;
@@ -386,12 +470,6 @@ textarea:hover {
   }
   .form-tb-select:focus {
     width: 90%;
-  }
-}
-
-@media (max-width: 790px) {
-  .modal .radioContainer {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -426,6 +504,57 @@ textarea:hover {
   }
   .modal .radioContainer {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+@media (max-width: 790px) {
+  .modal .radioContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-tb,
+  .form-tb-checkbox,
+  .modal-tb-checkbox,
+  .radio,
+  select,
+  input[type="date"],
+  input[type="color"],
+  textarea {
+    flex: 1 1 calc(45% - 10px);
+  }
+}
+
+@media (max-width: 745px) {
+  .form-tb-select option {
+    font-size: 14px;
+  }
+  .form-tb-select::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .form-tb-select:focus {
+    width: 90%;
+  }
+}
+@media (max-width: 730px) {
+  .form-tb-select:focus {
+    width: 78%;
+  }
+  #inputCivilStatus {
+    display: flex;
+  }
+}
+
+@media (max-width: 700px) {
+  .radio-cont {
+    flex-wrap: wrap;
+    margin-left: 20px;
+  }
+  .modal .radioContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -491,7 +620,7 @@ textarea:hover {
 @media (max-width: 400px) {
   .radio-cont {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 1 column per row */
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px;
   }
   .radio-cont .radio-label {
@@ -504,56 +633,6 @@ textarea:hover {
 
 }
 
-.radio-cont .radio-label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .form-tb,
-  .form-tb-checkbox,
-  .modal-tb-checkbox,
-  .radio,
-  select,
-  input[type="date"],
-  input[type="color"],
-  textarea {
-    flex: 1 1 calc(45% - 10px);
-  }
-}
-
-@media (max-width: 745px) {
-  .form-tb-select option {
-    font-size: 14px;
-  }
-  .form-tb-select::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  .form-tb-select:focus {
-    width: 90%;
-  }
-}
-@media (max-width: 730px) {
-  .form-tb-select:focus {
-    width: 78%;
-  }
-  #inputCivilStatus {
-    display: flex;
-  }
-}
-
-@media (max-width: 700px) {
-  .radio-cont {
-    flex-wrap: wrap;
-    margin-left: 20px;
-  }
-  .modal .radioContainer {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 @media (max-width: 480px) {
   .form-tb,
   .form-tb-checkbox,
@@ -591,102 +670,4 @@ textarea:hover {
   .modal .radioContainer .radio-label {
     font-size: 10px;
   }
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-title {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 10px;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-cont {
-  background-color: white;
-  padding: 4%;
-  border-radius: 8px;
-  width: 68%;
-  max-width: 100%;
-  max-height: 90%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.modal-content {
-  overflow-y:auto;
-  overflow-x:hidden;
-  max-height: 100%;
-  padding: 10px;
-}
-
-/* Hide scrollbar for Webkit (Chrome, Safari) */
-.modal-content::-webkit-scrollbar {
-  width: 0.5px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.close {
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  position: absolute;
-  top: 1px;
-  right: 12px;
-}
-
-
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  
-}
-
-.input-wrapper i {
-  position: absolute;
-  left: 10px; 
-  color: #999; 
-  margin-left: 7px;
-}
-
-.fa-search{
-  margin-right: 8px;
-  width: 8px;
-}
-
-.form-tb-search {
-  padding-left: 30px; 
-  width: 100%;
 }

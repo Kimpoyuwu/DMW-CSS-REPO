@@ -11,7 +11,9 @@
 
 <body>
     <form id="form" class="form">
+        <!-- For horizontal line -->
         <div class="form-cont">
+            <!-- Text Input Type -->
             <div class="input-cont">
                 <label class="input-label">First Name</label>
                 <input type="text" class="form-tb-text" id="form-tb-firstName" name="firstName"
@@ -35,6 +37,7 @@
                 <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" name="middleInitial"
                      placeholder="Middle Initial" required>
             </div>
+            <!-- Dropdown Button -->
             <div class="input-cont">
                 <label class="input-label">Suffix</label>
                 <select id="form-tb-suffix" name="suffix" class="form-tb-select">
@@ -71,6 +74,7 @@
                     placeholder="Enter your Province"
                     required>
             </div>
+            <!-- Number Input Type -->
             <div class="input-cont">
                 <label class="input-label">Zip Code</label>
                 <input type="number" class="form-tb-number" id="form-tb-zipCode" name="zipCode"
@@ -78,6 +82,7 @@
             </div>
         </div>
         <div class="form-cont">
+            <!-- Radio Button -->
             <div class="input-cont">
                 <label class="input-label" id="gender-label">Gender</label>
                 <div class="radio-cont" id="form-radio-btn">
@@ -101,10 +106,12 @@
                 <input type="text" class="form-tb-text" name="otherGender" id="form-other-gender"
                     placeholder="Enter your Gender">
             </div>
+            <!-- Date Input Type -->
             <div class="input-cont">
                 <label class="input-label">Birthday</label>
                 <input type="date" name="birthday" id="form-tb-birthday" class="form-tb-date" required>
             </div>
+            <!-- For Cellphone NUmber -->
             <div class="input-cont">
                 <label class="input-label">Cellphone Number</label>
                 <input type="number" class="form-tb-number" id="form-tb-number" name="number"
@@ -123,7 +130,7 @@
                     <option value="Widowed">Widowed</option>
                 </select>
             </div>
-
+            <!-- Email Input Type -->
             <div class="input-cont">
                 <label class="input-label">Email</label>
                 <input type="email" class="form-tb-email" id="form-tb-email" name="email"
@@ -131,6 +138,7 @@
             </div>
         </div>
         <div class="form-cont">
+            <!-- Password Input Type -->
             <div class="input-cont">
                 <label class="input-label">Password</label>
                 <input type="password" class="form-tb-password" id="form-tb-password" name="password"
@@ -142,12 +150,13 @@
                     placeholder="Confirm your Password" required>
             </div>
         </div>
-
+        <!-- Checkbox for showing password-->
         <div class="form-tb-checkbox">
             <input type="checkbox" id="form-tb-show-password">
             <p id="show">Show Password</p>
         </div>
         <div class="form-cont">
+        <!-- Search Input Type -->
             <div class="input-cont">
                 <label for="form-tb-search" class="input-label">Search</label>
                 <div class="input-wrapper">
@@ -155,16 +164,12 @@
                     <input type="search" class="form-tb-search" id="form-tb-search" name="search" placeholder="Search">
                 </div>
             </div>
-  
-                <div class="input-cont">
-                    <label class="input-label">URL</label>
-                    <input type="url" class="form-tb-url" id="form-tb-url" name="url" placeholder="Enter URL">
-                </div>
-
+        <!-- Month Input Type -->
                 <div class="input-cont">
                     <label class="input-label">Month</label>
                     <input type="month" class="form-tb-month" id="form-tb-month" name="month">
                 </div>
+        <!-- Week Input Type -->
                 <div class="input-cont">
                     <label class="input-label">Week</label>
                     <input type="week" class="form-tb-week" id="form-tb-week" name="week">
@@ -173,43 +178,29 @@
 
             </div>
             <div class="form-cont">
+        <!-- Time Input Type -->
                 <div class="input-cont">
                     <label class="input-label">Time</label>
                     <input type="time" class="form-tb-time" id="form-tb-time" name="time">
                 </div>
+        <!-- Date Time Input Type -->
                 <div class="input-cont">
                     <label class="input-label">Datetime-Local</label>
                     <input type="datetime-local" class="form-tb-date-time" id="form-tb-date-time" name="datetime-local">
                 </div>
-                <div class="input-cont">
-                    <label class="input-label">Range</label>
-                    <input type="range" class="form-tb-range" id="form-tb-range" name="range" min="0" max="100">
-                </div>
-                <div class="input-cont">
-                    <label class="input-label">Color</label>
-                    <input type="color" class="form-tb-color" id="form-tb-color" name="color">
-                </div>
+        <!-- Multiple selecting File input type -->
                 <div class="input-cont">
                     <label class="input-label">File</label>
-                    <input type="file" class="form-tb-file" id="form-tb-file" name="file">
+                    <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
+                </div>
+        <!-- Container for showing list of inputted file -->
+                <div class="input-cont">
+                    <label class="input-label">List of Uploaded File</label>
+                    <ul class="form-tb-list" id="file-list"></ul>
                 </div>
             </div>
-            <div class="form-cont">
-            <div class="input-cont">
-                <label class="input-label">Image Button</label>
-                <input type="image" class="form-btn-image" id="form-btn-image" src="pic.png" alt="Submit Button">
-            </div>
-            <div class="input-cont">
-                <label class="input-label">Button</label>
-                <input type="button" class="form-btn-button" id="form-btn-button" value="Click Me">
-            </div>
-            <div class="input-cont">
-                <label class="input-label">Reset</label>
-                <input type="reset" class="form-btn-reset" id="form-btn-reset" value="Reset">
-            </div>
-        </div>
-
         <div class="form-cont">
+        <!-- Textarea Input Type -->
             <div class="form-tb-textarea">
                 <label class="input-label">Other Details</label>
                 <textarea id="form-tb-textarea" name="message" rows="4"
@@ -217,25 +208,44 @@
             </div>
         </div>
         <div class="form-cont">
+            <!-- Chekckbox -->
             <label class="input-label" id="checkbox-label">
                 <input type="checkbox" class="form-tb-checkbox-agreement" id="form-tb-checkbox-agreemen" required>
                 I agree to the <span>terms of service.</span>
             </label>
         </div>
+          <div class="form-cont">
+        <!-- Button Input Type -->
+            <div class="input-cont">
+                <label class="input-label">Button</label>
+                <input type="button" class="form-btn-button" id="form-btn-button" value="Click Me">
+            </div>
+        <!-- Reset Input Type -->
+            <div class="input-cont">
+                <label class="input-label">Reset</label>
+                <input type="reset" class="form-btn-reset" id="form-btn-reset" value="Reset">
+            </div>
+        </div>
         <div class="form-cont">
+        <!-- Submit Button Input Type -->
             <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
         </div>
 
         <div class="form-cont">
-            <input type="submit" value="Modal" class="modal-btn-submit" id="modal-btn">
+        <!-- Button to open modal -->
+            <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
         </div>
     </form>
+    <!-- Modal -->
     <div id="modal" class="modal">
+        <!-- Modal Container -->
         <div class="modal-cont">
+        <!-- Icon to close the modal-->
             <span class="close">&times;</span>
             <div class="modal-title">
                 <p>This is modal</p>
             </div>
+            <!-- Modal Content -->
             <div class="modal-content">
                 <form id="modal-form" class="modal-form">
                     <div class="form-cont">

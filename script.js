@@ -1,4 +1,4 @@
-//form js
+// Showing text field for other gender (form)
 function formtoggleGenderInput() {
     let selectedGender = document.getElementById("form-radio-male").checked ? "Male" :
                          document.getElementById("form-radio-female").checked ? "Female" :
@@ -15,6 +15,7 @@ function formtoggleGenderInput() {
     }
 }
 
+// Adjusting textarea height based on content
 document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.getElementById("form-tb-textarea");
     textarea.addEventListener("input", function () {
@@ -22,11 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
         this.style.height = this.scrollHeight + "px";
     });
 });
+
+// Showing File name in the list
 document.getElementById("form-tb-file").addEventListener("change", function(event) {
     let fileList = document.getElementById("file-list");
-    fileList.innerHTML = ""; // Clear previous list
+    fileList.innerHTML = "";
 
-    // Loop through selected files
     Array.from(event.target.files).forEach((file, index) => {
         let listItem = document.createElement("li");
         listItem.textContent = file.name;
@@ -35,7 +37,7 @@ document.getElementById("form-tb-file").addEventListener("change", function(even
 });
 
 
-
+// Checking required fields and validating form
 document.addEventListener("DOMContentLoaded", function () {
     function validateForm(form) {
         let isValid = true;
@@ -109,9 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
+// Getting first letter of middle name
 document.addEventListener("DOMContentLoaded", function () {
-
     let middleNameInput = document.getElementById("form-tb-middleName");
     let middleInitialInput = document.getElementById("form-tb-middleInitial");
 
@@ -128,38 +129,35 @@ document.addEventListener("DOMContentLoaded", function () {
             middleInitialInput.value = "";
         }
     });
-
+    // Make the first letter of each word uppercase
     let inputs = document.querySelectorAll("input[type='text'], textarea");
-
     inputs.forEach(input => {
         input.addEventListener("input", function () {
             this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
         });
     });
-
+    // Validate Zip Code (4 digits)
     document.getElementById("form-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
     });
 
-
+    // Compare Password and Confirm Password
     const form = document.getElementById("form");
     const passwordInput = document.getElementById("form-tb-password");
     const confirmPasswordInput = document.getElementById("form-tb-confirm-password");
 
     form.addEventListener("submit", function (event) {
-        console.log("Form submitted");  // Debugging - Check if script runs
+        console.log("Form submitted");
 
         const password = passwordInput.value.trim();
         const confirmPassword = confirmPasswordInput.value.trim();
-
-        // Reset border styles
         passwordInput.style.border = "1px solid #ccc";
         confirmPasswordInput.style.border = "1px solid #ccc";
 
         if (password !== confirmPassword) {
-            console.log("Passwords do not match!");  // Debugging - Check validation
+            console.log("Passwords do not match!");
             alert("Passwords do not match.");
-            event.preventDefault();  // Prevent form submission
+            event.preventDefault();
 
             // Highlight the fields in red
             passwordInput.style.border = "2px solid red";
@@ -176,10 +174,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Show/hide password
 document.getElementById("form-tb-show-password").addEventListener("change", function() {
     const passwordField = document.getElementById("form-tb-password");
     passwordField.type = this.checked ? "text" : "form-tb-password";
 });
+
+// Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input[required], select[required]");
 
@@ -236,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//modal js
+// Script for modal
 const submitButton = document.getElementById("modal-btn");
 const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close");
@@ -253,7 +254,7 @@ closeButton.addEventListener("click", function () {
     modal.style.display = "none";
     document.body.style.overflow ="";
 });
-
+// Showing text field for other
 function modaltoggleGenderInput() {
     let selectedGender = document.getElementById("modal-radio-male").checked ? "Male" :
                          document.getElementById("modal-radio-female").checked ? "Female" :
@@ -269,7 +270,7 @@ function modaltoggleGenderInput() {
         otherGenderInput.value = "";
     }
 }
-
+// Adjusting textarea height based on content
 document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.getElementById("modal-tb-textarea");
     textarea.addEventListener("input", function () {
@@ -278,10 +279,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Limiting number of characters in text fields
 document.getElementById("modal-tb-number").addEventListener("input", function () {
     this.value = this.value.slice(0, 11);
 });
 
+// Getting first letter of middle name
 document.addEventListener("DOMContentLoaded", function () {
     let middleNameInput = document.getElementById("modal-tb-middleName");
     let middleInitialInput = document.getElementById("modal-tb-middleInitial");
@@ -299,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Make the first letter of each word uppercase
     let inputs = document.querySelectorAll("input[type='text'], textarea");
     inputs.forEach(input => {
         input.addEventListener("input", function () {
@@ -306,15 +310,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Validate Zip Code (4 digits)
     document.getElementById("modal-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
     });
+
+    // Compare Password and Confirm Password
     const form = document.getElementById("modal");
     const passwordInput = document.getElementById("modal-tb-password");
     const confirmPasswordInput = document.getElementById("modal-tb-confirmPassword");
 
     form.addEventListener("submit", function (event) {
-        console.log("Form submitted");  // Debugging - Check if script runs
+        console.log("Form submitted");
 
         const password = passwordInput.value.trim();
         const confirmPassword = confirmPasswordInput.value.trim();
@@ -324,10 +331,9 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmPasswordInput.style.border = "1px solid #ccc";
 
         if (password !== confirmPassword) {
-            console.log("Passwords do not match!");  // Debugging - Check validation
+            console.log("Passwords do not match!");
             alert("Passwords do not match.");
-            event.preventDefault();  // Prevent form submission
-
+            event.preventDefault();
             // Highlight the fields in red
             passwordInput.style.border = "2px solid red";
             confirmPasswordInput.style.border = "2px solid red";
@@ -341,10 +347,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Show/hide password
 document.getElementById("modal-tb-show-password").addEventListener("change", function() {
     const passwordField = document.getElementById("modal-tb-password");
     passwordField.type = this.checked ? "text" : "modal-tb-password";
 });
+
+// Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input[required], select[required]");
     inputs.forEach(input => {

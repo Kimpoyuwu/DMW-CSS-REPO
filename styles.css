@@ -109,16 +109,16 @@
 .modal-tb-text, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
-  margin: 5px;
+  margin: 0 5px 0 5px;
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  border: 1px solid #AFAFAF;
+  border-radius: 14px;
   box-sizing: border-box;
-  border: solid 0.9px rgba(19, 19, 19, 0.1);
-  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
   outline-color: #66a3c9;
   background-color: white;
+  align-content: center;
+  min-height: 50px;
 }
 
 .form-tb-text:hover, .form-tb-number:hover, .form-tb-date:hover,
@@ -147,10 +147,12 @@
 }
 
 .input-label {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: bold;
   margin-left: 8px;
   margin-bottom: 0;
+  text-transform: uppercase;
+
 }
 
 
@@ -165,7 +167,11 @@
   position: absolute;
   left: 10px;
   color: #999;
-  margin-left: 7px;
+  margin-right: 7px;
+}
+
+#form-tb-search::placeholder{
+  margin-left: 20px;
 }
 
 .fa-search{
@@ -180,7 +186,7 @@
 
 #file-list-cont a{
   font-size: 14px;
-  color: #22a0ee;
+  color: #0077B6;
 }
 
 #file-list-cont a:hover{
@@ -446,7 +452,7 @@ textarea:hover {
   height: 45px;
   background-color: #1b313e;
   color: white;
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 12px;
   font-size: 16px;
   border: none;

@@ -165,9 +165,9 @@
 
 .input-wrapper i {
   position: absolute;
-  left: 10px;
+  left: 8px;
   color: #999;
-  margin-right: 7px;
+  margin: 0 10px 0 8px;
 }
 
 #form-tb-search::placeholder{
@@ -263,7 +263,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --primary-hover-color: #4096ff;
   --checkbox-diameter: 20px;
   --checkbox-border-radius: 5px;
-  --checkbox-border-color: #d9d9d9;
+  --checkbox-border-color: #AFAFAF;
   --checkbox-border-width: 1px;
   --checkbox-border-style: solid;
   --checkmark-size: 1.2;
@@ -433,9 +433,7 @@ input[type="number"]::-webkit-outer-spin-button {
 textarea {
   padding: 10px;
   border-radius: 10px;
-  border: solid 0.9px rgba(19, 19, 19, 0.1);
-  box-shadow: 0px 0px 5px 0px rgb(219, 219, 219);
-  outline-color: #66a3c9;
+  border: solid 1px rgba(19, 19, 19, 0.5);
 }
 
 textarea:hover {

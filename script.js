@@ -4,14 +4,12 @@ function formtoggleGenderInput() {
         document.getElementById("form-radio-female").checked ? "Female" :
             document.getElementById("form-radio-other").checked ? "Other" : "";
 
-    let genderOthersContainer = document.getElementById("form-other-gender-cont");
-    let otherGenderInput = document.getElementById("form-other-gender");
+    let genderOthersContainer = document.getElementById("form-other-cont");
 
     if (selectedGender === "Other") {
         genderOthersContainer.style.display = "flex";
     } else {
         genderOthersContainer.style.display = "none";
-        otherGenderInput.value = "";
     }
 }
 
@@ -126,20 +124,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return isValid;
     }
 
+    // Input validation letter only
     function handleInputValidation(event) {
         const input = event.target;
         const allowedFields = [
-            "form-tb-firstName", "form-tb-middleName", "form-tb-LastName",
-            "form-tb-middleInitial", "form-tb-municipality", "form-tb-province",
-            "modal-tb-name", "modal-tb-middleName", "modal-tb-LastName",
-            "modal-tb-middleInitial", "modal-tb-municipality", "modal-tb-province"
+            "form-tb-text",
+            "modal-tb-text"
         ];
 
-        if (allowedFields.includes(input.id)) {
+        if (allowedFields.includes(input.class)) {
             input.value = input.value.replace(/[^a-zA-Z ]/g, '');
         }
     }
 
+       // Make the first letter of each word uppercase
+       let inputs = document.querySelectorAll("input[type='text'], textarea");
+       inputs.forEach(input => {
+           input.addEventListener("input", function () {
+               this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+           });
+       });
+    
     document.querySelectorAll("input[type='text'], textarea").forEach(input => {
         input.addEventListener("input", handleInputValidation);
     });
@@ -177,20 +182,14 @@ document.addEventListener("DOMContentLoaded", function () {
             middleInitialInput.value = "";
         }
     });
-    // Make the first letter of each word uppercase
-    let inputs = document.querySelectorAll("input[type='text'], textarea");
-    inputs.forEach(input => {
-        input.addEventListener("input", function () {
-            this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
-        });
-    });
+ 
     // Validate Zip Code (4 digits)
     document.getElementById("form-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
     });
 
     // Compare Password and Confirm Password
-    const form = document.getElementById("form");
+    const form = document.querySelector(".form");
     const passwordInput = document.getElementById("form-tb-password");
     const confirmPasswordInput = document.getElementById("form-tb-confirm-password");
 
@@ -240,6 +239,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.setCustomValidity("");
             }
         });
+    });
+    document.getElementById("form-tb-number").addEventListener("input", function () {
+        this.value = this.value.slice(0, 11);
     });
 
     // Validate Contact Number (10 digits)

@@ -10,144 +10,111 @@
 </head>
 
 <body>
-    <form id="form" class="form">
+    <form class="form">
         <!-- For horizontal line -->
         <div class="form-cont">
             <!-- Text Input Type -->
             <div class="input-cont">
-                <label class="input-label">First Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-firstName" name="firstName"
-                     placeholder="Enter your First Name"
-                    required>
+                <label class="input-label">Text</label>
+                <input type="text" class="form-tb-text" required>
             </div>
             <div class="input-cont">
-                <label class="input-label">Middle Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-middleName" name="middleName"
-                     placeholder="Enter your Middle Name"
-                    required>
+                <label class="input-label">Text </label>
+                <input type="text" class="form-tb-text" id="form-tb-middleName" required>
             </div>
             <div class="input-cont">
-                <label class="input-label">Last Name</label>
-                <input type="text" class="form-tb-text" id="form-tb-LastName" name="lastName"
-                    placeholder="Enter your Last Name"
-                    required>
-            </div>
-            <div class="input-cont">
-                <label class="input-label">Middle Initial</label>
-                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" name="middleInitial"
-                     placeholder="Middle Initial" required>
+                <label class="input-label">Text Initial</label>
+                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" required>
             </div>
             <!-- Dropdown Button -->
             <div class="input-cont">
-                <label class="input-label">Suffix</label>
-                <select id="form-tb-suffix" name="suffix" class="form-tb-select">
-                    <option value="" selected disabled>Suffix:</option>
-                    <option value="jr">Jr.</option>
-                    <option value="sr">Sr.</option>
-                    <option value="ii">II</option>
-                    <option value="iii">III</option>
+                <label class="input-label">Drop-down</label>
+                <select id="form-tb-suffix" class="form-tb-select" required>
+                    <option value="" selected disabled>Select Option:</option>
+                    <option value="">option 1</option>
+                    <option value="">option 2</option>
+                    <option value="">option 3</option>
+                    <option value="">option 4</option>
                 </select>
             </div>
+           
         </div>
         <div class="form-cont">
-            <div class="input-cont">
-                <label class="input-label">Address</label>
-                <input type="text" class="form-tb-text" id="form-tb-address" name="address"
-                    placeholder="Enter your House No, Building, Street Name." required>
-            </div>
-            <div class="input-cont">
-                <label class="input-label">Barangay</label>
-                <input type="text" class="form-tb-text" id="form-tb-barangay" name="barangay"
-                    placeholder="Enter your Barangay" required>
-            </div>
-        </div>
-        <div class="form-cont">
-            <div class="input-cont">
-                <label class="input-label">Municipality</label>
-                <input type="text" class="form-tb-text" id="form-tb-municipality" name="municipality"
-                   placeholder="Enter your munucipality"
-                    required>
-            </div>
-            <div class="input-cont">
-                <label class="input-label">Province</label>
-                <input type="text" class="form-tb-text" id="form-tb-province" name="province"
-                    placeholder="Enter your Province"
-                    required>
-            </div>
-            <!-- Number Input Type -->
-            <div class="input-cont">
+             <!-- Number Input Type -->
+             <div class="input-cont">
                 <label class="input-label">Zip Code</label>
-                <input type="number" class="form-tb-number" id="form-tb-zipCode" name="zipCode"
-                    placeholder="Enter your ZipCode" required>
+                <input type="number" class="form-tb-number" id="form-tb-zipCode" required>
             </div>
-        </div>
-        <div class="form-cont">
             <!-- Radio Button -->
             <div class="input-cont">
-                <label class="input-label" id="gender-label">Gender</label>
+                <label class="input-label">Radio for Gender</label>
                 <div class="radio-cont" id="form-radio-btn">
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-male" name="gender" value="Male"
+                        <input type="radio" id="form-radio-male" name="form-radio-group"  value="Male"
                             onclick="formtoggleGenderInput()" required> Male
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-female" name="gender" value="Female"
+                        <input type="radio" id="form-radio-female" name="form-radio-group" value="Female"
                             onclick="formtoggleGenderInput()" required> Female
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-other" name="gender" value="Other"
+                        <input type="radio" id="form-radio-other" name="form-radio-group"  value="Other"
                             onclick="formtoggleGenderInput()" required> Others
                     </label>
 
                 </div>
             </div>
-            <div class="input-cont" id="form-other-gender-cont" style="display: none;">
-                <label class="input-label">Enter your Gender</label>
-                <input type="text" class="form-tb-text" name="otherGender" id="form-other-gender"
-                    placeholder="Enter your Gender">
+            <div class="input-cont" id="form-other-cont" style="display: none;">
+                <label class="input-label">Text</label>
+                <input type="text" class="form-tb-text">
             </div>
+            <div class="input-cont">
+                <label class="input-label">Radio Button</label>
+                <div class="radio-cont" id="form-radio-btn">
+                    <label class="radio-label">
+                        <input type="radio" name="form-radio-group" required value="option1"> Option 1
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="form-radio-group" required value="option2"> Option 2
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="form-radio-group" required value="option3"> Option 3
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="form-radio-group" required value="option4"> Option 4
+                    </label>
+                </div>
+            </div>
+            
+            
             <!-- Date Input Type -->
             <div class="input-cont">
-                <label class="input-label">Birthday</label>
-                <input type="date" name="birthday" id="form-tb-birthday" class="form-tb-date" required>
+                <label class="input-label">Date</label>
+                <input type="date" id="form-tb-birthday" class="form-tb-date" required>
             </div>
             <!-- For Cellphone NUmber -->
             <div class="input-cont">
                 <label class="input-label">Cellphone Number</label>
-                <input type="number" class="form-tb-number" id="form-tb-number" name="number"
-                    placeholder="Enter your Cellphone Number" required>
+                <input type="number" class="form-tb-number" id="form-tb-number"  name="number" required>
             </div>
         </div>
 
         <div class="form-cont">
-            <div class="input-cont">
-                <label class="input-label">Civil Status</label>
-                <select name="civilStatus" id="form-tb-CivilStatus" class="form-tb-select" required>
-                    <option value="" disabled selected>Choose an option</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Divorced">Divorced</option>
-                    <option value="Widowed">Widowed</option>
-                </select>
-            </div>
             <!-- Email Input Type -->
             <div class="input-cont">
                 <label class="input-label">Email</label>
-                <input type="email" class="form-tb-email" id="form-tb-email" name="email"
-                    placeholder="Enter your Email Adress" required>
+                <input type="email" class="form-tb-email" id="form-tb-email"  required>
             </div>
         </div>
         <div class="form-cont">
             <!-- Password Input Type -->
             <div class="input-cont">
                 <label class="input-label">Password</label>
-                <input type="password" class="form-tb-password" id="form-tb-password" name="password"
-                    placeholder="Enter your Password" required>
+                <input type="password" class="form-tb-password" id="form-tb-password" required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Confirm Passpassword</label>
-                <input type="password" class="form-tb-password" id="form-tb-confirm-password" name="confirmPassword"
-                    placeholder="Confirm your Password" required>
+                <input type="password" class="form-tb-password" id="form-tb-confirm-password" required>
             </div>
         </div>
         <!-- Checkbox for showing password-->
@@ -156,95 +123,97 @@
             <p id="show">Show Password</p>
         </div>
         <div class="form-cont">
-        <!-- Search Input Type -->
+            <!-- Search Input Type -->
             <div class="input-cont">
                 <label for="form-tb-search" class="input-label">Search</label>
                 <div class="input-wrapper">
                     <i class="fas fa-search"></i>
-                    <input type="search" class="form-tb-search" id="form-tb-search" name="search" placeholder="Search">
+                    <input type="search" class="form-tb-search" id="form-tb-search" >
                 </div>
             </div>
-        <!-- Month Input Type -->
-                <div class="input-cont">
-                    <label class="input-label">Month</label>
-                    <input type="month" class="form-tb-month" id="form-tb-month" name="month">
-                </div>
-        <!-- Week Input Type -->
-                <div class="input-cont">
-                    <label class="input-label">Week</label>
-                    <input type="week" class="form-tb-week" id="form-tb-week" name="week">
-                </div>
-
-
-            </div>
-            <div class="form-cont">
-        <!-- Time Input Type -->
-                <div class="input-cont">
-                    <label class="input-label">Time</label>
-                    <input type="time" class="form-tb-time" id="form-tb-time" name="time">
-                </div>
-        <!-- Date Time Input Type -->
-                <div class="input-cont">
-                    <label class="input-label">Datetime-Local</label>
-                    <input type="datetime-local" class="form-tb-date-time" id="form-tb-date-time" name="datetime-local">
-                </div>
-        <!-- Multiple selecting File input type -->
-                <div class="input-cont">
-                    <label class="input-label">File</label>
-                    <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
-                </div>
-        <!-- Container for showing list of inputted file -->
-                <div class="input-cont" id="file-list-cont" style="display: none;">
-                    <label class="input-label">List of Uploaded File</label>
-                    <ul class="form-tb-list" id="file-list"></ul>
-                </div>
-            </div>
-        <div class="form-cont">
-        <!-- Textarea Input Type -->
-            <div class="form-tb-textarea">
-                <label class="input-label">Other Details</label>
-                <textarea id="form-tb-textarea" name="message" rows="4"
-                    placeholder="Enter Additional Information"></textarea>
-            </div>
-        </div>
-        <div class="form-cont">
-            <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-checkbox" id="form-tb-checkbox-agreemen" required>
-                I agree to the <span>terms of service.</span>
-            </label>
-        </div>
-        <div class="form-cont">
-            <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-checkbox" id="form-tb-checkbox-agreemen" required>
-                I agree to the <span>terms of service.</span>
-            </label>
-        </div>
-        <div class="form-cont">
-            <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-checkbox" id="form-tb-checkbox-agreemen" required>
-                I agree to the <span>terms of service.</span>
-            </label>
-        </div>
-        <div class="form-cont">
-            <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-checkbox" id="form-tb-checkbox-agreemen" required>
-                I agree to the <span>terms of service.</span>
-            </label>
-        </div>
-        
-          <div class="form-cont">
-        <!-- Reset Input Type -->
+            <!-- Month Input Type -->
             <div class="input-cont">
-                <input type="reset" class="form-btn-reset" id="form-btn-reset" value="Reset">
+                <label class="input-label">Month</label>
+                <input type="month" class="form-tb-month" id="form-tb-month">
+            </div>
+            <!-- Week Input Type -->
+            <div class="input-cont">
+                <label class="input-label">Week</label>
+                <input type="week" class="form-tb-week" id="form-tb-week">
+            </div>
+
+
+        </div>
+        <div class="form-cont">
+            <!-- Time Input Type -->
+            <div class="input-cont">
+                <label class="input-label">Time</label>
+                <input type="time" class="form-tb-time" id="form-tb-time" >
+            </div>
+            <!-- Date Time Input Type -->
+            <div class="input-cont">
+                <label class="input-label">Datetime-Local</label>
+                <input type="datetime-local" class="form-tb-date-time" id="form-tb-date-time" >
+            </div>
+            <!-- Multiple selecting File input type -->
+            <div class="input-cont">
+                <label class="input-label">File</label>
+                <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
+            </div>
+            <!-- Container for showing list of inputted file -->
+            <div class="input-cont" id="file-list-cont" style="display: none;">
+                <label class="input-label">List of Uploaded File</label>
+                <ul class="form-tb-list" id="file-list"></ul>
+            </div>
+        </div>
+        <div class="form-cont">
+            <!-- Textarea Input Type -->
+            <div class="form-tb-textarea">
+                <label class="input-label">Text Area</label>
+                <textarea id="form-tb-textarea" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="form-cont">
+            <!-- Chekckbox -->
+            <label class="input-label" id="checkbox-label">
+                <input type="checkbox" class="form-checkbox" required>
+                Checkbox
+            </label>
+        </div>
+        <div class="form-cont">
+            <!-- Chekckbox -->
+            <label class="input-label" id="checkbox-label">
+                <input type="checkbox" class="form-checkbox" required>
+                Checkbox</span>
+            </label>
+        </div>
+        <div class="form-cont">
+            <!-- Chekckbox -->
+            <label class="input-label" id="checkbox-label">
+                <input type="checkbox" class="form-checkbox" required>
+                Checkbox</span>
+            </label>
+        </div>
+        <div class="form-cont">
+            <!-- Chekckbox -->
+            <label class="input-label" id="checkbox-label">
+                <input type="checkbox" class="form-checkbox"required>
+                Checkbox</span>
+            </label>
+        </div>
+
+        <div class="form-cont">
+            <!-- Reset Input Type -->
+            <div class="input-cont">
+                <input type="reset" class="form-btn-reset" value="Reset">
             </div>
             <div class="input-cont">
                 <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
 
             </div>
+           
+        </div>
+        <div class="form-cont">
             <div class="input-cont">
                 <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
             </div>
@@ -254,7 +223,7 @@
     <div id="modal" class="modal">
         <!-- Modal Container -->
         <div class="modal-cont">
-        <!-- Icon to close the modal-->
+            <!-- Icon to close the modal-->
             <span class="close">&times;</span>
             <div class="modal-title">
                 <p>This is modal</p>
@@ -264,69 +233,32 @@
                 <form id="modal-form" class="modal-form">
                     <div class="form-cont">
                         <div class="modal-input-cont">
-                            <label class="input-label">First Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-name" name="firstName"
-
-                                placeholder="Enter your First Name" required>
+                            <label class="input-label">Text</label>
+                            <input type="text" class="modal-tb-text" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Middle Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-middleName" name="middleName"
-
-                                placeholder="Enter your Middle Name" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Last Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-LastName" name="lastName"
-
-                                placeholder="Enter your Last Name" required>
+                            <input type="text" class="modal-tb-text" id="modal-tb-middleName"  required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Middle Initial</label>
-                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
-
-                                placeholder="Middle Initial" required>
+                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial" required>
                         </div>
                         <div class="modal-input-cont">
-                            <label class="input-label">Suffix</label>
-                            <select id="modal-tb-suffix" name="suffix" class="modal-tb-select">
-                                <option value="" selected disabled>Suffix:</option>
-                                <option value="jr">Jr.</option>
-                                <option value="sr">Sr.</option>
-                                <option value="ii">II</option>
-                                <option value="iii">III</option>
+                            <label class="input-label">Drop-down</label>
+                            <select id="modal-tb-suffix" class="modal-tb-select" required>
+                                <option value="" selected disabled>Select Option:</option>
+                                <option value="">option</option>
+                                <option value="">option</option>
+                                <option value="">option</option>
+                                <option value="">option</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-cont">
                         <div class="modal-input-cont">
-                            <label class="input-label">Address</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-address" name="address"
-                                placeholder="Enter your House No, Building, Street Name." required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Barangay</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-barangay" name="barangay" placeholder="Enter your Barangay"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Municipality</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-municipality" name="municipality"
-                                 placeholder="Enter your munucipality"
-                                required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Province</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-province" name="province"
-                               placeholder="Enter your Province"
-                                required>
-                        </div>
-                        <div class="modal-input-cont">
                             <label class="input-label">Zip Code</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-zipCode" name="zipCode" placeholder="Enter your ZipCode"
-                                required>
+                            <input type="number" class="modal-tb-number" id="modal-tb-zipCode" required>
                         </div>
                     </div>
                     <div class="form-cont">
@@ -334,15 +266,16 @@
                             <label class="input-label" id="gender-label">Gender</label>
                             <div class="radio-cont" id="modal-radio-btn">
                                 <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-male" value="Male" onclick="modaltoggleGenderInput()" required> Male
+                                    <input type="radio" name="gender" id="modal-radio-male" value="Male"
+                                        onclick="modaltoggleGenderInput()" required> Male
                                 </label>
                                 <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-female" value="Female" onclick="modaltoggleGenderInput()"
-                                        required> Female
+                                    <input type="radio" name="gender" id="modal-radio-female" value="Female"
+                                        onclick="modaltoggleGenderInput()" required> Female
                                 </label>
                                 <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-other" value="Other" onclick="modaltoggleGenderInput()"
-                                        required> Others
+                                    <input type="radio" name="gender" id="modal-radio-other" value="Other"
+                                        onclick="modaltoggleGenderInput()" required> Others
                                 </label>
 
                             </div>
@@ -354,43 +287,26 @@
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Birthday</label>
-                            <input type="date" name="birthday" id="modal-tb-birthday" class="modal-tb-date" required>
+                            <input type="date" id="modal-tb-birthday" class="modal-tb-date" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Cellphone Number</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-number" name="number"
-                                placeholder="Enter your Cellphone Number" required>
+                            <input type="number" class="modal-tb-number" id="modal-tb-number" required>
                         </div>
-                    </div>
-
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Civil Status</label>
-                            <select name="civilStatus" id="modal-tb-CivilStatus" class="modal-tb-select" required>
-                                <option value="" disabled selected>Choose an option</option>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Divorced">Divorced</option>
-                                <option value="Widowed">Widowed</option>
-                            </select>
-                        </div>
-
                         <div class="modal-input-cont">
                             <label class="input-label">Email</label>
-                            <input type="email" class="modal-tb-email" id="modal-tb-email" name="email" placeholder="Enter your Email Adress"
-                                required>
+                            <input type="email" class="modal-tb-email" id="modal-tb-email" required>
                         </div>
                     </div>
+
                     <div class="form-cont">
                         <div class="modal-input-cont">
                             <label class="input-label">Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-password" name="password" placeholder="Enter your Password"
-                                required>
+                            <input type="password" class="modal-tb-password" id="modal-tb-password" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Confirm Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" name="confirmPassword"
-                                placeholder="Confirm your Password" required>
+                            <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" required>
                         </div>
                     </div>
 
@@ -402,18 +318,18 @@
                     <div class="form-cont">
                         <div class="modal-tb-textarea">
                             <label class="input-label">Other Details</label>
-                            <textarea id="modal-tb-textarea" name="message" rows="4"
+                            <textarea id="modal-tb-textarea" rows="4"
                                 placeholder="Enter Additional Information"></textarea>
                         </div>
                     </div>
                     <div class="form-cont">
                         <label class="input-label" id="modal-checkbox-label">
-                            <input type="checkbox" class="modal-checkbox" id="form-tb-checkbox-agreemen" required>
-                            I agree to the <span>terms of service.</span>
+                            <input type="checkbox" class="modal-checkbox" required>
+                            Checkbox
                         </label>
                     </div>
                     <div class="form-cont">
-                        <input type="submit" value="Submit" class="modal-btn-submit" id="modal-btn-submit">
+                        <input type="submit" class="modal-btn-submit" id="modal-btn-submit">
                     </div>
                 </form>
             </div>

@@ -17,7 +17,7 @@
 }
 
 
-.form-cont, .modal-content {
+.form-cont {
   display: flex;
   width: 100%;
   height: auto;
@@ -27,6 +27,17 @@
   align-items: center;
   gap: 10px;
   justify-content: space-between;
+}
+
+.modal-content {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.4rem;
+  align-items: center;
+  gap: 10px;
 }
 
 .modal {
@@ -101,12 +112,12 @@
 }
 
 /* Inputs Style */
-.form-tb-text, .form-tb-number, .form-tb-date,
+.form-tb-text, .form-tb-text-number, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
 .form-tb-date-time, .form-tb-file,
-.modal-tb-text, .modal-tb-number, .modal-tb-date,
+.modal-tb-text, .modal-tb-text-number, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select {
   flex: 1 1 calc(20% - 10px);
   margin: 0 5px 0 5px;
@@ -568,6 +579,19 @@ textarea:hover {
   .modal .radioContainer {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .modal .modal-cont {
+    margin: 2px;
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .modal .radioContainer {
+    margin: 0;
+  }
+  .modal .radioContainer .radio-label {
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -578,7 +602,7 @@ textarea:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   .radio-cont {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -628,6 +652,8 @@ textarea:hover {
     font-size: 10px;
   }
 }
+
+
 
 @media (max-width: 400px) {
   .radio-cont {

@@ -1,7 +1,7 @@
 // Showing text field for other gender (form)
-function formtoggleGenderInput() {
-    let selectedGender = document.getElementById("form-radio-male").checked ? "Male" :
-        document.getElementById("form-radio-female").checked ? "Female" :
+function formtoggleInput() {
+    let selectedGender = document.getElementById("form-radio-op1").checked ? "op1" :
+        document.getElementById("form-radio-op2").checked ? "op2" :
             document.getElementById("form-radio-other").checked ? "Other" : "";
 
     let genderOthersContainer = document.getElementById("form-other-cont");
@@ -124,27 +124,31 @@ document.addEventListener("DOMContentLoaded", function () {
         return isValid;
     }
 
-    // Input validation letter only
     function handleInputValidation(event) {
         const input = event.target;
-        const allowedFields = [
-            "form-tb-text",
-            "modal-tb-text"
-        ];
+        const onlyLetters = ["form-tb-text", "form-tb-middleName", "modal-tb-text", "modal-tb-middleName"];
+        const lettersAndNumbers = ["form-tb-text-number, modal-tb-text-number"];
+        const onlyNumbers = ["form-tb-number", "modal-tb-number"];
 
-        if (allowedFields.includes(input.class)) {
+        if (onlyLetters.includes(input.classList[0])) {
             input.value = input.value.replace(/[^a-zA-Z ]/g, '');
+        } else if (lettersAndNumbers.includes(input.classList[0])) {
+            input.value = input.value.replace(/[^a-zA-Z0-9 ]/g, '');
+        } else if (onlyNumbers.includes(input.classList[0])) {
+            input.value = input.value.replace(/[^0-9]/g, '');
         }
     }
 
-       // Make the first letter of each word uppercase
-       let inputs = document.querySelectorAll("input[type='text'], textarea");
-       inputs.forEach(input => {
-           input.addEventListener("input", function () {
-               this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
-           });
-       });
-    
+    document.querySelectorAll("input[type='text']").forEach(input => {
+        input.addEventListener("input", handleInputValidation);
+    });
+
+    // Capitalize the first letter of each word
+    document.querySelectorAll("input[type='text'], textarea").forEach(input => {
+        input.addEventListener("input", function () {
+            this.value = this.value.replace(/\b\w/g, char => char.toUpperCase());
+        });
+    });
     document.querySelectorAll("input[type='text'], textarea").forEach(input => {
         input.addEventListener("input", handleInputValidation);
     });
@@ -155,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
         }
     });
+
 
     document.getElementById("modal-btn-submit")?.addEventListener("click", function (event) {
         const form = document.querySelector(".modal-form");
@@ -305,19 +310,18 @@ closeButton.addEventListener("click", function () {
     document.body.style.overflow = "";
 });
 // Showing text field for other
-function modaltoggleGenderInput() {
-    let selectedGender = document.getElementById("modal-radio-male").checked ? "Male" :
-        document.getElementById("modal-radio-female").checked ? "Female" :
+function modaltoggleInput() {
+    let selectedGender = document.getElementById("modal-radio-op1").checked ? "op1" :
+        document.getElementById("modal-radio-op2").checked ? "op2" :
             document.getElementById("modal-radio-other").checked ? "Other" : "";
 
-    let genderOthersContainer = document.getElementById("modal-OtherGender");
+    let genderOthersContainer = document.getElementById("modal-other-cont");
     let otherGenderInput = document.getElementById("modal-radio-btn");
 
     if (selectedGender === "Other") {
         genderOthersContainer.style.display = "flex";
     } else {
         genderOthersContainer.style.display = "none";
-        otherGenderInput.value = "";
     }
 }
 // Adjusting textarea height based on content

@@ -15,17 +15,24 @@
         <div class="form-cont">
             <!-- Text Input Type -->
             <div class="input-cont">
-                <label class="input-label">Text</label>
-                <input type="text" class="form-tb-text" required>
+                <label class="input-label">Text (Alphabet)</label>
+                <input type="text" class="form-tb-text" placeholder="Sample placeholder" required>
             </div>
             <div class="input-cont">
-                <label class="input-label">Text </label>
-                <input type="text" class="form-tb-text" id="form-tb-middleName" required>
+                <label class="input-label">Text (Alphabet,number)</label>
+                <input type="text" class="form-tb-text-number" placeholder="Sample placeholder" required>
+            </div>
+            <div class="input-cont">
+                <label class="input-label">Text (For Middle name)</label>
+                <input type="text" class="form-tb-text" id="form-tb-middleName" placeholder="Sample placeholder"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Text Initial</label>
-                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial" required>
+                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial"
+                    placeholder="Sample placeholder" required>
             </div>
+            
             <!-- Dropdown Button -->
             <div class="input-cont">
                 <label class="input-label">Drop-down</label>
@@ -37,36 +44,42 @@
                     <option value="">option 4</option>
                 </select>
             </div>
-           
+
         </div>
         <div class="form-cont">
-             <!-- Number Input Type -->
-             <div class="input-cont">
+            <div class="input-cont">
+                <label class="input-label">Number</label>
+                <input type="number" class="form-tb-number" 
+                    placeholder="Sample placeholder" required>
+            </div>
+            <!-- Number Input Type -->
+            <div class="input-cont">
                 <label class="input-label">Zip Code</label>
-                <input type="number" class="form-tb-number" id="form-tb-zipCode" required>
+                <input type="number" class="form-tb-number" id="form-tb-zipCode" placeholder="Sample placeholder"
+                    required>
             </div>
             <!-- Radio Button -->
             <div class="input-cont">
-                <label class="input-label">Radio for Gender</label>
+                <label class="input-label">Radio Have Others</label>
                 <div class="radio-cont" id="form-radio-btn">
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-male" name="form-radio-group"  value="Male"
-                            onclick="formtoggleGenderInput()" required> Male
+                        <input type="radio" id="form-radio-op1" name="form-radio-group" value="Male"
+                            onclick="formtoggleInput()" required> Option 1
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-female" name="form-radio-group" value="Female"
-                            onclick="formtoggleGenderInput()" required> Female
+                        <input type="radio" id="form-radio-op2" name="form-radio-group" value="Female"
+                            onclick="formtoggleInput()" required> Option 2
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-other" name="form-radio-group"  value="Other"
-                            onclick="formtoggleGenderInput()" required> Others
+                        <input type="radio" id="form-radio-other" name="form-radio-group" value="Other"
+                            onclick="formtoggleInput()" required> Others
                     </label>
 
                 </div>
             </div>
             <div class="input-cont" id="form-other-cont" style="display: none;">
                 <label class="input-label">Text</label>
-                <input type="text" class="form-tb-text">
+                <input type="text" class="form-tb-text" placeholder="Sample placeholder">
             </div>
             <div class="input-cont">
                 <label class="input-label">Radio Button</label>
@@ -85,17 +98,18 @@
                     </label>
                 </div>
             </div>
-            
-            
+
+
             <!-- Date Input Type -->
             <div class="input-cont">
                 <label class="input-label">Date</label>
                 <input type="date" class="form-tb-date" required>
             </div>
-            <!-- For Cellphone NUmber -->
+            <!-- For Contact NUmber -->
             <div class="input-cont">
-                <label class="input-label">Cellphone Number</label>
-                <input type="number" class="form-tb-number" id="form-tb-number"  name="number" required>
+                <label class="input-label">Contact Number</label>
+                <input type="number" class="form-tb-number" id="form-tb-number" placeholder="Sample placeholder"
+                    required>
             </div>
         </div>
 
@@ -103,18 +117,20 @@
             <!-- Email Input Type -->
             <div class="input-cont">
                 <label class="input-label">Email</label>
-                <input type="email" class="form-tb-email" id="form-tb-email"  required>
+                <input type="email" class="form-tb-email" id="form-tb-email" placeholder="Sample placeholder" required>
             </div>
         </div>
         <div class="form-cont">
             <!-- Password Input Type -->
             <div class="input-cont">
                 <label class="input-label">Password</label>
-                <input type="password" class="form-tb-password" id="form-tb-password" required>
+                <input type="password" class="form-tb-password" id="form-tb-password" placeholder="Sample placeholder"
+                    required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Confirm Passpassword</label>
-                <input type="password" class="form-tb-password" id="form-tb-confirm-password" required>
+                <input type="password" class="form-tb-password" id="form-tb-confirm-password"
+                    placeholder="Sample placeholder" required>
             </div>
         </div>
         <!-- Checkbox for showing password-->
@@ -128,7 +144,7 @@
                 <label for="form-tb-search" class="input-label">Search</label>
                 <div class="input-wrapper">
                     <i class="fas fa-search"></i>
-                    <input type="search" class="form-tb-search">
+                    <input type="search" class="form-tb-search" placeholder="Sample placeholder">
                 </div>
             </div>
             <!-- Month Input Type -->
@@ -148,7 +164,7 @@
             <!-- Time Input Type -->
             <div class="input-cont">
                 <label class="input-label">Time</label>
-                <input type="time" class="form-tb-time" id="form-tb-time" >
+                <input type="time" class="form-tb-time" id="form-tb-time">
             </div>
             <!-- Date Time Input Type -->
             <div class="input-cont">
@@ -170,7 +186,7 @@
             <!-- Textarea Input Type -->
             <div class="form-tb-textarea">
                 <label class="input-label">Text Area</label>
-                <textarea id="form-tb-textarea" rows="4"></textarea>
+                <textarea id="form-tb-textarea" rows="4" placeholder="Sample placeholder"></textarea>
             </div>
         </div>
         <div class="form-cont">
@@ -197,7 +213,7 @@
         <div class="form-cont">
             <!-- Chekckbox -->
             <label class="input-label" id="checkbox-label">
-                <input type="checkbox" class="form-checkbox"required>
+                <input type="checkbox" class="form-checkbox" required>
                 Checkbox</span>
             </label>
         </div>
@@ -211,7 +227,7 @@
                 <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
 
             </div>
-           
+
         </div>
         <div class="form-cont">
             <div class="input-cont">
@@ -233,107 +249,136 @@
                 <form id="modal-form" class="modal-form">
                     <div class="form-cont">
                         <div class="modal-input-cont">
-                            <label class="input-label">Text</label>
-                            <input type="text" class="modal-tb-text" required>
+                            <label class="input-label">Text (Alphabet)</label>
+                            <input type="text" class="modal-tb-text" placeholder="Sample placeholder" required>
                         </div>
                         <div class="modal-input-cont">
-                            <label class="input-label">Middle Name</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-middleName"  required>
+                            <label class="input-label">Text (Alphabet,number)</label>
+                            <input type="text" class="modal-tb-text-number" placeholder="Sample placeholder" required>
                         </div>
                         <div class="modal-input-cont">
-                            <label class="input-label">Middle Initial</label>
-                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial" required>
+                            <label class="input-label">Text (For Middle name)</label>
+                            <input type="text" class="modal-tb-text" id="modal-tb-middleName"
+                                placeholder="Sample placeholder" required>
+                        </div>
+                        <div class="modal-input-cont">
+                            <label class="input-label">Number</label>
+                            <input type="number" class="modal-tb-number" placeholder="Sample placeholder" required>
+                        </div>
+                        <div class="modal-input-cont">
+                            <label class="input-label">Text Initial</label>
+                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
+                                placeholder="Sample placeholder" required>
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Drop-down</label>
-                            <select id="modal-tb-suffix" class="modal-tb-select" required>
+                            <select class="modal-tb-select" required>
                                 <option value="" selected disabled>Select Option:</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
-                                <option value="">option</option>
+                                <option value="">option 1</option>
+                                <option value="">option 2</option>
+                                <option value="">option 3</option>
+                                <option value="">option 4</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Zip Code</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-zipCode" required>
-                        </div>
-                    </div>
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label" id="gender-label">Gender</label>
-                            <div class="radio-cont" id="modal-radio-btn">
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-male" value="Male"
-                                        onclick="modaltoggleGenderInput()" required> Male
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-female" value="Female"
-                                        onclick="modaltoggleGenderInput()" required> Female
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" id="modal-radio-other" value="Other"
-                                        onclick="modaltoggleGenderInput()" required> Others
-                                </label>
-
-                            </div>
-                        </div>
-                        <div class="modal-input-cont" id="modal-OtherGender" style="display: none;">
-                            <label class="input-label">Enter your Gender</label>
-                            <input type="text" class="modal-tb-text" name="otherGender" id="modal-tb-otherGender"
-                                placeholder="Enter your Gender">
                         </div>
                         <div class="modal-input-cont">
                             <label class="input-label">Birthday</label>
                             <input type="date" id="modal-tb-birthday" class="modal-tb-date" required>
                         </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Cellphone Number</label>
-                            <input type="number" class="modal-tb-number" id="modal-tb-number" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Email</label>
-                            <input type="email" class="modal-tb-email" id="modal-tb-email" required>
-                        </div>
                     </div>
 
+                
                     <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-password" required>
+                        <div class="input-cont">
+                            <label class="input-label">Modal Radio Have Others</label>
+                            <div class="radio-cont" id="modal-radio-btn">
+                                <label class="radio-label">
+                                    <input type="radio" id="modal-radio-op1" name="modal-radio-group" value="op1"
+                                        onclick="modaltoggleInput()" required> Option 1
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" id="modal-radio-op2" name="modal-radio-group" value="op2"
+                                        onclick="modaltoggleInput()" required> Option 2
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" id="modal-radio-other" name="modal-radio-group" value="Other"
+                                        onclick="modaltoggleInput()" required> Others
+                                </label>
+            
+                            </div>
+                        </div>
+                        <div class="modal-input-cont" id="modal-other-cont" style="display: none;">
+                            <label class="input-label">Enter your Gender</label>
+                            <input type="text" class="modal-tb-text"
+                                placeholder="Sample placeholder">
                         </div>
                         <div class="modal-input-cont">
-                            <label class="input-label">Confirm Password</label>
-                            <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" required>
+                            <label class="input-label">Radio Button</label>
+                            <div class="radio-cont">
+                                <label class="radio-label">
+                                    <input type="radio" name="modal-radio-group" required value="option1"> Option 1
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="modal-radio-group" required value="option2"> Option 2
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="modal-radio-group" required value="option3"> Option 3
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="modal-radio-group" required value="option4"> Option 4
+                                </label>
+                            </div>
                         </div>
+                       
+                        
                     </div>
-
-                    <div class="modal-tb-checkbox">
-                        <input type="checkbox" id="modal-tb-show-password">
-                        <p id="show">Show Password</p>
-                    </div>
-
+                   
                     <div class="form-cont">
-                        <div class="modal-tb-textarea">
-                            <label class="input-label">Other Details</label>
-                            <textarea id="modal-tb-textarea" rows="4"
-                                placeholder="Enter Additional Information"></textarea>
-                        </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Cellphone Number</label>
+                        <input type="number" class="modal-tb-number" id="modal-tb-number" placeholder="Sample placeholder" required>
                     </div>
-                    <div class="form-cont">
-                        <label class="input-label" id="modal-checkbox-label">
-                            <input type="checkbox" class="modal-checkbox" required>
-                            Checkbox
-                        </label>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Email</label>
+                        <input type="email" class="modal-tb-email" placeholder="Sample placeholder" required>
                     </div>
-                    <div class="form-cont">
-                        <input type="submit" class="modal-btn-submit" id="modal-btn-submit">
+                </div>
+                <div class="form-cont">
+                    <div class="modal-input-cont">
+                        <label class="input-label">Password</label>
+                        <input type="password" class="modal-tb-password" id="modal-tb-password" placeholder="Sample placeholder" required>
                     </div>
-                </form>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Confirm Password</label>
+                        <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" placeholder="Sample placeholder" required>
+                    </div>
+                </div>
+    
+                <div class="modal-tb-checkbox">
+                    <input type="checkbox" id="modal-tb-show-password">
+                    <p id="show">Show Password</p>
+                </div>
+    
+                <div class="form-cont">
+                    <div class="modal-tb-textarea">
+                        <label class="input-label">Other Details</label>
+                        <textarea id="modal-tb-textarea" rows="4" placeholder="Sample Placeholder"></textarea>
+                    </div>
+                </div>
+                <div class="form-cont">
+                    <label class="input-label" id="modal-checkbox-label">
+                        <input type="checkbox" class="modal-checkbox" required>
+                        Checkbox
+                    </label>
+                </div>
+                <div class="form-cont">
+                    <input type="submit" class="modal-btn-submit" id="modal-btn-submit">
+                </div>
             </div>
+
+            
+            </form>
         </div>
+    </div>
     </div>
 </body>
 <script src="script.js">

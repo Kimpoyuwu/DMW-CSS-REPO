@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
             middleInitialInput.value = "";
         }
     });
- 
+
     // Validate Zip Code (4 digits)
     document.getElementById("form-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
@@ -226,11 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Show/hide password
-document.getElementById("form-tb-show-password").addEventListener("change", function () {
-    const passwordField = document.getElementById("form-tb-password");
-    passwordField.type = this.checked ? "text" : "form-tb-password";
-});
 
 // Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
@@ -254,17 +249,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contactNumber.addEventListener("input", function () {
         if (!/^\d{11}$/.test(this.value)) {
             this.setCustomValidity("Contact number must be exactly 11 digits.");
-        } else {
-            this.setCustomValidity("");
-        }
-        this.reportValidity();
-    });
-
-    // Validate Zip Code (4 digits)
-    const zipCode = document.getElementById("form-tb-zipCode");
-    zipCode.addEventListener("input", function () {
-        if (!/^\d{4}$/.test(this.value)) {
-            this.setCustomValidity("Zip code must be exactly 4 digits.");
         } else {
             this.setCustomValidity("");
         }
@@ -401,11 +385,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Show/hide password
-document.getElementById("modal-tb-show-password").addEventListener("change", function () {
-    const passwordField = document.getElementById("modal-tb-password");
-    passwordField.type = this.checked ? "text" : "modal-tb-password";
-});
+
+
 
 // Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
@@ -418,26 +399,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.setCustomValidity("");
             }
         });
-    });
-    // Validate Contact Number (10 digits)
-    const contactNumber = document.getElementById("modal-tb-number");
-    contactNumber.addEventListener("input", function () {
-        if (!/^\d{11}$/.test(this.value)) {
-            this.setCustomValidity("Contact number must be exactly 11 digits.");
-        } else {
-            this.setCustomValidity("");
-        }
-        this.reportValidity();
-    });
-    // Validate Zip Code (4 digits)
-    const zipCode = document.getElementById("modal-tb-zipCode");
-    zipCode.addEventListener("input", function () {
-        if (!/^\d{4}$/.test(this.value)) {
-            this.setCustomValidity("Zip code must be exactly 4 digits.");
-        } else {
-            this.setCustomValidity("");
-        }
-        this.reportValidity();
+        // Show/hide password
+        document.getElementById("modal-tb-show-password").addEventListener("change", function () {
+            const password = document.getElementById("modal-tb-password");
+            const type = this.checked ? "text" : "password";
+            password.type = type;
+        });
     });
     // Validate Confirm Password
     const password = document.getElementById("modal-tb-password");

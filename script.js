@@ -424,3 +424,29 @@ document.addEventListener("DOMContentLoaded", function () {
         password.type = type;
     });
 });
+
+
+function toggleRadio(isOn) {
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    const toggleText = document.getElementById('toggleText');
+    if (isOn) {
+      toggleSwitch.classList.add('on');
+      toggleText.textContent = 'ON';
+    } else {
+      toggleSwitch.classList.remove('on');
+      toggleText.textContent = 'OFF';
+    }
+  }
+  document.getElementById('toggleSwitch').addEventListener('click', function() {
+    const radioOff = document.getElementById('radioOff');
+    const radioOn = document.getElementById('radioOn');
+
+    if (radioOff.checked) {
+      radioOn.checked = true;
+      toggleRadio(true);
+    } else {
+      radioOff.checked = true;
+      toggleRadio(false);
+    }
+  });
+

@@ -32,7 +32,7 @@
                 <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial"
                     placeholder="Sample placeholder" required>
             </div>
-            
+
             <!-- Dropdown Button -->
             <div class="input-cont">
                 <label class="input-label">Drop-down</label>
@@ -47,16 +47,25 @@
 
         </div>
         <div class="form-cont">
+            <!-- Number Input Type -->
             <div class="input-cont">
                 <label class="input-label">Number</label>
-                <input type="number" class="form-tb-number" 
-                    placeholder="Sample placeholder" required>
+                <input type="number" class="form-tb-number" placeholder="Sample placeholder" required>
             </div>
-            <!-- Number Input Type -->
             <div class="input-cont">
                 <label class="input-label">Zip Code</label>
                 <input type="number" class="form-tb-number" id="form-tb-zipCode" placeholder="Sample placeholder"
                     required>
+            </div>
+            <!-- Toggle Button -->
+            <div class="input-cont" id="on-off-toggle-btn">
+                <label class="input-label">Toggle Button</label>
+                <div class="toggle" id="toggleSwitch">
+                    <input type="radio" name="toggle" id="radioOff" class="radio-input" checked>
+                    <input type="radio" name="toggle" id="radioOn" class="radio-input">
+                    <div class="slide"></div>
+                    <span id="toggleText">OFF</span>
+                </div>
             </div>
             <!-- Radio Button -->
             <div class="input-cont">
@@ -98,8 +107,9 @@
                     </label>
                 </div>
             </div>
+        </div>
 
-
+        <div class="form-cont">
             <!-- Date Input Type -->
             <div class="input-cont">
                 <label class="input-label">Date</label>
@@ -111,9 +121,6 @@
                 <input type="number" class="form-tb-number" id="form-tb-number" placeholder="Sample placeholder"
                     required>
             </div>
-        </div>
-
-        <div class="form-cont">
             <!-- Email Input Type -->
             <div class="input-cont">
                 <label class="input-label">Email</label>
@@ -245,101 +252,101 @@
                 <p>This is modal</p>
             </div>
             <!-- Modal Content -->
-                <form id="modal-form" class="modal-form">
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Text (Alphabet)</label>
-                            <input type="text" class="modal-tb-text" placeholder="Sample placeholder" required>
+            <form id="modal-form" class="modal-form">
+                <div class="form-cont">
+                    <div class="modal-input-cont">
+                        <label class="input-label">Text (Alphabet)</label>
+                        <input type="text" class="modal-tb-text" placeholder="Sample placeholder" required>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Text (Alphabet,number)</label>
+                        <input type="text" class="modal-tb-text-number" placeholder="Sample placeholder" required>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Text (For Middle name)</label>
+                        <input type="text" class="modal-tb-text" id="modal-tb-middleName"
+                            placeholder="Sample placeholder" required>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Number</label>
+                        <input type="number" class="modal-tb-number" placeholder="Sample placeholder" required>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Text Initial</label>
+                        <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
+                            placeholder="Sample placeholder" required>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Drop-down</label>
+                        <select class="modal-tb-select" required>
+                            <option value="" selected disabled>Select Option:</option>
+                            <option value="">option 1</option>
+                            <option value="">option 2</option>
+                            <option value="">option 3</option>
+                            <option value="">option 4</option>
+                        </select>
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Date</label>
+                        <input type="date" class="modal-tb-date" required>
+                    </div>
+                </div>
+
+
+                <div class="form-cont">
+                    <div class="modal-input-cont">
+                        <label class="input-label">Modal Radio Have Others</label>
+                        <div class="radio-cont" id="modal-radio-btn">
+                            <label class="radio-label">
+                                <input type="radio" id="modal-radio-op1" name="modal-radio-group" value="op1"
+                                    onclick="modaltoggleInput()" required> Option 1
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="modal-radio-op2" name="modal-radio-group" value="op2"
+                                    onclick="modaltoggleInput()" required> Option 2
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="modal-radio-other" name="modal-radio-group" value="Other"
+                                    onclick="modaltoggleInput()" required> Others
+                            </label>
+
                         </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Text (Alphabet,number)</label>
-                            <input type="text" class="modal-tb-text-number" placeholder="Sample placeholder" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Text (For Middle name)</label>
-                            <input type="text" class="modal-tb-text" id="modal-tb-middleName"
-                                placeholder="Sample placeholder" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Number</label>
-                            <input type="number" class="modal-tb-number" placeholder="Sample placeholder" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Text Initial</label>
-                            <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
-                                placeholder="Sample placeholder" required>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Drop-down</label>
-                            <select class="modal-tb-select" required>
-                                <option value="" selected disabled>Select Option:</option>
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
-                                <option value="">option 3</option>
-                                <option value="">option 4</option>
-                            </select>
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Date</label>
-                            <input type="date" class="modal-tb-date" required>
+                    </div>
+                    <div class="modal-input-cont" id="modal-other-cont" style="display: none;">
+                        <label class="input-label">Enter your Gender</label>
+                        <input type="text" class="modal-tb-text" placeholder="Sample placeholder">
+                    </div>
+                    <div class="modal-input-cont">
+                        <label class="input-label">Radio Button</label>
+                        <div class="radio-cont">
+                            <label class="radio-label">
+                                <input type="radio" name="modal-radio-group" required value="option1"> Option 1
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="modal-radio-group" required value="option2"> Option 2
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="modal-radio-group" required value="option3"> Option 3
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="modal-radio-group" required value="option4"> Option 4
+                            </label>
                         </div>
                     </div>
 
-                
-                    <div class="form-cont">
-                        <div class="modal-input-cont">
-                            <label class="input-label">Modal Radio Have Others</label>
-                            <div class="radio-cont" id="modal-radio-btn">
-                                <label class="radio-label">
-                                    <input type="radio" id="modal-radio-op1" name="modal-radio-group" value="op1"
-                                        onclick="modaltoggleInput()" required> Option 1
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" id="modal-radio-op2" name="modal-radio-group" value="op2"
-                                        onclick="modaltoggleInput()" required> Option 2
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" id="modal-radio-other" name="modal-radio-group" value="Other"
-                                        onclick="modaltoggleInput()" required> Others
-                                </label>
-            
-                            </div>
-                        </div>
-                        <div class="modal-input-cont" id="modal-other-cont" style="display: none;">
-                            <label class="input-label">Enter your Gender</label>
-                            <input type="text" class="modal-tb-text"
-                                placeholder="Sample placeholder">
-                        </div>
-                        <div class="modal-input-cont">
-                            <label class="input-label">Radio Button</label>
-                            <div class="radio-cont">
-                                <label class="radio-label">
-                                    <input type="radio" name="modal-radio-group" required value="option1"> Option 1
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="modal-radio-group" required value="option2"> Option 2
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="modal-radio-group" required value="option3"> Option 3
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="modal-radio-group" required value="option4"> Option 4
-                                </label>
-                            </div>
-                        </div>
-                       
-                        
-                    </div>
-                   
-                    <div class="form-cont">
+
+                </div>
+
+                <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Contact Number</label>
-                        <input type="number" class="modal-tb-number" id="modal-tb-number" placeholder="Sample placeholder" required>
+                        <input type="number" class="modal-tb-number" id="modal-tb-number"
+                            placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Zip Code</label>
-                        <input type="number" class="modal-tb-number" id="modal-tb-zipCode" placeholder="Sample placeholder"
-                            required>
+                        <input type="number" class="modal-tb-number" id="modal-tb-zipCode"
+                            placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Email</label>
@@ -349,20 +356,22 @@
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Password</label>
-                        <input type="password" class="modal-tb-password" id="modal-tb-password" placeholder="Sample placeholder" required>
+                        <input type="password" class="modal-tb-password" id="modal-tb-password"
+                            placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Confirm Password</label>
-                        <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword" placeholder="Sample placeholder" required>
+                        <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword"
+                            placeholder="Sample placeholder" required>
                     </div>
                 </div>
                 <div class="form-cont">
                     <label class="input-label" id="modal-checkbox-label">
-                        <input type="checkbox"  class="modal-checkbox"  id="modal-tb-show-password">
+                        <input type="checkbox" class="modal-checkbox" id="modal-tb-show-password">
                         Show password
                     </label>
                 </div>
-    
+
                 <div class="form-cont">
                     <div class="modal-tb-textarea">
                         <label class="input-label">Other Details</label>
@@ -378,10 +387,10 @@
                 <div class="form-cont">
                     <input type="submit" class="modal-btn-submit" id="modal-btn-submit">
                 </div>
-            </div>
+        </div>
 
-            
-            </form>
+
+        </form>
     </div>
     </div>
 </body>

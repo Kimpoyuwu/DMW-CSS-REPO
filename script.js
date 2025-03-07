@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const input = event.target;
         const onlyLetters = ["form-tb-text", "form-tb-middleName", "modal-tb-text", "modal-tb-middleName"];
         const lettersAndNumbers = ["form-tb-text-number, modal-tb-text-number"];
-        const onlyNumbers = ["form-tb-number", "form-tb-contNumber", "modal-tb-number"];
+        const onlyNumbers = ["form-tb-number", "form-tb-contNumber", "modal-tb-contNumber"];
 
         if (onlyLetters.includes(input.classList[0])) {
             input.value = input.value.replace(/[^a-zA-Z ]/g, '');
@@ -227,6 +227,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Compare Password and Confirm Password in Modal
+const form = document.querySelector(".modal");
+const passwordInput = document.querySelector(".modal-tb-password");
+const confirmPasswordInput = document.querySelector(".modal-tb-confirm-password");
+
+form.addEventListener("submit", function (event) {
+    console.log("Form submitted");
+
+    const password = passwordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+    passwordInput.style.border = "1px solid #ccc";
+    confirmPasswordInput.style.border = "1px solid #ccc";
+
+    if (password !== confirmPassword) {
+        console.log("Passwords do not match!");
+        alert("Passwords do not match.");
+        event.preventDefault();
+
+        // Highlight the fields in red
+        passwordInput.style.border = "2px solid red";
+        confirmPasswordInput.style.border = "2px solid red";
+        return;
+    }
+
+    alert("Form submitted successfully!");
+
+    setTimeout(() => {
+        location.reload();
+    }, 3000);
+});
+``
 
 // Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
@@ -304,7 +335,7 @@ function toggleRadio(isOn) {
 
 // Script for modal
 const submitButton = document.querySelector(".modal-btn");
-const modal = document.getElementById("modal");
+const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".close");
 
 modal.style.display = "none";
@@ -336,7 +367,7 @@ function modaltoggleInput() {
 }
 // Adjusting textarea height based on content
 document.addEventListener("DOMContentLoaded", function () {
-    const textarea = document.getElementById("modal-tb-textarea");
+    const textarea = document.querySelector(".modal-tb-textarea");
     textarea.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";
@@ -344,14 +375,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Limiting number of characters in text fields
-document.getElementById("modal-tb-number").addEventListener("input", function () {
+document.getElementById(".modal-tb-contNumber").addEventListener("input", function () {
     this.value = this.value.slice(0, 11);
 });
 
 // Getting first letter of middle name
 document.addEventListener("DOMContentLoaded", function () {
-    let middleNameInput = document.getElementById("modal-tb-middleName");
-    let middleInitialInput = document.getElementById("modal-tb-middleInitial");
+    let middleNameInput = document.querySelector(".modal-tb-middleName");
+    let middleInitialInput = document.querySelector(".modal-tb-middleInitial");
     middleNameInput.addEventListener("input", function () {
         let middleName = middleNameInput.value.trim();
         if (middleName.length > 0) {
@@ -375,14 +406,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Validate Zip Code (4 digits)
-    document.getElementById("modal-tb-zipCode").addEventListener("input", function () {
+    document.querySelector(".modal-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
     });
 
     // Compare Password and Confirm Password
-    const form = document.getElementById("modal");
-    const passwordInput = document.getElementById("modal-tb-password");
-    const confirmPasswordInput = document.getElementById("modal-tb-confirmPassword");
+    const form = document.querySelector(".modal");
+    const passwordInput = document.querySelector(".modal-tb-password");
+    const confirmPasswordInput = document.querySelector(".modal-tb-confirmPassword");
 
     form.addEventListener("submit", function (event) {
         console.log("Form submitted");
@@ -426,15 +457,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         // Show/hide password
-        document.getElementById("modal-tb-show-password").addEventListener("change", function () {
-            const password = document.getElementById("modal-tb-password");
+        document.querySelector(".modal-tb-show-password").addEventListener("change", function () {
+            const password = document.querySelector(".modal-tb-password");
             const type = this.checked ? "text" : "password";
             password.type = type;
         });
     });
     // Validate Confirm Password
-    const password = document.getElementById("modal-tb-password");
-    const confirmPassword = document.getElementById("modal-tb-confirmPassword");
+    const password = document.querySelector(".modal-tb-password");
+    const confirmPassword = document.querySelector(".modal-tb-confirmPassword");
     confirmPassword.addEventListener("input", function () {
         if (confirmPassword.value !== password.value) {
             confirmPassword.setCustomValidity("Passwords do not match.");
@@ -443,13 +474,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         confirmPassword.reportValidity();
     });
-    // Show/hide password
-    document.getElementById("modal-tb-show-password").addEventListener("change", function () {
-        const password = document.getElementById("modal-tb-password");
+     // Show/hide password
+     document.querySelector(".modal-tb-show-password").addEventListener("change", function () {
+        const password = document.querySelector(".form-tb-password");
         const type = this.checked ? "text" : "password";
         password.type = type;
     });
 });
-
+   
 
 

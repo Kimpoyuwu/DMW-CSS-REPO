@@ -245,7 +245,7 @@
         </div>
     </form>
     <!-- Modal -->
-    <div id="modal" class="modal">
+    <div class="modal">
         <!-- Modal Container -->
         <div class="modal-cont">
             <!-- Icon to close the modal-->
@@ -254,7 +254,7 @@
                 <p>This is modal</p>
             </div>
             <!-- Modal Content -->
-            <form id="modal-form" class="modal-form">
+            <form class="modal-form">
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Text (Alphabet)</label>
@@ -266,7 +266,7 @@
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Text (For Middle name)</label>
-                        <input type="text" class="modal-tb-text" id="modal-tb-middleName"
+                        <input type="text" class="modal-tb-middleName"
                             placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
@@ -275,7 +275,7 @@
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Text Initial</label>
-                        <input type="text" class="modal-tb-text" readonly id="modal-tb-middleInitial"
+                        <input type="text" class="modal-tb-middleInitial" readonly
                             placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
@@ -298,17 +298,17 @@
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Modal Radio Have Others</label>
-                        <div class="radio-cont" id="modal-radio-btn">
+                        <div class="radio-cont">
                             <label class="radio-label">
-                                <input type="radio" id="modal-radio-op1" name="modal-radio-group" value="op1"
+                                <input type="radio" name="modal-radio-group" value="op1"
                                     onclick="modaltoggleInput()" required> Option 1
                             </label>
                             <label class="radio-label">
-                                <input type="radio" id="modal-radio-op2" name="modal-radio-group" value="op2"
+                                <input type="radio" name="modal-radio-group" value="op2"
                                     onclick="modaltoggleInput()" required> Option 2
                             </label>
                             <label class="radio-label">
-                                <input type="radio" id="modal-radio-other" name="modal-radio-group" value="Other"
+                                <input type="radio" name="modal-radio-group" value="Other"
                                     onclick="modaltoggleInput()" required> Others
                             </label>
 
@@ -342,12 +342,12 @@
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Contact Number</label>
-                        <input type="number" class="modal-tb-number" id="modal-tb-number"
+                        <input type="number" class="modal-tb-contNumber" 
                             placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Zip Code</label>
-                        <input type="number" class="modal-tb-number" id="modal-tb-zipCode"
+                        <input type="number" class="modal-tb-zipCode"
                             placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
@@ -358,30 +358,28 @@
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Password</label>
-                        <input type="password" class="modal-tb-password" id="modal-tb-password"
+                        <input type="password" class="modal-tb-password"
                             placeholder="Sample placeholder" required>
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Confirm Password</label>
-                        <input type="password" class="modal-tb-password" id="modal-tb-confirmPassword"
+                        <input type="password" class="modal-tb-confirmPassword"
                             placeholder="Sample placeholder" required>
                     </div>
                 </div>
-                <div class="form-cont">
-                    <label class="input-label" id="modal-checkbox-label">
-                        <input type="checkbox" class="modal-checkbox" id="modal-tb-show-password">
-                        Show password
-                    </label>
+                <div class="modal-tb-checkbox">
+                    <input type="checkbox" class="modal-tb-show-password">
+                    <p class="show-pass-text">Show Password</p>
                 </div>
 
                 <div class="form-cont">
-                    <div class="modal-tb-textarea">
-                        <label class="input-label">Other Details</label>
-                        <textarea id="modal-tb-textarea" rows="4" placeholder="Sample Placeholder"></textarea>
+                    <div class="input-tb-textarea">
+                        <label class="input-label">Text Area</label>
+                        <textarea class="modal-tb-textarea" rows="4" placeholder="Sample placeholder"></textarea>
                     </div>
                 </div>
                 <div class="form-cont">
-                    <label class="input-label" id="modal-checkbox-label">
+                    <label class="input-cb-label">
                         <input type="checkbox" class="modal-checkbox" required>
                         Checkbox
                     </label>

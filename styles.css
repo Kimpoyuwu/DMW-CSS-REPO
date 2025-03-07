@@ -116,7 +116,7 @@
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
 .form-tb-date-time, .form-tb-file,
 .modal-tb-text, .modal-tb-text-number, .modal-tb-number, .modal-tb-date,
-.modal-tb-email, .modal-tb-password, .modal-tb-select {
+.modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword{
   flex: 1 1 calc(20% - 10px);
   margin: 0 5px 0 5px;
   padding: 10px;
@@ -459,7 +459,7 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
 }
 
-#modal-checkbox-label {
+.modal-checkbox-label {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -503,7 +503,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .form-tb-textarea,
-#modal-tb-textarea {
+.modal-tb-textarea {
   width: 100%;
   padding: 10px;
   font-size: 16px;

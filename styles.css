@@ -142,13 +142,13 @@
 
 .toggle {
   position: relative;
-  width: 91px;
-  height: 43px;
+  width: 76px;
+  height: 33px;
   background-color: #D9D9D9;
   border-radius: 40px;
   cursor: pointer;
   text-align: right;
-  line-height: 40px;
+  line-height: 33px;
   font-family: "Poppins", serif;
   font-weight: bold;
   color: white;
@@ -157,7 +157,7 @@
 }
 
 .toggle #toggleText{
-  margin-right: 15px;
+  margin-right: 12px;
 }
 
 #on-off-toggle-btn{
@@ -170,10 +170,10 @@
 
 .toggle .slide {
   position: absolute;
-  top: 4px;
+  top: 3px;
   left: 4px;
-  width: 32px;
-  height: 34px;
+  width: 25px;
+  height: 26px;
   background-color: white;
   border-radius: 50%;
   transition: transform 0.4s;
@@ -184,7 +184,7 @@
 }
 
 .toggle.on #toggleText {
-  margin-left: 17px;
+  margin-left: 12px;
   font-family: "Poppins", serif;
 }
 
@@ -197,7 +197,7 @@
 }
 
 .toggle.on .slide {
-  transform: translateX(48px);
+  transform: translateX(42px);
 }
 
 

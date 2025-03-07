@@ -24,19 +24,19 @@
             </div>
             <div class="input-cont">
                 <label class="input-label">Text (For Middle name)</label>
-                <input type="text" class="form-tb-text" id="form-tb-middleName" placeholder="Sample placeholder"
+                <input type="text" class="form-tb-middleName" placeholder="Sample placeholder"
                     required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Text Initial</label>
-                <input type="text" class="form-tb-text" readonly id="form-tb-middleInitial"
+                <input type="text" class="form-tb-middleInitial" readonly
                     placeholder="Sample placeholder" required>
             </div>
 
             <!-- Dropdown Button -->
             <div class="input-cont">
                 <label class="input-label">Drop-down</label>
-                <select id="form-tb-suffix" class="form-tb-select" required>
+                <select class="form-tb-select" required>
                     <option value="" selected disabled>Select Option:</option>
                     <option value="">option 1</option>
                     <option value="">option 2</option>
@@ -54,39 +54,39 @@
             </div>
             <div class="input-cont">
                 <label class="input-label">Zip Code</label>
-                <input type="number" class="form-tb-number" id="form-tb-zipCode" placeholder="Sample placeholder"
+                <input type="number" class="form-tb-zipCode" placeholder="Sample placeholder"
                     required>
             </div>
             <!-- Toggle Button -->
-            <div class="input-cont" id="on-off-toggle-btn">
+            <div class="toggle-cont">
                 <label class="input-label">Toggle Button</label>
-                <div class="toggle" id="toggleSwitch">
-                    <input type="radio" name="toggle" id="radioOff" class="radio-input" checked>
-                    <input type="radio" name="toggle" id="radioOn" class="radio-input">
+                <div class="toggleSwitch">
+                    <input type="radio" name="toggle" class="radio-input-off" checked>
+                    <input type="radio" name="toggle" class="radio-input-on">
                     <div class="slide"></div>
-                    <span id="toggleText">OFF</span>
+                    <span class="toggleText">OFF</span>
                 </div>
             </div>
             <!-- Radio Button -->
             <div class="input-cont">
                 <label class="input-label">Radio Have Others</label>
-                <div class="radio-cont" id="form-radio-btn">
+                <div class="radio-cont">
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-op1" name="form-radio-group" value="Male"
+                        <input type="radio" class="form-radio-op1" name="form-radio-group" value="op1"
                             onclick="formtoggleInput()" required> Option 1
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-op2" name="form-radio-group" value="Female"
+                        <input type="radio" class="form-radio-op2" name="form-radio-group" value="op2"
                             onclick="formtoggleInput()" required> Option 2
                     </label>
                     <label class="radio-label">
-                        <input type="radio" id="form-radio-other" name="form-radio-group" value="Other"
+                        <input type="radio" class="form-radio-other" name="form-radio-group" value="Other"
                             onclick="formtoggleInput()" required> Others
                     </label>
 
                 </div>
             </div>
-            <div class="input-cont" id="form-other-cont" style="display: none;">
+            <div class="input-other-cont" style="display: none;">
                 <label class="input-label">Text</label>
                 <input type="text" class="form-tb-text" placeholder="Sample placeholder">
             </div>
@@ -118,37 +118,37 @@
             <!-- For Contact NUmber -->
             <div class="input-cont">
                 <label class="input-label">Contact Number</label>
-                <input type="number" class="form-tb-number" id="form-tb-number" placeholder="Sample placeholder"
+                <input type="number" class="form-tb-contNumber" placeholder="Sample placeholder"
                     required>
             </div>
             <!-- Email Input Type -->
             <div class="input-cont">
                 <label class="input-label">Email</label>
-                <input type="email" class="form-tb-email" id="form-tb-email" placeholder="Sample placeholder" required>
+                <input type="email" class="form-tb-email" placeholder="Sample placeholder" required>
             </div>
         </div>
         <div class="form-cont">
             <!-- Password Input Type -->
             <div class="input-cont">
                 <label class="input-label">Password</label>
-                <input type="password" class="form-tb-password" id="form-tb-password" placeholder="Sample placeholder"
+                <input type="password" class="form-tb-password" placeholder="Sample placeholder"
                     required>
             </div>
             <div class="input-cont">
                 <label class="input-label">Confirm Passpassword</label>
-                <input type="password" class="form-tb-password" id="form-tb-confirm-password"
+                <input type="password" class="form-tb-confirm-password"
                     placeholder="Sample placeholder" required>
             </div>
         </div>
         <!-- Checkbox for showing password-->
         <div class="form-tb-checkbox">
-            <input type="checkbox" id="form-tb-show-password">
-            <p id="show">Show Password</p>
+            <input type="checkbox" class="form-tb-show-password">
+            <p class="show-pass-text">Show Password</p>
         </div>
         <div class="form-cont">
             <!-- Search Input Type -->
             <div class="input-cont">
-                <label for="form-tb-search" class="input-label">Search</label>
+                <label class="input-label">Search</label>
                 <div class="input-wrapper">
                     <i class="fas fa-search"></i>
                     <input type="search" class="form-tb-search" placeholder="Sample placeholder">
@@ -171,7 +171,7 @@
             <!-- Time Input Type -->
             <div class="input-cont">
                 <label class="input-label">Time</label>
-                <input type="time" class="form-tb-time" id="form-tb-time">
+                <input type="time" class="form-tb-time">
             </div>
             <!-- Date Time Input Type -->
             <div class="input-cont">
@@ -181,45 +181,45 @@
             <!-- Multiple selecting File input type -->
             <div class="input-cont">
                 <label class="input-label">File</label>
-                <input type="file" class="form-tb-file" id="form-tb-file" name="file[]" multiple>
+                <input type="file" class="form-tb-file" name="file[]" multiple>
             </div>
             <!-- Container for showing list of inputted file -->
-            <div class="input-cont" id="file-list-cont" style="display: none;">
+            <div class="input-file-list-cont" style="display: none;">
                 <label class="input-label">List of Uploaded File</label>
-                <ul class="form-tb-list" id="file-list"></ul>
+                <ul class="form-tb-list"></ul>
             </div>
         </div>
         <div class="form-cont">
             <!-- Textarea Input Type -->
-            <div class="form-tb-textarea">
+            <div class="input-tb-textarea">
                 <label class="input-label">Text Area</label>
-                <textarea id="form-tb-textarea" rows="4" placeholder="Sample placeholder"></textarea>
+                <textarea class="form-tb-textarea" rows="4" placeholder="Sample placeholder"></textarea>
             </div>
         </div>
         <div class="form-cont">
             <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
+            <label class="input-cb-label">
                 <input type="checkbox" class="form-checkbox" required>
                 Checkbox
             </label>
         </div>
         <div class="form-cont">
             <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
+            <label class="input-cb-label">
                 <input type="checkbox" class="form-checkbox" required>
                 Checkbox</span>
             </label>
         </div>
         <div class="form-cont">
             <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
+            <label class="input-cb-label">
                 <input type="checkbox" class="form-checkbox" required>
                 Checkbox</span>
             </label>
         </div>
         <div class="form-cont">
             <!-- Chekckbox -->
-            <label class="input-label" id="checkbox-label">
+            <label class="input-cb-label">
                 <input type="checkbox" class="form-checkbox" required>
                 Checkbox</span>
             </label>
@@ -230,15 +230,17 @@
             <div class="input-cont">
                 <input type="reset" class="form-btn-reset" value="Reset">
             </div>
+            <!-- Button to open modal -->
             <div class="input-cont">
-                <input type="button" value="Modal" class="modal-btn-submit" id="modal-btn">
+                <input type="button" class="modal-btn" value="Modal">
 
             </div>
 
         </div>
+        <!-- Submit button -->
         <div class="form-cont">
             <div class="input-cont">
-                <input type="submit" value="Submit" class="form-btn-submit" id="form-btn-submit">
+                <input type="submit" class="form-btn-submit" >
             </div>
         </div>
     </form>
@@ -385,7 +387,7 @@
                     </label>
                 </div>
                 <div class="form-cont">
-                    <input type="submit" class="modal-btn-submit" id="modal-btn-submit">
+                    <input type="submit" class="modal-btn-submit ">
                 </div>
         </div>
 

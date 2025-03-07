@@ -1,10 +1,11 @@
+// Script for form
 // Showing text field for other gender (form)
 function formtoggleInput() {
-    let selectedGender = document.getElementById("form-radio-op1").checked ? "op1" :
-        document.getElementById("form-radio-op2").checked ? "op2" :
-            document.getElementById("form-radio-other").checked ? "Other" : "";
+    let selectedGender = document.querySelector(".form-radio-op1").checked ? "op1" :
+        document.querySelector(".form-radio-op2").checked ? "op2" :
+            document.querySelector(".form-radio-other").checked ? "Other" : "";
 
-    let genderOthersContainer = document.getElementById("form-other-cont");
+    let genderOthersContainer = document.querySelector(".input-other-cont");
 
     if (selectedGender === "Other") {
         genderOthersContainer.style.display = "flex";
@@ -15,7 +16,7 @@ function formtoggleInput() {
 
 // Adjusting textarea height based on content
 document.addEventListener("DOMContentLoaded", function () {
-    const textarea = document.getElementById("form-tb-textarea");
+    const textarea = document.querySelector(".form-tb-textarea");
     textarea.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";
@@ -25,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Showing File name in the list
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('form-tb-file').addEventListener('change', function () {
-        const fileListCont = document.getElementById('file-list-cont');
-        const fileList = document.getElementById('file-list');
+    document.querySelector('.form-tb-file').addEventListener('change', function () {
+        const fileListCont = document.querySelector('.input-file-list-cont');
+        const fileList = document.querySelector('.form-tb-list');
         fileList.innerHTML = '';
 
         if (this.files.length > 0) {
@@ -42,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
             fileListCont.style.display = 'none';
         }
     });
-    let fileInput = document.getElementById("form-tb-file");
-    let fileList = document.getElementById("file-list");
+    let fileInput = document.querySelector(".form-tb-file");
+    let fileList = document.querySelector(".form-tb-list");
     let storedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
     function updateFileList(files) {
         fileList.innerHTML = "";
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const input = event.target;
         const onlyLetters = ["form-tb-text", "form-tb-middleName", "modal-tb-text", "modal-tb-middleName"];
         const lettersAndNumbers = ["form-tb-text-number, modal-tb-text-number"];
-        const onlyNumbers = ["form-tb-number", "modal-tb-number"];
+        const onlyNumbers = ["form-tb-number", "form-tb-contNumber", "modal-tb-number"];
 
         if (onlyLetters.includes(input.classList[0])) {
             input.value = input.value.replace(/[^a-zA-Z ]/g, '');
@@ -153,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener("input", handleInputValidation);
     });
 
-    document.getElementById("form-btn-submit")?.addEventListener("click", function (event) {
+    document.querySelector(".form-btn-submit")?.addEventListener("click", function (event) {
         const form = document.querySelector(".form");
         if (form && !validateForm(form)) {
             event.preventDefault();
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    document.getElementById("modal-btn-submit")?.addEventListener("click", function (event) {
+    document.querySelector(".modal-btn-submit")?.addEventListener("click", function (event) {
         const form = document.querySelector(".modal-form");
         if (form && !validateForm(form)) {
             event.preventDefault();
@@ -171,8 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Getting first letter of middle name
 document.addEventListener("DOMContentLoaded", function () {
-    let middleNameInput = document.getElementById("form-tb-middleName");
-    let middleInitialInput = document.getElementById("form-tb-middleInitial");
+    let middleNameInput = document.querySelector(".form-tb-middleName");
+    let middleInitialInput = document.querySelector(".form-tb-middleInitial");
 
     middleNameInput.addEventListener("input", function () {
         let middleName = middleNameInput.value.trim();
@@ -189,14 +190,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Validate Zip Code (4 digits)
-    document.getElementById("form-tb-zipCode").addEventListener("input", function () {
+    document.querySelector(".form-tb-zipCode").addEventListener("input", function () {
         this.value = this.value.replace(/\D/g, "").slice(0, 4);
     });
 
     // Compare Password and Confirm Password
     const form = document.querySelector(".form");
-    const passwordInput = document.getElementById("form-tb-password");
-    const confirmPasswordInput = document.getElementById("form-tb-confirm-password");
+    const passwordInput = document.querySelector(".form-tb-password");
+    const confirmPasswordInput = document.querySelector(".form-tb-confirm-password");
 
     form.addEventListener("submit", function (event) {
         console.log("Form submitted");
@@ -240,12 +241,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    document.getElementById("form-tb-number").addEventListener("input", function () {
+    document.querySelector(".form-tb-contNumber").addEventListener("input", function () {
         this.value = this.value.slice(0, 11);
     });
 
     // Validate Contact Number (10 digits)
-    const contactNumber = document.getElementById("form-tb-number");
+    const contactNumber = document.querySelector(".form-tb-contNumber");
     contactNumber.addEventListener("input", function () {
         if (!/^\d{11}$/.test(this.value)) {
             this.setCustomValidity("Contact number must be exactly 11 digits.");
@@ -256,8 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Validate Confirm Password
-    const password = document.getElementById("form-tb-password");
-    const confirmPassword = document.getElementById("form-tb-confirm-password");
+    const password = document.querySelector(".form-tb-password");
+    const confirmPassword = document.querySelector(".form-tb-confirm-password");
 
     confirmPassword.addEventListener("input", function () {
         if (confirmPassword.value !== password.value) {
@@ -269,15 +270,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Show/hide password
-    document.getElementById("form-tb-show-password").addEventListener("change", function () {
-        const password = document.getElementById("form-tb-password");
+    document.querySelector(".form-tb-show-password").addEventListener("change", function () {
+        const password = document.querySelector(".form-tb-password");
         const type = this.checked ? "text" : "password";
         password.type = type;
     });
 });
 
+function toggleRadio(isOn) {
+    const toggleSwitch = document.querySelector('.toggleSwitch');
+    const toggleText = document.querySelector('.toggleText');
+    if (isOn) {
+      toggleSwitch.classList.add('on');
+      toggleText.textContent = 'ON';
+    } else {
+      toggleSwitch.classList.remove('on');
+      toggleText.textContent = 'OFF';
+    }
+  }
+  document.querySelector('.toggleSwitch').addEventListener('click', function() {
+    const radioOff = document.querySelector('.radio-input-off');
+    const radioOn = document.querySelector('.radio-input-on');
+
+    if (radioOff.checked) {
+      radioOn.checked = true;
+      toggleRadio(true);
+    } else {
+      radioOff.checked = true;
+      toggleRadio(false);
+    }
+  });
+
+
 // Script for modal
-const submitButton = document.getElementById("modal-btn");
+const submitButton = document.querySelector(".modal-btn");
 const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close");
 
@@ -426,27 +452,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function toggleRadio(isOn) {
-    const toggleSwitch = document.getElementById('toggleSwitch');
-    const toggleText = document.getElementById('toggleText');
-    if (isOn) {
-      toggleSwitch.classList.add('on');
-      toggleText.textContent = 'ON';
-    } else {
-      toggleSwitch.classList.remove('on');
-      toggleText.textContent = 'OFF';
-    }
-  }
-  document.getElementById('toggleSwitch').addEventListener('click', function() {
-    const radioOff = document.getElementById('radioOff');
-    const radioOn = document.getElementById('radioOn');
-
-    if (radioOff.checked) {
-      radioOn.checked = true;
-      toggleRadio(true);
-    } else {
-      radioOff.checked = true;
-      toggleRadio(false);
-    }
-  });
 

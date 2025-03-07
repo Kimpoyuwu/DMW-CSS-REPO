@@ -110,8 +110,8 @@
 }
 
 /* Inputs Style */
-.form-tb-text, .form-tb-text-number, .form-tb-number, .form-tb-date,
-.form-tb-email, .form-tb-password, .form-tb-select,
+.form-tb-text,.form-tb-middleName, .form-tb-middleInitial, .form-tb-zipCode, .form-tb-contNumber, .form-tb-text-number, .form-tb-number, .form-tb-date,
+.form-tb-email, .form-tb-password, .form-tb-confirm-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
 .form-tb-date-time, .form-tb-file,
@@ -130,8 +130,8 @@
   min-height: 50px;
 }
 
-.form-tb-text:hover, .form-tb-number:hover, .form-tb-date:hover,
-.form-btn-email:hover, .form-btn-password:hover, .form-tb-select:hover,
+.form-tb-text:hover, .form-tb-middleName:hover, .form-tb-middleInitial:hover, .form-tb-zipCode:hover, .form-tb-number:hover, .form-tb-date:hover,
+.form-btn-email:hover, .form-tb-password:hover, .form-tb-confirm-password:hover, .form-tb-select:hover,
 .form-tb-search:hover, .form-tb-url:hover, .form-tb-rangev,
 .form-tb-month:hover, .form-tb-weekv:hover, .form-tb-time:hover,
 .form-tb-date-time:hover, .form-tb-range:hover, .form-tb-file:hover{
@@ -140,7 +140,7 @@
 }
 
 
-.toggle {
+.toggleSwitch {
   position: relative;
   width: 76px;
   height: 33px;
@@ -156,19 +156,20 @@
   transition: background-color 0.4s;
 }
 
-.toggle #toggleText{
+.toggleSwitch .toggleText{
   margin-right: 12px;
 }
 
-#on-off-toggle-btn{
+.toggle-cont{
   display: flex;
+  flex: auto;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
-.toggle .slide {
+.toggleSwitch .slide {
   position: absolute;
   top: 3px;
   left: 4px;
@@ -179,16 +180,16 @@
   transition: transform 0.4s;
 }
 
-.radio-input{
+.radio-input-off, .radio-input-on {
   display: none;
 }
 
-.toggle.on #toggleText {
+.toggleSwitch.on .toggleText {
   margin-left: 12px;
   font-family: "Poppins", serif;
 }
 
-.toggle.on {
+.toggleSwitch.on {
   background-color: #1B313E;
   text-align: left;
   transform: 0.8s;
@@ -196,7 +197,7 @@
   padding-left: 1px;
 }
 
-.toggle.on .slide {
+.toggleSwitch.on .slide {
   transform: translateX(42px);
 }
 
@@ -224,14 +225,14 @@
   overflow: auto;
 }
 
-.input-cont,
+.input-cont, .input-other-cont, .input-file-list-cont,
 .modal-input-cont {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.input-label {
+.input-label, .input-cb-label {
   font-size: 14px;
   font-weight: bold;
   margin-left: 8px;
@@ -255,9 +256,6 @@
   margin: 0 10px 0 8px;
 }
 
-#form-tb-search::placeholder{
-  margin-left: 20px;
-}
 
 .fa-search{
   margin-right: 8px;
@@ -326,8 +324,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Style for confirm password */
-#form-tb-confirm-password::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
-#form-tb-confirm-password::-ms-clear,  #modal-tb-confirmPassword::-ms-clear {
+.form-tb-confirm-password::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
+.form-tb-confirm-password::-ms-clear,  #modal-tb-confirmPassword::-ms-clear {
   display: none;
 }
 
@@ -478,25 +476,25 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 10px;
   font-weight: 500;
 }
-#form-tb-show-password{
+.form-tb-show-password{
   width: 30px;
   height: 20px;
   margin-left: 4px;
   --checkbox-size: 21px;
 }
-#show {
+.show-pass-text {
   text-align: center;
   justify-content: center;
   font-size: 14px;
 }
 
-#checkbox-label {
+.input-cb-label {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.form-tb-textarea,
+.input-tb-textarea,
 .modal-tb-textarea {
   width: 100%;
   height: 100%;
@@ -504,7 +502,7 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
-#form-tb-textarea,
+.form-tb-textarea,
 #modal-tb-textarea {
   width: 100%;
   padding: 10px;
@@ -512,16 +510,12 @@ input[type="number"]::-webkit-outer-spin-button {
   outline: none;
   box-sizing: border-box;
   max-height: 350px;
+  border: 1px solid #AFAFAF;
+  border-radius: 10px;
   resize: none;
 }
 
-textarea {
-  padding: 10px;
-  border-radius: 10px;
-  border: solid 1px rgba(19, 19, 19, 0.5);
-}
-
-textarea:hover {
+.form-tb-textarea:hover {
   box-shadow: 0px 0px 5px 0px rgb(226, 225, 225);
   border: solid 1px #66a3c9;
 }
@@ -529,6 +523,7 @@ textarea:hover {
 /* Style for Buttons */
 .form-btn-submit,
 .modal-btn-submit,
+.modal-btn,
 .form-btn-button,
 .form-btn-reset{
   width: 100%;
@@ -546,6 +541,7 @@ textarea:hover {
 
 .form-btn-submit:hover,
 .modal-btn-submit:hover,
+.modal-btn:hover,
 .form-btn-button:hover,
 .form-btn-reset:hover {
   background-color: #66a3c9;

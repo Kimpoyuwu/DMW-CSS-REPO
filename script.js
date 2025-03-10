@@ -333,7 +333,7 @@ function toggleRadio(isOn) {
   });
 
 
-// Script for modal
+// "Script for modal"
 const submitButton = document.querySelector(".modal-btn");
 const modal = document.querySelector(".modal");
 const closeButton = document.querySelector(".close");
@@ -352,12 +352,11 @@ closeButton.addEventListener("click", function () {
 });
 // Showing text field for other
 function modaltoggleInput() {
-    let selectedGender = document.getElementById("modal-radio-op1").checked ? "op1" :
-        document.getElementById("modal-radio-op2").checked ? "op2" :
-            document.getElementById("modal-radio-other").checked ? "Other" : "";
+    let selectedGender = document.querySelector(".modal-radio-op1").checked ? "op1" :
+        document.querySelector(".modal-radio-op2").checked ? "op2" :
+            document.querySelector(".modal-radio-other").checked ? "Other" : "";
 
-    let genderOthersContainer = document.getElementById("modal-other-cont");
-    let otherGenderInput = document.getElementById("modal-radio-btn");
+    let genderOthersContainer = document.querySelector(".modal-other-cont");
 
     if (selectedGender === "Other") {
         genderOthersContainer.style.display = "flex";
@@ -375,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Limiting number of characters in text fields
-document.getElementById(".modal-tb-contNumber").addEventListener("input", function () {
+document.querySelector(".modal-tb-contNumber").addEventListener("input", function () {
     this.value = this.value.slice(0, 11);
 });
 
@@ -406,8 +405,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Validate Zip Code (4 digits)
-    document.querySelector(".modal-tb-zipCode").addEventListener("input", function () {
-        this.value = this.value.replace(/\D/g, "").slice(0, 4);
+    document.querySelectorAll(".modal-tb-zipCode").forEach((input) => {
+        input.addEventListener("input", function () {
+            this.value = this.value.replace(/\D/g, "").slice(0, 4);
+        });
     });
 
     // Compare Password and Confirm Password
@@ -442,9 +443,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-
-
 // Validate form fields
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input[required], select[required]");
@@ -476,11 +474,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
      // Show/hide password
      document.querySelector(".modal-tb-show-password").addEventListener("change", function () {
-        const password = document.querySelector(".form-tb-password");
+        const password = document.querySelector(".modal-tb-password");
         const type = this.checked ? "text" : "password";
         password.type = type;
     });
 });
-   
-
-

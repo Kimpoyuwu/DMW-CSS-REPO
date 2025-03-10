@@ -226,7 +226,7 @@
 }
 
 .input-cont, .input-other-cont, .input-file-list-cont,
-.modal-input-cont {
+.modal-input-cont, .modal-other-cont {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -324,8 +324,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Style for confirm password */
-.form-tb-confirm-password::-ms-reveal, #modal-tb-confirmPassword::-ms-reveal,
-.form-tb-confirm-password::-ms-clear,  #modal-tb-confirmPassword::-ms-clear {
+.form-tb-confirm-password::-ms-reveal, .modal-tb-confirmPassword::-ms-reveal,
+.form-tb-confirm-password::-ms-clear,  .modal-tb-confirmPassword::-ms-clear {
   display: none;
 }
 
@@ -482,6 +482,33 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 4px;
   --checkbox-size: 21px;
 }
+
+.modal-tb-show-password{
+  width: 30px;
+  height: 20px;
+  margin-left: 4px;
+  --checkbox-size: 21px;
+}
+.modal-tb-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 30px;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.modal-tb-checkbox label {
+  text-align: left; 
+}
+
+.modal-tb-checkbox input[type="checkbox"] {
+  margin-right: 5px; 
+}
+
 .show-pass-text {
   text-align: center;
   justify-content: center;

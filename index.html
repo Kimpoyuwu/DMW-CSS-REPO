@@ -297,28 +297,30 @@
 
                 <div class="form-cont">
                     <div class="modal-input-cont">
-                        <label class="input-label">Modal Radio Have Others</label>
+                        <label class="input-label">Radio Have Others</label>
                         <div class="radio-cont">
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" value="op1"
+                                <input type="radio" class="modal-radio-op1" name="modal-radio-group" value="op1"
                                     onclick="modaltoggleInput()" required> Option 1
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" value="op2"
+                                <input type="radio" class="modal-radio-op2" name="modal-radio-group" value="op2"
                                     onclick="modaltoggleInput()" required> Option 2
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" value="Other"
+                                <input type="radio" class="modal-radio-other" name="modal-radio-group" value="Other"
                                     onclick="modaltoggleInput()" required> Others
                             </label>
-
                         </div>
                     </div>
-                    <div class="modal-input-cont" id="modal-other-cont" style="display: none;">
-                        <label class="input-label">Enter your Gender</label>
-                        <input type="text" class="modal-tb-text" placeholder="Sample placeholder">
-                    </div>
                     <div class="modal-input-cont">
+                        <div class="modal-other-cont" style="display: none;">
+                            <label class="input-label">Enter your Gender</label>
+                            <input type="text" class="modal-tb-text" placeholder="Sample placeholder">
+                        </div>
+                    </div>
+                    
+                     <div class="modal-input-cont">
                         <label class="input-label">Radio Button</label>
                         <div class="radio-cont">
                             <label class="radio-label">
@@ -335,8 +337,6 @@
                             </label>
                         </div>
                     </div>
-
-
                 </div>
 
                 <div class="form-cont">
@@ -388,8 +388,6 @@
                     <input type="submit" class="modal-btn-submit ">
                 </div>
         </div>
-
-
         </form>
     </div>
     </div>

@@ -116,7 +116,7 @@
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
 .form-tb-date-time, .form-tb-file,
 .modal-tb-text, .modal-tb-text-number, .modal-tb-number, .modal-tb-date,
-.modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword{
+.modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword, .modal-selectCountry, .modal-zipCode{
   flex: 1 1 calc(20% - 10px);
   margin: 0 5px 0 5px;
   padding: 10px;
@@ -329,6 +329,27 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
+.modal-zipResult {
+  margin-top: 2px;
+  margin-left: 6px;
+  font-weight: bold;
+  font-size: 10px;
+}
+/* 🔹 Input styles for valid and invalid ZIP codes */
+.valid {
+  border: 2px solid green;
+  background-color: #eaffea;
+}
+.invalid {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+.input-label-error {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 8px;
+}
 /* Styling for checkbox and teaxtarea */
 .form-tb-checkbox,
 .modal-tb-checkbox,

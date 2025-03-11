@@ -52,11 +52,6 @@
                 <label class="input-label">Number</label>
                 <input type="number" class="form-tb-number" placeholder="Sample placeholder" required>
             </div>
-            <div class="input-cont">
-                <label class="input-label">Zip Code</label>
-                <input type="number" class="form-tb-zipCode" placeholder="Sample placeholder"
-                    required>
-            </div>
             <!-- Toggle Button -->
             <div class="toggle-cont">
                 <label class="input-label">Toggle Button</label>
@@ -258,29 +253,29 @@
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Text (Alphabet)</label>
-                        <input type="text" class="modal-tb-text" placeholder="Sample placeholder" required>
+                        <input type="text" class="modal-tb-text" placeholder="Sample placeholder">
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Text (Alphabet,number)</label>
-                        <input type="text" class="modal-tb-text-number" placeholder="Sample placeholder" required>
+                        <input type="text" class="modal-tb-text-number" placeholder="Sample placeholder">
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Text (For Middle name)</label>
                         <input type="text" class="modal-tb-middleName"
-                            placeholder="Sample placeholder" required>
+                            placeholder="Sample placeholder">
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Number</label>
-                        <input type="number" class="modal-tb-number" placeholder="Sample placeholder" required>
+                        <input type="number" class="modal-tb-number" placeholder="Sample placeholder">
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Text Initial</label>
                         <input type="text" class="modal-tb-middleInitial" readonly
-                            placeholder="Sample placeholder" required>
+                            placeholder="Sample placeholder">
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Drop-down</label>
-                        <select class="modal-tb-select" required>
+                        <select class="modal-tb-select">
                             <option value="" selected disabled>Select Option:</option>
                             <option value="">option 1</option>
                             <option value="">option 2</option>
@@ -290,7 +285,7 @@
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Date</label>
-                        <input type="date" class="modal-tb-date" required>
+                        <input type="date" class="modal-tb-date">
                     </div>
                 </div>
 
@@ -301,15 +296,15 @@
                         <div class="radio-cont">
                             <label class="radio-label">
                                 <input type="radio" class="modal-radio-op1" name="modal-radio-group" value="op1"
-                                    onclick="modaltoggleInput()" required> Option 1
+                                    onclick="modaltoggleInput()"> Option 1
                             </label>
                             <label class="radio-label">
                                 <input type="radio" class="modal-radio-op2" name="modal-radio-group" value="op2"
-                                    onclick="modaltoggleInput()" required> Option 2
+                                    onclick="modaltoggleInput()"> Option 2
                             </label>
                             <label class="radio-label">
                                 <input type="radio" class="modal-radio-other" name="modal-radio-group" value="Other"
-                                    onclick="modaltoggleInput()" required> Others
+                                    onclick="modaltoggleInput()"> Others
                             </label>
                         </div>
                     </div>
@@ -324,16 +319,16 @@
                         <label class="input-label">Radio Button</label>
                         <div class="radio-cont">
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" required value="option1"> Option 1
+                                <input type="radio" name="modal-radio-group" value="option1"> Option 1
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" required value="option2"> Option 2
+                                <input type="radio" name="modal-radio-group" value="option2"> Option 2
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" required value="option3"> Option 3
+                                <input type="radio" name="modal-radio-group" value="option3"> Option 3
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="modal-radio-group" required value="option4"> Option 4
+                                <input type="radio" name="modal-radio-group" value="option4"> Option 4
                             </label>
                         </div>
                     </div>
@@ -343,28 +338,57 @@
                     <div class="modal-input-cont">
                         <label class="input-label">Contact Number</label>
                         <input type="number" class="modal-tb-contNumber" 
-                            placeholder="Sample placeholder" required>
+                            placeholder="Sample placeholder">
+                    </div>
+                    <!-- zipcode -->
+                    <div class="modal-input-cont">      
+                        <label class="input-label">Country</label>                  
+                        <select class="modal-selectCountry">
+                            <option value="">Select Country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="de">Germany</option>
+                            <option value="fr">France</option>
+                            <option value="AD">Australia</option>
+                            <option value="in">India</option>
+                            <option value="jp">Japan</option>
+                            <option value="mx">Mexico</option>
+                            <option value="br">Brazil</option>
+                            <option value="cn">China</option>
+                            <option value="ph">Philippines</option>
+                            <option value="id">Indonesia</option>
+                            <option value="th">Thailand</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="kr">South Korea</option>
+                            <option value="sg">Singapore</option>
+                            <option value="my">Malaysia</option>
+                        </select>
                     </div>
                     <div class="modal-input-cont">
-                        <label class="input-label">Zip Code</label>
-                        <input type="number" class="modal-tb-zipCode"
-                            placeholder="Sample placeholder" required>
-                    </div>
-                    <div class="modal-input-cont">
-                        <label class="input-label">Email</label>
-                        <input type="email" class="modal-tb-email" placeholder="Sample placeholder" required>
+                        <div class="input-label-error">
+                            <label class="input-label">Zip Code</label>
+                            <span class="modal-zipResult"></span>
+                        </div>
+                        <input type="text" class="modal-zipCode" placeholder="Enter Zip Code">
                     </div>
                 </div>
+
+                    <div class="modal-input-cont">
+                        <label class="input-label">Email</label>
+                        <input type="email" class="modal-tb-email" placeholder="Sample placeholder">
+                    </div>
+
                 <div class="form-cont">
                     <div class="modal-input-cont">
                         <label class="input-label">Password</label>
                         <input type="password" class="modal-tb-password"
-                            placeholder="Sample placeholder" required>
+                            placeholder="Sample placeholder" >
                     </div>
                     <div class="modal-input-cont">
                         <label class="input-label">Confirm Password</label>
                         <input type="password" class="modal-tb-confirmPassword"
-                            placeholder="Sample placeholder" required>
+                            placeholder="Sample placeholder" >
                     </div>
                 </div>
                 <div class="modal-tb-checkbox">
@@ -380,7 +404,7 @@
                 </div>
                 <div class="form-cont">
                     <label class="input-cb-label">
-                        <input type="checkbox" class="modal-checkbox" required>
+                        <input type="checkbox" class="modal-checkbox" >
                         Checkbox
                     </label>
                 </div>
@@ -392,8 +416,6 @@
     </div>
     </div>
 </body>
-<script src="script.js">
-
-</script>
+<script src="script.js"></script>
 
 </html>

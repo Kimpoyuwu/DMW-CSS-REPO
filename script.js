@@ -189,11 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Validate Zip Code (4 digits)
-    document.querySelector(".form-tb-zipCode").addEventListener("input", function () {
-        this.value = this.value.replace(/\D/g, "").slice(0, 4);
-    });
-
     // Compare Password and Confirm Password
     const form = document.querySelector(".form");
     const passwordInput = document.querySelector(".form-tb-password");
@@ -228,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Compare Password and Confirm Password in Modal
-const form = document.querySelector(".modal");
+const form = document.querySelector(".modal-form");
 const passwordInput = document.querySelector(".modal-tb-password");
 const confirmPasswordInput = document.querySelector(".modal-tb-confirm-password");
 
@@ -404,13 +399,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Validate Zip Code (4 digits)
-    document.querySelectorAll(".modal-tb-zipCode").forEach((input) => {
-        input.addEventListener("input", function () {
-            this.value = this.value.replace(/\D/g, "").slice(0, 4);
-        });
-    });
-
     // Compare Password and Confirm Password
     const form = document.querySelector(".modal");
     const passwordInput = document.querySelector(".modal-tb-password");
@@ -478,4 +466,114 @@ document.addEventListener("DOMContentLoaded", function () {
         const type = this.checked ? "text" : "password";
         password.type = type;
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const countrySelect = document.querySelector(".modal-selectCountry");
+    const postalInput = document.querySelector(".modal-zipCode");
+    const resultText = document.querySelector(".modal-zipResult");
+
+    const apiKey = '0cb825b0-fe19-11ef-84ff-7b00c4312b29'; // Replace with your actual API key
+
+    // ZIP code validation rules by country
+    const zipFormats = {
+        "US": /^\d{5}$/, // 5-digit ZIP code
+        "CA": /^[A-Z]\d[A-Z] \d[A-Z]\d$/, // Canada (A1A 1A1)
+        "GB": /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/, // UK
+        "DE": /^\d{5}$/, // Germany
+        "FR": /^\d{5}$/, // France
+        "AU": /^\d{4}$/, // Australia
+        "IN": /^\d{6}$/, // India
+        "JP": /^\d{3}-\d{4}$/, // Japan (123-4567)
+        "MX": /^\d{5}$/, // Mexico
+        "BR": /^\d{5}-\d{3}$/, // Brazil (12345-678)
+        "CN": /^\d{6}$/, // China
+        "ID": /^\d{5}$/, // Indonesia
+        "TH": /^\d{5}$/, // Thailand
+        "VN": /^\d{6}$/, // Vietnam
+        "KR": /^\d{5}$/, // South Korea
+        "SG": /^\d{6}$/, // Singapore
+        "MY": /^\d{5}$/, // Malaysia
+        "PH": /^(0[4-9]\d{2}|[1-9]\d{3})$/ // Philippines
+    };
+
+    // Countries with alphanumeric postal codes
+    const alphanumericCountries = ["CA", "GB"];
+
+    // Function to validate postal code format
+    function isValidPostalCode(country, zip) {
+        if (!zipFormats[country]) return false;
+        return zipFormats[country].test(zip);
+    }
+
+    // Validate US ZIP Code Range
+    function isValidUSZip(zip) {
+        const zipNumber = parseInt(zip, 10);
+        return zipNumber >= 501 && zipNumber <= 99950;
+    }
+
+    // Restrict input to numbers (except for alphanumeric countries)
+    postalInput.addEventListener("input", function() {
+        const countryCode = countrySelect.value.toUpperCase();
+
+        if (!alphanumericCountries.includes(countryCode)) {
+            postalInput.value = postalInput.value.replace(/\D/g, ""); // Remove non-numeric characters
+        }
+    });
+
+    // Validate ZIP Code on input
+    postalInput.addEventListener("input", async function() {
+        const postalCode = postalInput.value.trim();
+        const countryCode = countrySelect.value.toUpperCase();
+
+        if (!postalCode || !countryCode) {
+            postalInput.classList.remove("valid", "invalid");
+            resultText.textContent = "";
+            return;
+        }
+
+        // Format validation
+        if (!isValidPostalCode(countryCode, postalCode)) {
+            postalInput.classList.add("invalid");
+            postalInput.classList.remove("valid");
+            resultText.textContent = "✖ Invalid ZIP Code format";
+            resultText.style.color = "red";
+            return;
+        }
+
+        // US ZIP Code range validation
+        if (countryCode === "US" && !isValidUSZip(postalCode)) {
+            postalInput.classList.add("invalid");
+            postalInput.classList.remove("valid");
+            resultText.textContent = "✖ Invalid US ZIP Code (Must be between 00501 - 99950)";
+            resultText.style.color = "red";
+            return;
+        }
+
+        // API validation
+        const isValid = await validatePostalCode(countryCode, postalCode);
+        if (isValid) {
+            postalInput.classList.add("valid");
+            postalInput.classList.remove("invalid");
+            resultText.textContent = "✔ Valid ZIP Code";
+            resultText.style.color = "green";
+        } else {
+            postalInput.classList.add("invalid");
+            postalInput.classList.remove("valid");
+            resultText.textContent = "✖ Invalid ZIP Code";
+            resultText.style.color = "red";
+        }
+    });
+
+    // Function to validate postal code using API
+    async function validatePostalCode(countryCode, postalCode) {
+        try {
+            const response = await fetch(`https://app.zipcodebase.com/api/v1/search?apikey=${apiKey}&codes=${postalCode}&country=${countryCode}`);
+            const data = await response.json();
+            return data.results && data.results[postalCode] && data.results[postalCode].length > 0;
+        } catch (error) {
+            console.error("Error validating postal code:", error);
+            return false;
+        }
+    }
 });

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #clock {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="loading">Loading...</h1>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString(); // Get real-time based on user’s location
+            document.getElementById("clock").textContent = timeString;
+            document.getElementById("loading").style.display = "none"; // Hide "Loading..." when time appears
+        }
+
+        // Run clock every second
+        setInterval(updateClock, 1000);
+        
+        // Call function immediately to show clock without waiting
+        updateClock();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIP Code Validation</title>
+    
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .flag-icon {
+            width: 30px;
+            height: 20px;
+            display: none;
+        }
+        .zip-input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            flex: 1;
+        }
+        .valid {
+            border-color: green;
+        }
+        .invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Enter ZIP Code</h2>
+        <div class="input-group" id="inputGroup">
+            <img id="flag" class="flag-icon">
+            <input type="text" id="zipCode" class="zip-input" placeholder="Enter ZIP Code">
+        </div>
+        <p id="zipMessage"></p>
+    </div>
+
+    <script>
+        const zipInput = document.getElementById("zipCode");
+        const flagIcon = document.getElementById("flag");
+        const zipMessage = document.getElementById("zipMessage");
+        const inputGroup = document.getElementById("inputGroup");
+
+        // ZIP Code patterns and corresponding country flags
+        const zipFormats = {
+            "PH": { regex: /^(0[4-9]\d{2}|[1-9]\d{3})$/, flag: "https://flagcdn.com/w40/ph.png" }, // Philippines (e.g. 1000, 3002)
+            "US": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/us.png" }, // USA (00000-99999)
+            "CA": { regex: /^[A-Z]\d[A-Z] \d[A-Z]\d$/, flag: "https://flagcdn.com/w40/ca.png" }, // Canada
+            "GB": { regex: /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/, flag: "https://flagcdn.com/w40/gb.png" }, // UK
+            "DE": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/de.png" }, // Germany
+            "FR": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/fr.png" }, // France
+            "AU": { regex: /^\d{4}$/, flag: "https://flagcdn.com/w40/au.png" }, // Australia
+            "IN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/in.png" }, // India
+            "JP": { regex: /^\d{3}-\d{4}$/, flag: "https://flagcdn.com/w40/jp.png" }, // Japan
+            "MX": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/mx.png" }, // Mexico
+            "BR": { regex: /^\d{5}-\d{3}$/, flag: "https://flagcdn.com/w40/br.png" }, // Brazil
+            "CN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/cn.png" }, // China
+            "ID": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/id.png" }, // Indonesia
+            "TH": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/th.png" }, // Thailand
+            "VN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/vn.png" }, // Vietnam
+            "KR": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/kr.png" }, // South Korea
+            "SG": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/sg.png" }, // Singapore
+            "MY": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/my.png" } // Malaysia
+        };
+
+        zipInput.addEventListener("input", function () {
+            let zip = zipInput.value.trim();
+            let matchedCountry = null;
+
+            // Prioritize specific formats (e.g., PH before US)
+            for (const country in zipFormats) {
+                if (zipFormats[country].regex.test(zip)) {
+                    matchedCountry = country;
+                    break;
+                }
+            }
+
+            if (matchedCountry) {
+                inputGroup.classList.add("valid");
+                inputGroup.classList.remove("invalid");
+                flagIcon.src = zipFormats[matchedCountry].flag;
+                flagIcon.style.display = "block";
+                zipMessage.textContent = `✔ Valid ZIP Code (${matchedCountry})`;
+                zipMessage.style.color = "green";
+            } else {
+                inputGroup.classList.add("invalid");
+                inputGroup.classList.remove("valid");
+                flagIcon.style.display = "none";
+                zipMessage.textContent = "✖ Invalid ZIP Code";
+                zipMessage.style.color = "red";
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</body>
+</html>

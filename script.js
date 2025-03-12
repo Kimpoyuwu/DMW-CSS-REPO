@@ -23,48 +23,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-// Showing File name in the list
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector('.form-tb-file').addEventListener('change', function () {
-        const fileListCont = document.querySelector('.input-file-list-cont');
-        const fileList = document.querySelector('.form-tb-list');
-        fileList.innerHTML = '';
-
-        if (this.files.length > 0) {
-            fileListCont.style.display = 'block';
-
-            Array.from(this.files).forEach(file => {
-                const listItem = document.createElement('li');
-                listItem.textContent = file.name;
-                fileList.appendChild(listItem);
-            });
-        } else {
-            fileListCont.style.display = 'none';
-        }
-    });
-    let fileInput = document.querySelector(".form-tb-file");
-    let fileList = document.querySelector(".form-tb-list");
+    const fileInput = document.querySelector(".form-tb-file");
+    const fileListCont = document.querySelector(".input-file-list-cont");
+    const fileList = document.querySelector(".form-tb-list");
     let storedFiles = JSON.parse(localStorage.getItem("uploadedFiles")) || [];
+
+    function getFileIcon(fileType) {
+        const icons = {
+            "application/pdf": "https://cdn-icons-png.flaticon.com/512/337/337946.png", // PDF Icon
+            "application/msword": "https://cdn-icons-png.flaticon.com/512/337/337932.png", // Word Icon
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "https://cdn-icons-png.flaticon.com/512/337/337932.png", // Word (DOCX) Icon
+            "application/vnd.ms-excel": "https://cdn-icons-png.flaticon.com/512/732/732220.png", // Excel Icon
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "https://cdn-icons-png.flaticon.com/512/732/732220.png", // Excel (XLSX) Icon
+            "application/vnd.ms-powerpoint": "https://cdn-icons-png.flaticon.com/512/732/732224.png", // PowerPoint Icon
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation": "https://cdn-icons-png.flaticon.com/512/732/732224.png", // PowerPoint (PPTX) Icon
+            "application/zip": "https://cdn-icons-png.flaticon.com/512/337/337948.png", // ZIP Icon
+            "application/x-rar-compressed": "https://cdn-icons-png.flaticon.com/512/337/337948.png", // RAR Icon
+            "default": "https://cdn-icons-png.flaticon.com/512/833/833524.png" // Default File Icon
+        };
+        return icons[fileType] || icons["default"];
+    }
+
     function updateFileList(files) {
         fileList.innerHTML = "";
         files.forEach((file) => {
-            let listItem = document.createElement("li");
-            let fileLink = document.createElement("a");
+            let fileContainer = document.createElement("div");
+            fileContainer.style.width = "80px";
+            fileContainer.style.height = "80px";
+            fileContainer.style.overflow = "hidden";
+            fileContainer.style.position = "relative";
 
-            fileLink.href = file.url;
-            fileLink.textContent = file.name;
-            fileLink.target = "_blank";
+            let link = document.createElement("a");
+            link.href = file.url;
+            link.target = "_blank"; // Opens full file in a new tab
 
-            listItem.appendChild(fileLink);
-            fileList.appendChild(listItem);
+            let preview = document.createElement("img");
+            preview.style.width = "100%";
+            preview.style.height = "100%";
+            preview.style.objectFit = "cover";
+            preview.style.borderRadius = "8px";
+            preview.style.cursor = "pointer";
+
+            if (file.type.startsWith("image/")) {
+                // Show image preview
+                preview.src = file.url;
+            } else if (file.type === "application/pdf") {
+                // Show first page of PDF as preview
+                preview.src = `https://cdn-icons-png.flaticon.com/512/337/337946.png`;
+            } else {
+                // Show document icon for other files
+                preview.src = getFileIcon(file.type);
+            }
+
+            link.appendChild(preview);
+            fileContainer.appendChild(link);
+            fileList.appendChild(fileContainer);
         });
+
+        fileListCont.style.display = files.length > 0 ? "block" : "none";
     }
+
     updateFileList(storedFiles);
+
     fileInput.addEventListener("change", function (event) {
         let newFiles = Array.from(event.target.files).map((file) => ({
             name: file.name,
             url: URL.createObjectURL(file),
+            type: file.type
         }));
 
         storedFiles = [...storedFiles, ...newFiles];
@@ -72,17 +98,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateFileList(storedFiles);
     });
+
     window.addEventListener("beforeunload", function (event) {
         if (storedFiles.length > 0) {
             event.preventDefault();
             event.returnValue = "Are you sure you want to refresh? Uploaded files will be removed.";
         }
     });
+
     window.addEventListener("unload", function () {
         localStorage.removeItem("uploadedFiles");
     });
 });
-
 
 // Checking required fields and validating form
 document.addEventListener("DOMContentLoaded", function () {
@@ -524,89 +551,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+const daySelect = document.querySelector(".input-day");
+const monthSelect = document.querySelector(".input-month");
+const yearSelect = document.querySelector(".input-year");
 
-const daySelect = document.getElementById("day");
-        const monthSelect = document.getElementById("month");
-        const yearSelect = document.getElementById("year");
-    
-        // Populate Month Dropdown
-        const months = [
-            { name: "January", days: 31 },
-            { name: "February", days: 28 }, // Default, will update for leap years
-            { name: "March", days: 31 },
-            { name: "April", days: 30 },
-            { name: "May", days: 31 },
-            { name: "June", days: 30 },
-            { name: "July", days: 31 },
-            { name: "August", days: 31 },
-            { name: "September", days: 30 },
-            { name: "October", days: 31 },
-            { name: "November", days: 30 },
-            { name: "December", days: 31 }
-        ];
-    
-        months.forEach((month, index) => {
-            let option = new Option(month.name, (index + 1).toString().padStart(2, '0'));
-            monthSelect.appendChild(option);
-        });
-    
-        // Populate Year Dropdown (From 1900 to Current Year)
-        const currentYear = new Date().getFullYear();
-        for (let i = currentYear; i >= 1900; i--) {
-            let option = new Option(i, i);
-            yearSelect.appendChild(option);
-        }
-    
-        // Function to Update Day Dropdown Based on Month & Year
-        function updateDays() {
-            let selectedMonth = parseInt(monthSelect.value);
-            let selectedYear = parseInt(yearSelect.value);
-            let daysInMonth = 31; // Default
-    
-            if (selectedMonth) {
-                daysInMonth = months[selectedMonth - 1].days;
-    
-                // Handle February (Leap Year Check)
-                if (selectedMonth === 2) {
-                    if (selectedYear % 4 === 0 && (selectedYear % 100 !== 0 || selectedYear % 400 === 0)) {
-                        daysInMonth = 29; // Leap year
-                    } else {
-                        daysInMonth = 28;
-                    }
-                }
-            }
-    
-            // Store previous selected day
-            let previousDay = parseInt(daySelect.value);
-    
-            // Clear existing days
-            daySelect.innerHTML = '<option value="">DD</option>';
-            for (let i = 1; i <= daysInMonth; i++) {
-                let option = new Option(i, i.toString().padStart(2, '0'));
-                daySelect.appendChild(option);
-            }
-    
-            // Restore previous valid day if available
-            if (previousDay && previousDay <= daysInMonth) {
-                daySelect.value = previousDay.toString().padStart(2, '0');
+// Populate Month Dropdown
+const months = [
+    { name: "January", days: 31 },
+    { name: "February", days: 28 }, // Default, will update for leap years
+    { name: "March", days: 31 },
+    { name: "April", days: 30 },
+    { name: "May", days: 31 },
+    { name: "June", days: 30 },
+    { name: "July", days: 31 },
+    { name: "August", days: 31 },
+    { name: "September", days: 30 },
+    { name: "October", days: 31 },
+    { name: "November", days: 30 },
+    { name: "December", days: 31 }
+];
+
+months.forEach((month, index) => {
+    let option = new Option(month.name, (index + 1).toString().padStart(2, '0'));
+    monthSelect.appendChild(option);
+});
+
+// Populate Year Dropdown (From 1900 to Current Year)
+const currentYear = new Date().getFullYear();
+for (let i = currentYear; i >= 1900; i--) {
+    let option = new Option(i, i);
+    yearSelect.appendChild(option);
+}
+
+// Function to Update Day Dropdown Based on Month & Year
+function updateDays() {
+    let selectedMonth = parseInt(monthSelect.value);
+    let selectedYear = parseInt(yearSelect.value);
+    let daysInMonth = 31; // Default
+
+    if (selectedMonth) {
+        daysInMonth = months[selectedMonth - 1].days;
+
+        // Handle February (Leap Year Check)
+        if (selectedMonth === 2) {
+            if (selectedYear % 4 === 0 && (selectedYear % 100 !== 0 || selectedYear % 400 === 0)) {
+                daysInMonth = 29; // Leap year
             } else {
-                daySelect.value = ""; // Reset if invalid
+                daysInMonth = 28;
             }
         }
-    
-        // Function to Combine Date and Store in Hidden Input
-        function combineDate() {
-            let day = daySelect.value;
-            let month = monthSelect.value;
-            let year = yearSelect.value;
-    
-            if (day && month && year) {
-                document.getElementById("full-date").value = `${year}-${month}-${day}`;
-            }
-        }
-    
-        // Initialize Days Dropdown
-        updateDays();
+    }
+
+    // Store previous selected day
+    let previousDay = parseInt(daySelect.value);
+
+    // Clear existing days
+    daySelect.innerHTML = '<option value="">DD</option>';
+    for (let i = 1; i <= daysInMonth; i++) {
+        let option = new Option(i, i.toString().padStart(2, '0'));
+        daySelect.appendChild(option);
+    }
+
+    // Restore previous valid day if available
+    if (previousDay && previousDay <= daysInMonth) {
+        daySelect.value = previousDay.toString().padStart(2, '0');
+    } else {
+        daySelect.value = ""; // Reset if invalid
+    }
+}
+
+// Function to Combine Date and Store in Hidden Input
+function combineDate() {
+    let day = daySelect.value;
+    let month = monthSelect.value;
+    let year = yearSelect.value;
+
+    if (day && month && year) {
+        document.querySelector(".input-full-date").value = `${year}-${month}-${day}`;
+    }
+}
+
+// Initialize Days Dropdown
+updateDays();
 
         // Two decimal places
 document.querySelector('.form-tb-deci').addEventListener('input', function (e) {
@@ -625,7 +651,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (phoneInputs.length > 0) {
         phoneInputs.forEach((phoneInput) => {
             // Select the error message for the current input
-            let errorMsg = phoneInput.nextElementSibling;
+            let errorMsg = document.querySelector(".error");
 
             // Initialize intlTelInput for each phone input
             const iti = window.intlTelInput(phoneInput, {

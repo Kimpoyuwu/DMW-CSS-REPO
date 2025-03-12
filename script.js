@@ -252,6 +252,8 @@ form.addEventListener("submit", function (event) {
         location.reload();
     }, 3000);
 });
+
+
 ``
 
 // Validate form fields
@@ -303,6 +305,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// script for toggle button 
+// For default Toggle Button
 function toggleRadio(isOn) {
     const toggleSwitch = document.querySelector('.toggleSwitch');
     const toggleText = document.querySelector('.toggleText');
@@ -326,6 +330,56 @@ function toggleRadio(isOn) {
       toggleRadio(false);
     }
   });
+  function mediumToggleRadio(isOn) {
+    const mediumToggleSwitch = document.querySelector('.medium-toggleSwitch');
+    const mediumToggleText = document.querySelector('.medium-toggleText');
+    if (isOn) {
+      mediumToggleSwitch.classList.add('on');
+      mediumToggleText.textContent = 'ON';
+    } else {
+      mediumToggleSwitch.classList.remove('on');
+      mediumToggleText.textContent = 'OFF';
+    }
+  }
+  document.querySelector('.medium-toggleSwitch').addEventListener('click', function() {
+    const mediumRadioOff = document.querySelector('.medium-radio-input-off');
+    const mediumRadioOn = document.querySelector('.medium-radio-input-on');
+
+    if (mediumRadioOff.checked) {
+      mediumRadioOn.checked = true;
+      mediumToggleRadio(true);
+    } else {
+      mediumRadioOff.checked = true;
+      mediumToggleRadio(false);
+    }
+  });
+
+  function smallToggleRadio(isOn) {
+    const smallToggleSwitch = document.querySelector('.small-toggleSwitch');
+    const smallToggleText = document.querySelector('.small-toggleText');
+    if (isOn) {
+      smallToggleSwitch.classList.add('on');
+      smallToggleText.textContent = 'ON';
+    } else {
+      smallToggleSwitch.classList.remove('on');
+      smallToggleText.textContent = 'OFF';
+    }
+  }
+  document.querySelector('.small-toggleSwitch').addEventListener('click', function() {
+    const smallRadioOff = document.querySelector('.small-radio-input-off');
+    const smallRadioOn = document.querySelector('.small-radio-input-on');
+
+    if (smallRadioOff.checked) {
+      smallRadioOn.checked = true;
+      smallToggleRadio(true);
+    } else {
+      smallRadioOff.checked = true;
+      smallToggleRadio(false);
+    }
+  });
+
+  
+
 
 
 // "Script for modal"
@@ -576,4 +630,137 @@ document.addEventListener("DOMContentLoaded", function() {
             return false;
         }
     }
+});
+
+
+const daySelect = document.getElementById("day");
+        const monthSelect = document.getElementById("month");
+        const yearSelect = document.getElementById("year");
+    
+        // Populate Month Dropdown
+        const months = [
+            { name: "January", days: 31 },
+            { name: "February", days: 28 }, // Default, will update for leap years
+            { name: "March", days: 31 },
+            { name: "April", days: 30 },
+            { name: "May", days: 31 },
+            { name: "June", days: 30 },
+            { name: "July", days: 31 },
+            { name: "August", days: 31 },
+            { name: "September", days: 30 },
+            { name: "October", days: 31 },
+            { name: "November", days: 30 },
+            { name: "December", days: 31 }
+        ];
+    
+        months.forEach((month, index) => {
+            let option = new Option(month.name, (index + 1).toString().padStart(2, '0'));
+            monthSelect.appendChild(option);
+        });
+    
+        // Populate Year Dropdown (From 1900 to Current Year)
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1900; i--) {
+            let option = new Option(i, i);
+            yearSelect.appendChild(option);
+        }
+    
+        // Function to Update Day Dropdown Based on Month & Year
+        function updateDays() {
+            let selectedMonth = parseInt(monthSelect.value);
+            let selectedYear = parseInt(yearSelect.value);
+            let daysInMonth = 31; // Default
+    
+            if (selectedMonth) {
+                daysInMonth = months[selectedMonth - 1].days;
+    
+                // Handle February (Leap Year Check)
+                if (selectedMonth === 2) {
+                    if (selectedYear % 4 === 0 && (selectedYear % 100 !== 0 || selectedYear % 400 === 0)) {
+                        daysInMonth = 29; // Leap year
+                    } else {
+                        daysInMonth = 28;
+                    }
+                }
+            }
+    
+            // Store previous selected day
+            let previousDay = parseInt(daySelect.value);
+    
+            // Clear existing days
+            daySelect.innerHTML = '<option value="">DD</option>';
+            for (let i = 1; i <= daysInMonth; i++) {
+                let option = new Option(i, i.toString().padStart(2, '0'));
+                daySelect.appendChild(option);
+            }
+    
+            // Restore previous valid day if available
+            if (previousDay && previousDay <= daysInMonth) {
+                daySelect.value = previousDay.toString().padStart(2, '0');
+            } else {
+                daySelect.value = ""; // Reset if invalid
+            }
+        }
+    
+        // Function to Combine Date and Store in Hidden Input
+        function combineDate() {
+            let day = daySelect.value;
+            let month = monthSelect.value;
+            let year = yearSelect.value;
+    
+            if (day && month && year) {
+                document.getElementById("full-date").value = `${year}-${month}-${day}`;
+            }
+        }
+    
+        // Initialize Days Dropdown
+        updateDays();
+
+        // Two decimal places
+document.querySelector('.form-tb-deci').addEventListener('input', function (e) {
+    let value = e.target.value;
+    // Ensure the value is a valid number with up to two decimal places
+    if (!/^\d*\.?\d{0,2}$/.test(value)) {
+        e.target.value = value.slice(0, -1);
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all phone number inputs
+    const phoneInputs = document.querySelectorAll(".form-tb-tel");
+
+    if (phoneInputs.length > 0) {
+        phoneInputs.forEach((phoneInput) => {
+            // Select the error message for the current input
+            let errorMsg = phoneInput.nextElementSibling;
+
+            // Initialize intlTelInput for each phone input
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: "ph",
+                separateDialCode: true,
+                preferredCountries: ["ph", "sa", "gb", "jp", "qa"],
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+            });
+
+            // Validation function
+            function validatePhone() {
+                if (iti.isValidNumber()) {
+                    errorMsg.style.display = "none"; // Hide error message
+                } else {
+                    errorMsg.style.display = "block"; // Show error message
+                }
+            }
+
+            // Event listener for validation
+            phoneInput.addEventListener("blur", validatePhone);
+        });
+    }
+});
+
+// Add submit validation
+document.querySelector("submit").addEventListener("click", function () {
+    document.querySelectorAll(".form-tb-tel").forEach(input => {
+        input.dispatchEvent(new Event("blur")); // Trigger validation on all inputs
+    });
 });

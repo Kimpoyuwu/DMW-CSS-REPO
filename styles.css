@@ -109,8 +109,30 @@
   right: 12px;
 }
 
+.error { color: red; margin-top: 5px; display: none; }
+        .iti__country-list { max-height: 200px; overflow-y: auto; } /* Enable scrolling */
+        .iti__country.search-box { padding: 5px; background: #f0f0f0; cursor: default; } /* Style search box */
+        .iti--separate-dial-code .iti__selected-flag { 
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.form-tb-tel{
+  border: none;
+  min-height: 20px;
+  font-size: 16px;
+  outline: none;
+
+}
+
+.iti input.form-tb-tel {
+  border: none !important;
+  background-color: transparent;
+}
+
+
 /* Inputs Style */
-.form-tb-text,.form-tb-middleName, .form-tb-middleInitial, .form-tb-zipCode, .form-tb-contNumber, .form-tb-text-number, .form-tb-number, .form-tb-date,
+.form-tb-text,.form-tb-middleName, .form-tb-deci, .form-tb-middleInitial, .iti, .form-tb-zipCode, .form-tb-contNumber, .form-tb-text-number, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-confirm-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
@@ -130,7 +152,7 @@
   min-height: 50px;
 }
 
-.form-tb-text:hover, .form-tb-middleName:hover, .form-tb-middleInitial:hover, .form-tb-zipCode:hover, .form-tb-number:hover, .form-tb-date:hover,
+.form-tb-text:hover, .form-tb-middleName:hover, .form-tb-deci:hover, .iti:hover, .form-tb-middleInitial:hover, .form-tb-zipCode:hover, .form-tb-number:hover, .form-tb-date:hover,
 .form-btn-email:hover, .form-tb-password:hover, .form-tb-confirm-password:hover, .form-tb-select:hover,
 .form-tb-search:hover, .form-tb-url:hover, .form-tb-rangev,
 .form-tb-month:hover, .form-tb-weekv:hover, .form-tb-time:hover,
@@ -142,13 +164,13 @@
 
 .toggleSwitch {
   position: relative;
-  width: 76px;
-  height: 33px;
+  width: 88px;
+  height: 44px;
   background-color: #D9D9D9;
   border-radius: 40px;
   cursor: pointer;
   text-align: right;
-  line-height: 33px;
+  line-height: 44px;
   font-family: "Poppins", serif;
   font-weight: bold;
   color: white;
@@ -166,18 +188,19 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .toggleSwitch .slide {
   position: absolute;
-  top: 3px;
-  left: 4px;
-  width: 25px;
-  height: 26px;
+  top: 6px;
+  left: 6px;
+  width: 32px;
+  height: 32px;
   background-color: white;
   border-radius: 50%;
   transition: transform 0.4s;
+  box-shadow: 0 4.5px 14px -4px #686868;
 }
 
 .radio-input-off, .radio-input-on {
@@ -185,7 +208,7 @@
 }
 
 .toggleSwitch.on .toggleText {
-  margin-left: 12px;
+  margin-left: 10px;
   font-family: "Poppins", serif;
 }
 
@@ -198,7 +221,121 @@
 }
 
 .toggleSwitch.on .slide {
-  transform: translateX(42px);
+  transform: translateX(44px);
+}
+
+/* Medium Toggle Button */
+
+.medium-toggleSwitch {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  background-color: #D9D9D9;
+  border-radius: 40px;
+  cursor: pointer;
+  text-align: right;
+  line-height: 31px;
+  font-family: "Poppins", serif;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+  transition: background-color 0.4s;
+}
+
+.medium-toggleSwitch .medium-toggleText{
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+
+.medium-toggleSwitch .slide {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+  box-shadow: 0 4.5px 14px -4px #686868;
+}
+
+.medium-toggleSwitch.on .medium-toggleText {
+  margin-left: 8px;
+  font-family: "Poppins", serif;
+}
+
+.medium-radio-input-off, .medium-radio-input-on {
+  display: none;
+}
+
+.medium-toggleSwitch.on {
+  background-color: #1B313E;
+  text-align: left;
+  transform: 0.8s;
+  padding-right: 0;
+  padding-left: 1px;
+}
+
+.medium-toggleSwitch.on .slide {
+  transform: translateX(31px);
+}
+
+/* Small Toggle Button */
+
+.small-toggleSwitch {
+  position: relative;
+  padding: 0;
+  width: 44px;
+  height: 22px;
+  background-color: #D9D9D9;
+  border-radius: 40px;
+  cursor: pointer;
+  text-align: right;
+  line-height: 18px;
+  font-family: "Poppins", serif;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+  transition: background-color 0.4s;
+}
+
+.small-toggleSwitch .small-toggleText{
+  margin-right: 6px;
+  font-size: 8px;
+}
+
+
+.small-toggleSwitch .slide {
+  position: absolute;
+  top: 3px;
+  left: 3.5px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+  box-shadow: 0 4.5px 14px -4px #686868;
+}
+
+.small-toggleSwitch.on .small-toggleText {
+  margin-left: 7px;
+  font-family: "Poppins", serif;
+}
+
+.small-radio-input-off, .small-radio-input-on {
+  display: none;
+}
+
+.small-toggleSwitch.on {
+  background-color: #1B313E;
+  text-align: left;
+  transform: 0.8s;
+  padding-right: 0;
+}
+
+.small-toggleSwitch.on .slide {
+  transform: translateX(21px);
 }
 
 

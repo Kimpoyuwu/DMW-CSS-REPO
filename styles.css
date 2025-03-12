@@ -141,7 +141,7 @@
 .form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list, .input-day, .input-month,.input-year,
 .form-tb-date-time, .form-tb-file,
 .modal-tb-text, .modal-tb-text-number, .modal-tb-number, .modal-tb-date,
-.modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword, .modal-selectCountry, .modal-zipCode{
+.modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword, .modal-selectCountry, .modal-zipCode, .modal-input-group{
   flex: 1 1 calc(20% - 10px);
   margin: 0 5px 0 5px;
   padding: 10px;
@@ -469,11 +469,39 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
-.modal-zipResult {
-  margin-top: 2px;
-  margin-left: 6px;
-  font-weight: bold;
-  font-size: 10px;
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 320px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.3s;
+}
+.flag-icon {
+  width: 30px;
+  height: 20px;
+  display: none;
+}
+.zip-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+}
+.valid {
+  border-color: green;
+}
+.invalid {
+  border-color: red;
 }
 /* 🔹 Input styles for valid and invalid ZIP codes */
 .valid {

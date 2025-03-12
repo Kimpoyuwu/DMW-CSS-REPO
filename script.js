@@ -549,115 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const countrySelect = document.querySelector(".modal-selectCountry");
-    const postalInput = document.querySelector(".modal-zipCode");
-    const resultText = document.querySelector(".modal-zipResult");
 
-    const apiKey = '0cb825b0-fe19-11ef-84ff-7b00c4312b29'; // Replace with your actual API key
-
-    // ZIP code validation rules by country
-    const zipFormats = {
-        "US": /^\d{5}$/, // 5-digit ZIP code
-        "CA": /^[A-Z]\d[A-Z] \d[A-Z]\d$/, // Canada (A1A 1A1)
-        "GB": /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/, // UK
-        "DE": /^\d{5}$/, // Germany
-        "FR": /^\d{5}$/, // France
-        "AU": /^\d{4}$/, // Australia
-        "IN": /^\d{6}$/, // India
-        "JP": /^\d{3}-\d{4}$/, // Japan (123-4567)
-        "MX": /^\d{5}$/, // Mexico
-        "BR": /^\d{5}-\d{3}$/, // Brazil (12345-678)
-        "CN": /^\d{6}$/, // China
-        "ID": /^\d{5}$/, // Indonesia
-        "TH": /^\d{5}$/, // Thailand
-        "VN": /^\d{6}$/, // Vietnam
-        "KR": /^\d{5}$/, // South Korea
-        "SG": /^\d{6}$/, // Singapore
-        "MY": /^\d{5}$/, // Malaysia
-        "PH": /^(0[4-9]\d{2}|[1-9]\d{3})$/ // Philippines
-    };
-
-    // Countries with alphanumeric postal codes
-    const alphanumericCountries = ["CA", "GB"];
-
-    // Function to validate postal code format
-    function isValidPostalCode(country, zip) {
-        if (!zipFormats[country]) return false;
-        return zipFormats[country].test(zip);
-    }
-
-    // Validate US ZIP Code Range
-    function isValidUSZip(zip) {
-        const zipNumber = parseInt(zip, 10);
-        return zipNumber >= 501 && zipNumber <= 99950;
-    }
-
-    // Restrict input to numbers (except for alphanumeric countries)
-    postalInput.addEventListener("input", function() {
-        const countryCode = countrySelect.value.toUpperCase();
-
-        if (!alphanumericCountries.includes(countryCode)) {
-            postalInput.value = postalInput.value.replace(/\D/g, ""); // Remove non-numeric characters
-        }
-    });
-
-    // Validate ZIP Code on input
-    postalInput.addEventListener("input", async function() {
-        const postalCode = postalInput.value.trim();
-        const countryCode = countrySelect.value.toUpperCase();
-
-        if (!postalCode || !countryCode) {
-            postalInput.classList.remove("valid", "invalid");
-            resultText.textContent = "";
-            return;
-        }
-
-        // Format validation
-        if (!isValidPostalCode(countryCode, postalCode)) {
-            postalInput.classList.add("invalid");
-            postalInput.classList.remove("valid");
-            resultText.textContent = "✖ Invalid ZIP Code format";
-            resultText.style.color = "red";
-            return;
-        }
-
-        // US ZIP Code range validation
-        if (countryCode === "US" && !isValidUSZip(postalCode)) {
-            postalInput.classList.add("invalid");
-            postalInput.classList.remove("valid");
-            resultText.textContent = "✖ Invalid US ZIP Code (Must be between 00501 - 99950)";
-            resultText.style.color = "red";
-            return;
-        }
-
-        // API validation
-        const isValid = await validatePostalCode(countryCode, postalCode);
-        if (isValid) {
-            postalInput.classList.add("valid");
-            postalInput.classList.remove("invalid");
-            resultText.textContent = "✔ Valid ZIP Code";
-            resultText.style.color = "green";
-        } else {
-            postalInput.classList.add("invalid");
-            postalInput.classList.remove("valid");
-            resultText.textContent = "✖ Invalid ZIP Code";
-            resultText.style.color = "red";
-        }
-    });
-
-    // Function to validate postal code using API
-    async function validatePostalCode(countryCode, postalCode) {
-        try {
-            const response = await fetch(`https://app.zipcodebase.com/api/v1/search?apikey=${apiKey}&codes=${postalCode}&country=${countryCode}`);
-            const data = await response.json();
-            return data.results && data.results[postalCode] && data.results[postalCode].length > 0;
-        } catch (error) {
-            console.error("Error validating postal code:", error);
-            return false;
-        }
-    }
-});
 
 const daySelect = document.querySelector(".input-day");
 const monthSelect = document.querySelector(".input-month");
@@ -790,3 +682,58 @@ document.querySelector("submit").addEventListener("click", function () {
         input.dispatchEvent(new Event("blur")); // Trigger validation on all inputs
     });
 });
+
+const zipInput = document.getElementById("zipCode");
+        const flagIcon = document.getElementById("flag");
+        const zipMessage = document.getElementById("zipMessage");
+        const inputGroup = document.getElementById("inputGroup");
+
+        // ZIP Code patterns and corresponding country flags
+        const zipFormats = {
+            "PH": { regex: /^(0[4-9]\d{2}|[1-9]\d{3})$/, flag: "https://flagcdn.com/w40/ph.png" }, // Philippines (e.g. 1000, 3002)
+            "US": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/us.png" }, // USA (00000-99999)
+            "CA": { regex: /^[A-Z]\d[A-Z] \d[A-Z]\d$/, flag: "https://flagcdn.com/w40/ca.png" }, // Canada
+            "GB": { regex: /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/, flag: "https://flagcdn.com/w40/gb.png" }, // UK
+            "DE": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/de.png" }, // Germany
+            "FR": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/fr.png" }, // France
+            "AU": { regex: /^\d{4}$/, flag: "https://flagcdn.com/w40/au.png" }, // Australia
+            "IN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/in.png" }, // India
+            "JP": { regex: /^\d{3}-\d{4}$/, flag: "https://flagcdn.com/w40/jp.png" }, // Japan
+            "MX": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/mx.png" }, // Mexico
+            "BR": { regex: /^\d{5}-\d{3}$/, flag: "https://flagcdn.com/w40/br.png" }, // Brazil
+            "CN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/cn.png" }, // China
+            "ID": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/id.png" }, // Indonesia
+            "TH": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/th.png" }, // Thailand
+            "VN": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/vn.png" }, // Vietnam
+            "KR": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/kr.png" }, // South Korea
+            "SG": { regex: /^\d{6}$/, flag: "https://flagcdn.com/w40/sg.png" }, // Singapore
+            "MY": { regex: /^\d{5}$/, flag: "https://flagcdn.com/w40/my.png" } // Malaysia
+        };
+
+        zipInput.addEventListener("input", function () {
+            let zip = zipInput.value.trim();
+            let matchedCountry = null;
+
+            // Prioritize specific formats (e.g., PH before US)
+            for (const country in zipFormats) {
+                if (zipFormats[country].regex.test(zip)) {
+                    matchedCountry = country;
+                    break;
+                }
+            }
+
+            if (matchedCountry) {
+                inputGroup.classList.add("valid");
+                inputGroup.classList.remove("invalid");
+                flagIcon.src = zipFormats[matchedCountry].flag;
+                flagIcon.style.display = "block";
+                zipMessage.textContent = `✔ Valid ZIP Code (${matchedCountry})`;
+                zipMessage.style.color = "green";
+            } else {
+                inputGroup.classList.add("invalid");
+                inputGroup.classList.remove("valid");
+                flagIcon.style.display = "none";
+                zipMessage.textContent = "✖ Invalid ZIP Code";
+                zipMessage.style.color = "red";
+            }
+        });

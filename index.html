@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Input Fields</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -391,39 +392,16 @@
                     <div class="modal-input-cont">
                         <label class="input-label">Contact Number</label>
                         <input type="number" class="modal-tb-contNumber" placeholder="Sample placeholder" required>
-
                     </div>
                     <!-- zipcode -->
-                    <div class="modal-input-cont">      
-                        <label class="input-label">Country</label>                  
-                        <select class="modal-selectCountry">
-                            <option value="">Select Country</option>
-                            <option value="us">United States</option>
-                            <option value="ca">Canada</option>
-                            <option value="gb">United Kingdom</option>
-                            <option value="de">Germany</option>
-                            <option value="fr">France</option>
-                            <option value="AD">Australia</option>
-                            <option value="in">India</option>
-                            <option value="jp">Japan</option>
-                            <option value="mx">Mexico</option>
-                            <option value="br">Brazil</option>
-                            <option value="cn">China</option>
-                            <option value="ph">Philippines</option>
-                            <option value="id">Indonesia</option>
-                            <option value="th">Thailand</option>
-                            <option value="vn">Vietnam</option>
-                            <option value="kr">South Korea</option>
-                            <option value="sg">Singapore</option>
-                            <option value="my">Malaysia</option>
-                        </select>
-                    </div>
-                    <div class="modal-input-cont">
-                        <div class="input-label-error">
-                            <label class="input-label">Zip Code</label>
-                            <span class="modal-zipResult"></span>
+
+                    <div class="form-container">
+                        <h2>Enter ZIP Code</h2>
+                        <div class="input-group" id="inputGroup">
+                            <img id="flag" class="flag-icon">
+                            <input type="text" id="zipCode" class="zip-input" placeholder="Enter ZIP Code">
                         </div>
-                        <input type="text" class="modal-zipCode" required placeholder="Enter Zip Code">
+                        <p id="zipMessage"></p>
                     </div>
                 </div>
 
@@ -471,5 +449,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 <script src="script.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
 
 </html>

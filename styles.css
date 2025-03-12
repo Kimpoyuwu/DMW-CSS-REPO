@@ -109,7 +109,10 @@
   right: 12px;
 }
 
-.error { color: red; margin-top: 5px; display: none; }
+.error { color: red;   margin-top: 2px;
+  margin-left: 6px;
+  font-weight: bold;
+  font-size: 10px; display: none; }
         .iti__country-list { max-height: 200px; overflow-y: auto; } /* Enable scrolling */
         .iti__country.search-box { padding: 5px; background: #f0f0f0; cursor: default; } /* Style search box */
         .iti--separate-dial-code .iti__selected-flag { 
@@ -135,7 +138,7 @@
 .form-tb-text,.form-tb-middleName, .form-tb-deci, .form-tb-middleInitial, .iti, .form-tb-zipCode, .form-tb-contNumber, .form-tb-text-number, .form-tb-number, .form-tb-date,
 .form-tb-email, .form-tb-password, .form-tb-confirm-password, .form-tb-select,
 .form-tb-search, .form-tb-url, .form-tb-range,
-.form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list,
+.form-tb-month, .form-tb-week, .form-tb-time, .form-tb-list, .input-day, .input-month,.input-year,
 .form-tb-date-time, .form-tb-file,
 .modal-tb-text, .modal-tb-text-number, .modal-tb-number, .modal-tb-date,
 .modal-tb-email, .modal-tb-password, .modal-tb-select, .modal-tb-middleName, .modal-tb-middleInitial, .modal-tb-contNumber, .modal-tb-zipCode, .modal-tb-confirmPassword, .modal-selectCountry, .modal-zipCode{
@@ -404,16 +407,16 @@
   width: 100%;
 }
 
-#file-list-cont a{
+.form-tb-list a{
   font-size: 14px;
   color: #0077B6;
 }
 
-#file-list-cont a:hover{
+.form-tb-list a:hover{
   color: #015cb1;
 }
 
-#file-list {
+.form-tb-list {
   gap: 10px;
   border: solid 0.5px #66a3c9;
   border-radius: 10px;
